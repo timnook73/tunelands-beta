@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Klangkarte – deine Musik als Landkarte</title>
+<meta name="description" content="Deine Hörhistorie als interaktive Landkarte: ähnliche Artists liegen nebeneinander, die Größe zeigt deine Hörzeit. Mit stats.fm in einer Minute erstellt.">
+<meta property="og:title" content="Klangkarte – deine Musik als Landkarte">
+<meta property="og:description" content="Jeder Artist, jeder Song, den du je gehört hast – als Karte.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%23c4a1ff'/%3E%3Cstop offset='1' stop-color='%237ea6ff'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b0e18'/%3E%3Ccircle cx='32' cy='32' r='11' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%237ea6ff' stroke-opacity='.5' stroke-dasharray='2 5' stroke-width='2'/%3E%3Ccircle cx='51' cy='22' r='4' fill='%23ffc9a3'/%3E%3Ccircle cx='15' cy='41' r='3' fill='%23ff9fb5'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#070910">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="app.css" data-landing-css>
+</head>
+<body>
+<div id="landing">
+  <header class="top">
+    <a class="brand" href="./"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="lg"><stop offset="0" stop-color="#c4a1ff"/><stop offset="1" stop-color="#7ea6ff"/></radialGradient></defs><circle cx="32" cy="32" r="11" fill="url(#lg)"/><circle cx="32" cy="32" r="22" fill="none" stroke="#7ea6ff" stroke-opacity=".55" stroke-dasharray="2 5" stroke-width="2"/><circle cx="51" cy="22" r="4" fill="#ffc9a3"/><circle cx="15" cy="41" r="3" fill="#ff9fb5"/></svg><span data-i="brand">Klangkarte</span></a>
+    <nav><a href="#how" data-i="nav.how">So geht’s</a><a href="#faq" data-i="nav.faq">Fragen</a><button id="lang" type="button" data-i="lang.switch">English</button></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 720 560" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8a6bff" stop-opacity=".55"/><stop offset="1" stop-color="#8a6bff" stop-opacity="0"/></radialGradient>
+            <radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff8f6b" stop-opacity=".45"/><stop offset="1" stop-color="#ff8f6b" stop-opacity="0"/></radialGradient>
+            <radialGradient id="g3" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#3fd6c4" stop-opacity=".4"/><stop offset="1" stop-color="#3fd6c4" stop-opacity="0"/></radialGradient>
+          </defs>
+          <circle cx="210" cy="240" r="260" fill="url(#g1)"/><circle cx="500" cy="180" r="230" fill="url(#g2)"/><circle cx="470" cy="400" r="240" fill="url(#g3)"/>
+          <g class="orb" fill="none" stroke="#fff" stroke-opacity=".16" stroke-dasharray="2 6">
+            <circle cx="210" cy="240" r="120"/><circle cx="210" cy="240" r="175"/><circle cx="500" cy="180" r="100"/><circle cx="470" cy="400" r="140"/>
+          </g>
+          <g id="dots"></g>
+        </svg>
+      </div>
+      <div class="inner">
+        <div class="kicker" data-i="hero.kicker">Klangkarte</div>
+        <h1 data-i="hero.title">Deine Musik als Landkarte.</h1>
+        <p class="lead" data-i="hero.lead">Jeder Artist, jeder Song, den du je gehört hast – als Karte.</p>
+        <form id="gen" autocomplete="off">
+          <label class="field"><span class="pre" data-i="in.prefix">stats.fm/user/</span><input id="user" name="user" type="text" inputmode="text" autocapitalize="none" autocorrect="off" spellcheck="false" data-ip="in.placeholder" placeholder="dein-name" aria-label="stats.fm"></label>
+          <button class="go" type="submit"><span data-i="in.go">Karte erstellen</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </form>
+        <div class="cmpbox"><button type="button" id="cmp-toggle" class="linkbtn"><span data-i="in.cmp">+ Mit einem Freund vergleichen</span></button>
+          <label class="field hidden" id="cmp-field"><span class="pre" data-i="in.prefix2">Freund auf stats.fm/user/</span><input id="friend" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" data-ip="in.cmp.ph" placeholder="name-des-freundes" aria-label="stats.fm friend"></label></div>
+        <p class="hint" data-i="in.hint">Dein stats.fm-Profil muss öffentlich sein.</p>
+        <div id="recent" class="recent hidden"></div>
+      </div>
+    </section>
+
+    <section class="sources">
+      <h2 data-i="src.title">Woher kommen deine Daten?</h2>
+      <div class="cards">
+        <button class="src on" data-src="statsfm" type="button"><b data-i="src.statsfm">stats.fm</b><span data-i="src.statsfm.d">Am schnellsten</span></button>
+        <button class="src" data-src="spotify" id="src-spotify" type="button"><b data-i="src.spotify">Spotify-Datenexport</b><span data-i="src.spotify.d"></span></button>
+        <button class="src dis" data-src="lastfm" type="button" disabled><b data-i="src.lastfm">Last.fm</b><span data-i="src.lastfm.d"></span><em data-i="src.soon">bald</em></button>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <h2 data-i="how.title">In drei Schritten</h2>
+      <ol>
+        <li><b>1</b><div><h3 data-i="how.1">Nutzername eingeben</h3><p data-i="how.1d"></p></div></li>
+        <li><b>2</b><div><h3 data-i="how.2">Berechnen lassen</h3><p data-i="how.2d"></p></div></li>
+        <li><b>3</b><div><h3 data-i="how.3">Erkunden &amp; teilen</h3><p data-i="how.3d"></p></div></li>
+      </ol>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2 data-i="faq.title">Fragen</h2>
+      <details><summary data-i="faq.q1">Was passiert mit meinen Daten?</summary><p data-i="faq.a1"></p></details>
+      <details><summary data-i="faq.q2">Mein Profil wird nicht gefunden.</summary><p data-i="faq.a2"></p></details>
+      <details><summary data-i="faq.q3">Wie lange dauert es?</summary><p data-i="faq.a3"></p></details>
+      <details><summary data-i="faq.q4">Kostet das etwas?</summary><p data-i="faq.a4"></p></details>
+    </section>
+  </main>
+
+  <footer><span data-i="foot.made"></span><span class="sp"></span><a href="impressum.html" data-i="foot.imprint">Impressum</a><a href="datenschutz.html" data-i="foot.privacy">Datenschutz</a></footer>
+</div>
+
+<div id="progress" role="status" aria-live="polite">
+  <div class="card">
+    <div class="kicker" data-i="brand">Klangkarte</div>
+    <h2 data-i="p.title">Deine Musik wird kartiert …</h2>
+    <ol id="psteps">
+      <li id="ps-profile" data-state="wait"><span class="dot"></span><div><b data-i="p.profile">Profil laden</b><span class="sub"></span><div class="bar"><i></i></div></div></li>
+      <li id="ps-read" data-state="wait" class="hidden"><span class="dot"></span><div><b data-i="p.read">Datei lesen</b><span class="sub"></span><div class="bar"><i></i></div></div></li>
+      <li id="ps-lookup" data-state="wait" class="hidden"><span class="dot"></span><div><b data-i="p.lookup">Artists und Cover nachschlagen</b><span class="sub"></span><div class="bar"><i></i></div></div></li>
+      <li id="ps-streams" data-state="wait"><span class="dot"></span><div><b data-i="p.streams">Streams laden</b><span class="sub"></span><div class="bar"><i></i></div></div></li>
+      <li id="ps-compute" data-state="wait"><span class="dot"></span><div><b data-i="p.compute">Karte berechnen</b><span class="sub"></span><div class="bar"><i></i></div></div></li>
+      <li id="ps-images" data-state="wait"><span class="dot"></span><div><b data-i="p.images">Cover laden</b><span class="sub"></span><div class="bar"><i></i></div></div></li>
+    </ol>
+    <button id="pcancel" type="button" class="ghost" data-i="p.cancel">Abbrechen</button>
+    <div id="perr" class="hidden"><h3 data-i="err.title">Das hat leider nicht geklappt</h3><p id="perr-msg"></p><button id="perr-back" type="button" class="go" data-i="err.back">Zurück</button></div>
+  </div>
+</div>
+
+<div id="spmodal" class="modal" role="dialog" aria-modal="true" aria-labelledby="sp-h"><div class="card">
+  <button class="mx" id="sp-close" type="button" aria-label="Close">×</button>
+  <h2 id="sp-h" data-i="sp.title">Spotify-Datenexport</h2>
+  <p class="lead2" data-i="sp.lead">Lade deinen Streaming-Verlauf von Spotify hoch. Die Dateien bleiben auf deinem Gerät; nur Künstlernamen werden bei stats.fm nachgeschlagen, um Genres und Cover zu finden.</p>
+  <details class="how2"><summary data-i="sp.how">So bekommst du den Export</summary>
+    <ol><li data-i="sp.s1">Öffne spotify.com/account/privacy und melde dich an.</li><li data-i="sp.s2">Wähle „Erweiterter Streaming-Verlauf“ (Extended streaming history) und fordere die Daten an.</li><li data-i="sp.s3">Spotify schickt dir eine E-Mail mit einem Download-Link. Das dauert meist ein paar Tage, manchmal bis zu 30 Tage.</li><li data-i="sp.s4">Lade die ZIP-Datei herunter und wähle sie unten aus, oder die Dateien „Streaming_History_Audio_….json“ daraus.</li></ol>
+  </details>
+  <label class="drop" id="sp-drop"><input id="sp-files" type="file" accept=".zip,.json,application/json,application/zip" multiple><span id="sp-drop-t" data-i="sp.drop">ZIP oder JSON-Dateien hierher ziehen oder auswählen</span></label>
+  <label class="nm"><span data-i="sp.name">Anzeigename</span><input id="sp-name" type="text" maxlength="40" data-ip="sp.name.ph" placeholder="Mein Spotify"></label>
+  <p id="sp-err" class="sperr hidden"></p>
+  <div class="mrow"><button id="sp-go" class="go" type="button" disabled data-i="in.go">Karte erstellen</button></div>
+</div></div>
+<script src="pipeline.js"></script>
+<script src="atlas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

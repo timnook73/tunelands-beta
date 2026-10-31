@@ -1,0 +1,141 @@
+<div id="loading"><div><div class="t">Klangkarte</div><div class="n">Deine Musik wird kartiert …</div><div class="bar"><i></i></div></div></div>
+
+<canvas id="map" aria-label="Interaktive Karte deiner Musik"></canvas>
+
+<section id="hud" class="glass">
+  <div class="head">
+    <img class="avatar" id="avatar" alt="" src="__AVATAR__">
+    <div>
+      <div class="kicker">Klangkarte</div>
+      <h1 id="hud-user">timnook73</h1>
+      <div class="bio" id="hud-bio"></div>
+    </div>
+    <button class="toggle" id="hud-toggle" title="Ein-/Ausklappen" aria-label="Kopfkarte ein- oder ausklappen"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg></button>
+  </div>
+  <div class="stats" id="hud-stats"></div>
+  <div class="period" id="hud-period"></div>
+  <div class="more" id="hud-more"></div>
+  <button class="expand" id="hud-expand">Mehr über dein Hörverhalten</button>
+</section>
+
+<div id="search" role="search">
+  <div class="box glass">
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.8"/><path d="M13 13l4.5 4.5"/></svg>
+    <input id="q" type="text" autocomplete="off" spellcheck="false" placeholder="Artist, Song, Album oder Genre suchen …" aria-label="Suche">
+    <kbd>/</kbd>
+  </div>
+  <div id="results" class="glass" role="listbox"></div>
+</div>
+
+<div id="viewbar" class="glass" aria-label="Ansicht">
+  <div class="grp"><span class="lbl">Ansicht</span><div class="seg sm" data-set="view"><button data-v="map">Karte</button><button data-v="rows">Rangliste</button><button data-v="spiral">Spirale</button></div></div>
+  <div class="grp hidden" id="vb-who"><span class="lbl">Wer</span><div class="seg sm" data-set="who"><button data-v="B">Beide</button><button data-v="M" id="who-m">Ich</button><button data-v="F" id="who-f">Freund</button></div></div>
+  <div class="grp" id="vb-objs"><span class="lbl">Objekte</span><div class="seg sm" data-set="objs"><button data-v="artists">Artists</button><button data-v="songs">Songs</button></div></div>
+  <div class="grp"><span class="lbl">Zeigen</span><div class="seg sm" data-set="topN"><button data-v="0">Alle</button><button data-v="100">Top 100</button><button data-v="25">Top 25</button><button data-v="10">Top 10</button></div></div>
+  <div class="grp"><span class="lbl">Größe nach</span><div class="seg sm" data-set="metric"><button data-v="min">Hörzeit</button><button data-v="str">Streams</button></div></div>
+</div>
+
+<div id="tools" class="glass">
+  <button class="tbtn" id="t-search" data-tip="Suchen [/]" aria-label="Suche öffnen"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="5.8"/><path d="M13 13l4.5 4.5"/></svg></button>
+  <button class="tbtn" id="t-menu" data-tip="Menü" aria-label="Menü öffnen" aria-expanded="false"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3.5 5.5h13M3.5 10h13M3.5 14.5h13"/></svg></button>
+  <button class="tbtn hide-m" id="t-drawer" data-tip="Listen &amp; Details" aria-label="Seitenleiste öffnen"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M12 4v12"/></svg></button>
+  <button class="tbtn" id="t-settings" data-tip="Einstellungen" aria-label="Einstellungen öffnen"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 6h7M15 6h1M4 14h1M9 14h7"/><circle cx="13" cy="6" r="2"/><circle cx="7" cy="14" r="2"/></svg></button>
+  <button class="tbtn hide-m" id="t-full" data-tip="Vollbild" aria-label="Vollbild"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8V4h4M16 8V4h-4M4 12v4h4M16 12v4h-4"/></svg></button>
+  <div id="toolmenu" class="glass">
+    <button class="tm on" id="t-songs" aria-label="Songs ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="3.3"/><circle cx="10" cy="10" r="7.4" stroke-dasharray="1.2 3"/></svg><span>Songs (Monde)</span></button>
+    <button class="tm on" id="t-links" aria-label="Verbindungen ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="4" cy="14" r="2"/><circle cx="10" cy="5" r="2"/><circle cx="16" cy="13" r="2"/><path d="M5 12.3l4-5.4M11.4 6.4l3.6 5M6 14.3l8 -.9"/></svg><span>Verbindungslinien</span></button>
+    <button class="tm on" id="t-labels" aria-label="Namen ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h12M4 10h8M4 14h10"/></svg><span>Artist-/Song-Namen</span></button>
+    <button class="tm on" id="t-regions" aria-label="Kontinent-Namen ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5L8 4.5l4.5 11M5.2 11.5h5.6M14 8h3M14 11h3M14 14h3"/></svg><span>Kontinent-Namen</span></button>
+    <button class="tm on" id="t-timeline" aria-label="Zeitleiste ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 16V9M7 16V5M11 16v-7M15 16V7M2.5 17.5h15"/></svg><span>Zeitleiste</span></button>
+    <button class="tm on" id="t-minimap" aria-label="Übersicht ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><rect x="8" y="7.5" width="6" height="5" rx="1"/></svg><span>Übersicht (Minimap)</span></button>
+    <button class="tm on" id="t-legend" aria-label="Legende ein- oder ausblenden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M10 9v5M10 6.3v.1"/></svg><span>Legende</span></button>
+    <button class="tm" id="t-link" aria-label="Verbindungs-Finder"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="14.5" r="2.2"/><circle cx="15.5" cy="5.5" r="2.2"/><path d="M6.4 13.3c3-1 2-5 5-6.2"/></svg><span>Verbindungs-Finder</span></button>
+    <button class="tm" id="t-live" aria-label="Live-Modus"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="10" r="2.2" fill="currentColor"/><path d="M5.6 5.6a6.2 6.2 0 000 8.8M14.4 5.6a6.2 6.2 0 010 8.8M3 3a9.9 9.9 0 000 14M17 3a9.9 9.9 0 010 14"/></svg><span>Live-Modus</span></button>
+    <button class="tm" id="t-sync" aria-label="Neue Streams laden"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 10a6.5 6.5 0 01-11.3 4.4M3.5 10a6.5 6.5 0 0111.3-4.4"/><path d="M14.9 2.6v3.2h-3.2M5.1 17.4v-3.2h3.2"/></svg><span>Neue Streams laden</span></button>
+    <button class="tm" id="t-edit" aria-label="Kontinente anpassen"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v16M2 10h16M10 2l-2.2 2.2M10 2l2.2 2.2M10 18l-2.2-2.2M10 18l2.2-2.2M2 10l2.2-2.2M2 10l2.2 2.2M18 10l-2.2-2.2M18 10l-2.2 2.2"/></svg><span>Kontinente anpassen</span></button>
+    <button class="tm" id="t-clean" aria-label="Nur die Karte anzeigen"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10s3.2-5.5 8-5.5S18 10 18 10s-3.2 5.5-8 5.5S2 10 2 10z"/><circle cx="10" cy="10" r="2.3"/></svg><span>Nur Karte</span></button>
+    <button class="tm" id="t-tour" aria-label="Geführte Tour starten"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 9.2L16.5 3.5 11 17l-2.2-5.6z"/></svg><span>Geführte Tour</span></button>
+    <button class="tm" id="t-shot" aria-label="Ansicht als PNG speichern"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3.5 7h2.6l1.2-2h5.4l1.2 2h2.6v8.5h-13z"/><circle cx="10" cy="11" r="2.6"/></svg><span>Als Bild speichern</span></button>
+    <button class="tm" id="t-pdf" aria-label="Als PDF exportieren"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M5 2.5h7l3.5 3.5v11.5h-10.5z"/><path d="M12 2.5V6h3.5M7.5 12.5h5M7.5 15h3"/></svg><span>Als PDF exportieren</span></button>
+    <button class="tm" id="t-help" aria-label="Hilfe"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M8 8a2 2 0 114 .3c0 1.4-2 1.5-2 3M10 14.2v.1"/></svg><span>Hilfe</span></button>
+    <button class="tm" id="t-drawer2" aria-label="Listen und Details"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M12 4v12"/></svg><span>Listen &amp; Details</span></button>
+  </div>
+</div>
+
+<aside id="drawer" class="glass" aria-label="Details und Listen">
+  <div class="dhead">
+    <div class="tabs">
+      <button class="tab on" data-tab="detail">Details</button>
+      <button class="tab" data-tab="top">Bestenlisten</button>
+      <button class="tab" data-tab="regions">Regionen</button>
+      <button class="tab" data-tab="link">Verbindung</button>
+      <button class="tab hidden" data-tab="cmp" id="tab-cmp">Vergleich</button>
+      <button class="tab" data-tab="settings">Optionen</button>
+    </div>
+    <button class="close" id="d-close" aria-label="Schließen"><svg width="16" height="16" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+  </div>
+  <div id="dbody"></div>
+</aside>
+
+<div id="minimap" class="glass">
+  <div class="mm-head" id="mm-head"><span>Übersicht</span><button class="xbtn" id="mm-close" aria-label="Übersicht schließen"><svg width="11" height="11" viewBox="0 0 14 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></button></div>
+  <canvas id="mm"></canvas>
+</div>
+
+<div id="legend" class="glass">
+  <div class="lg-head"><span>Legende</span><button class="xbtn" id="lg-close" aria-label="Legende schließen"><svg width="11" height="11" viewBox="0 0 14 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg></button></div>
+  <div class="lg-body">
+    <div class="li"><span class="sym"><i class="c"></i></span>Kreis = Artist</div>
+    <div class="li"><span class="sym"><i class="s"></i></span>Kachel = Song (Cover)</div>
+    <div class="li"><span class="sym"><i class="m"></i></span>Monde = Songs des Artists</div>
+    <div class="li">Größe = Hörzeit (oder Streams)</div>
+  </div>
+</div>
+
+<button id="tl-open" class="glass hidden" aria-label="Zeitleiste einblenden"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 16V9M7 16V5M11 16v-7M15 16V7"/></svg><span id="tl-open-l">Zeitraum</span></button>
+<div id="timeline" class="glass">
+  <div class="ctl">
+    <button class="xbtn tl-x" id="tl-close" aria-label="Zeitleiste ausblenden" title="Zeitleiste ausblenden"><svg width="11" height="11" viewBox="0 0 14 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5l4 4 4-4"/></svg></button>
+    <div>
+      <div class="ttl">Zeitraum</div>
+      <div class="rng" id="rng">Gesamte Zeit<small id="rng-sub"></small></div>
+    </div>
+    <button id="play" aria-label="Entwicklung abspielen"><svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg><span>Entwicklung</span></button>
+  </div>
+  <div id="tl"><canvas id="tlc"></canvas></div>
+  <div class="pre" id="presets"></div>
+</div>
+
+<button id="clean-exit" class="tbtn glass" aria-label="Oberfläche wieder einblenden" data-tip="Oberfläche einblenden [H]"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10s3.2-5.5 8-5.5S18 10 18 10s-3.2 5.5-8 5.5S2 10 2 10z"/><circle cx="10" cy="10" r="2.3"/></svg></button>
+<div id="datepop" class="glass hidden" role="dialog" aria-label="Zeitraum nach Datum"><div class="dp-h">Zeitraum nach Datum</div><label>Von<input type="date" id="d-from"></label><label>Bis<input type="date" id="d-to"></label><div class="dp-b"><button class="btn" id="d-close">Abbrechen</button><button class="btn pri" id="d-apply">Übernehmen</button></div></div>
+<div id="tip" class="glass"></div>
+<div id="toast" class="glass"></div>
+<div id="caption" class="glass"></div>
+
+<div id="pdf"><div class="card glass">
+  <h2>Als PDF exportieren</h2>
+  <p class="lead">Die ganze Karte als eine riesige Seite: Formen und Schrift sind Vektoren und bleiben in jeder Zoomstufe scharf, Cover sind eingebettet, Artists und Songs führen per Klick zu Spotify, Kontinente findest du in der Gliederung. Es wird der aktuell gewählte Zeitraum mit allen Filtern exportiert.</p>
+  <div class="opt"><span>Hintergrund</span><div class="seg" id="pdf-theme"><button class="on" data-v="dark">Dunkel</button><button data-v="light">Hell (Druck)</button></div></div>
+  <div class="opt"><span>Cover</span><div class="seg" id="pdf-res"><button class="on" data-v="std">Standard</button><button data-v="hi">Hochauflösend (lädt Bilder)</button></div></div>
+  <div id="pdf-prog" class="hidden"><div class="pbar"><i id="pdf-bar"></i></div><div id="pdf-msg"></div></div>
+  <div class="btns" style="margin-top:16px"><button class="btn" id="pdf-close">Schließen</button><button class="btn pri" id="pdf-go">PDF erstellen</button></div>
+</div></div>
+<div id="help"><div class="card glass">
+  <h2>So funktioniert die Karte</h2>
+  <p class="lead">Jede Fläche ist ein Genre-Kontinent, ähnliche Musik liegt nebeneinander. Je länger du etwas gehört hast, desto größer wird es. Zoom hinein, um Szenen, Artists und ihre einzelnen Songs zu sehen.</p>
+  <div class="grid">
+    <div><b>Verschieben</b>Ziehen oder Pfeiltasten</div>
+    <div><b>Zoomen</b>Mausrad, Pinch, <kbd>+</kbd> <kbd>−</kbd></div>
+    <div><b>Auswählen</b>Klick auf Artist, Song oder Kontinent</div>
+    <div><b>Heranzoomen</b>Doppelklick</div>
+    <div><b>Suchen</b><kbd>/</kbd> oder <kbd>Strg</kbd>+<kbd>K</kbd></div>
+    <div><b>Übersicht</b><kbd>0</kbd> oder <kbd>Esc</kbd></div>
+    <div><b>Zeitraum</b>Unten Bereich aufziehen: die Karte ordnet sich dynamisch neu an</div>
+    <div><b>Ansicht</b><kbd>V</kbd> wechselt Karte, Rangliste, Spirale</div>
+    <div><b>Songs / Linien</b><kbd>S</kbd> / <kbd>L</kbd></div>
+    <div><b>Namen</b><kbd>N</kbd> Artists, <kbd>R</kbd> Kontinente</div>
+    <div><b>Übersicht ein/aus</b><kbd>M</kbd></div>
+    <div><b>Tour</b><kbd>T</kbd> – alle Kontinente nacheinander</div>
+  </div>
+  <div class="btns"><button class="btn pri" id="help-ok">Los geht's</button></div>
+</div></div>
