@@ -52,7 +52,8 @@ const I18N_PAIRS = [
   ['Nur einer / beide: leuchtend = nur eine Person hat es gehört, blass = beide.', 'Only one / both: vivid = only one person listened, pale = both.'],
   ['Farben', 'Colors'], ['auf der Karte (Färbung „Wer hört mehr“)', 'on the map (coloring “Who listens more”)'],
   ['Leuchtend = nur eine Person hat den Artist gehört. Blass = beide haben ihn gehört, der Ton zeigt, wer mehr gehört hat.', 'Vivid = only one person listened to the artist. Pale = both did, the tint shows who listened more.'],
-  /* --- Zeitleiste --- */
+    ['Abspielgeschwindigkeit', 'Playback speed'], ['Zur Tunelands-Startseite', 'Back to Tunelands home'],
+/* --- Zeitleiste --- */
   ['Zeitraum', 'Period'], ['Gesamte Zeit', 'All time'], ['Entwicklung', 'Growth'], ['Entwicklung abspielen', 'Play growth over time'], ['Pause', 'Pause'], ['Alles', 'All'], ['Letzter Tag', 'Last day'], ['7 Tage', '7 days'], ['30 Tage', '30 days'], ['90 Tage', '90 days'],
   ['Zeitraum nach Datum', 'Period by date'], ['Von', 'From'], ['Bis', 'To'], ['Datum eingeben', 'Enter a date'], ['Achse herauszoomen', 'Zoom timeline out'], ['Achse hineinzoomen (auch Mausrad oder Pinch auf der Achse)', 'Zoom timeline in (also mouse wheel or pinch on the axis)'], ['Achse nach links', 'Move timeline left'], ['Achse nach rechts', 'Move timeline right'],
   ['⟲ Karte dynamisch', '⟲ Dynamic map'], ['▣ Karte fest', '▣ Fixed map'], ['Karte ordnet sich nach dem gewählten Zeitraum neu an', 'The map rearranges itself for the chosen period'], ['Bitte beide Daten wählen', 'Please choose both dates'],
@@ -354,6 +355,7 @@ art.forEach(a => {
 const tagName = i => D.tags[i];
 const edgeGroups = regs.map(() => []);
 D.edges.forEach(e => edgeGroups[art[e[0]].r].push(e));
+const edgesOf = art.map(() => []); D.edges.forEach(e => { edgesOf[e[0]].push(e); edgesOf[e[1]].push(e); });   // fuer die Hervorhebung bei Auswahl
 // Farbskalen fuer die alternativen Faerbungen
 const HEAT = [[75, 108, 183], [96, 198, 196], [243, 226, 110], [255, 148, 72], [255, 77, 109]];
 const NEWC = [[150, 110, 255], [90, 170, 255], [80, 225, 190], [200, 240, 110]];
@@ -925,9 +927,9 @@ function drawTerritoryNames(z, ox, oy) {
 }
 
 function drawEdges(z, ox, oy) {
-  const al = (z < .09 ? .10 : z < .5 ? .13 : .13 * (1 - smooth(.5, 2.4, z))) * (focus.on ? .35 : 1) * S.linkAmt * (TH.tint === 'dark' ? 1.7 : 1);
+  const al = (z < .09 ? .10 : z < .5 ? .13 : .13 * (1 - smooth(.5, 2.4, z) * .45)) * (focus.on ? .35 : 1) * S.linkAmt * (TH.tint === 'dark' ? 1.7 : 1);
   if (al < .01) return;
-  ctx.save(); ctx.lineWidth = (z < .3 ? .6 : .8) * (S.linkAmt > 1.2 ? 1.4 : 1);
+  ctx.save(); ctx.lineWidth = (z < .3 ? .6 : .8) * (S.linkAmt > 1.2 ? 1.4 : 1) * (1 + clamp(z - 1, 0, 3) * .2);
   for (let r = 0; r < regs.length; r++) {
     const g = edgeGroups[r]; if (!g.length) continue;
     ctx.strokeStyle = rgba(tint(regs[r].rgb, .35), Math.min(.6, al)); ctx.beginPath();
@@ -945,6 +947,26 @@ function drawEdges(z, ox, oy) {
 
 /* ----- Auswahl-Overlay: Verbindungen, Ringe, Hover ----- */
 let pulse = 0;
+/* Hebt eine vorhandene Netz-Linie hervor: gleiche Kruemmung wie in drawEdges, nur kraeftiger und mit Farbverlauf (keine zusaetzlichen Linien) */
+function drawEdgeHL(e, z, ox, oy) {
+  const A_ = art[e[0]], B_ = art[e[1]]; if (A_.sc < .05 || B_.sc < .05) return;
+  const x1 = A_.x * z + ox, y1 = A_.y * z + oy, x2 = B_.x * z + ox, y2 = B_.y * z + oy;
+  if ((x1 < -10 && x2 < -10) || (x1 > W + 10 && x2 > W + 10) || (y1 < -10 && y2 < -10) || (y1 > H + 10 && y2 > H + 10)) return;
+  const mx = (x1 + x2) / 2 + (y2 - y1) * .08, my = (y1 + y2) / 2 - (x2 - x1) * .08;
+  const g = ctx.createLinearGradient(x1, y1, x2, y2); g.addColorStop(0, rgba(tint(A_.rgb, .25), 1)); g.addColorStop(1, rgba(tint(B_.rgb, .25), 1));
+  const lw = 1.9 + Math.min(z, 3) * .3;
+  ctx.strokeStyle = g; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(mx, my, x2, y2);
+  ctx.globalAlpha = .22; ctx.lineWidth = lw + 4; ctx.stroke(); ctx.globalAlpha = .95; ctx.lineWidth = lw; ctx.stroke(); ctx.globalAlpha = 1;
+}
+/* Ring + Name an einem verbundenen Artist */
+function ringLinked(b, z, ox, oy, big) {
+  if (b.sc < .05) return; const bx = b.x * z + ox, by = b.y * z + oy;
+  const rb = Math.max(b.R * b.sc * z, big ? 4 : 3.5) + 3; ctx.lineWidth = big ? 1.6 : 1.4; ctx.strokeStyle = rgba(b.rgb, big ? .9 : .7); ctx.beginPath(); ctx.arc(bx, by, rb, 0, 6.2832); ctx.stroke();
+  if (!show.labels) return;
+  if (big) addLabel(bx, by + rb + 4, b.n, null, 12, 5e8, b.rgb, 'below', true);
+  else if (b.k === 0) addLabel(bx, by + rb + 4, b.n, null, 11, 5e8, b.rgb, 'below', false);
+  else addLabel(bx, by + rb + 4, trk[b.tr[0]] ? trk[b.tr[0]].n : b.n, b.n, 11, 5e8, b.rgb, 'below', false);
+}
 function drawFocusOverlay(z, ox, oy) {
   ctx.save();
   if (LINKV) drawLinkOverlay(z, ox, oy);
@@ -955,18 +977,11 @@ function drawFocusOverlay(z, ox, oy) {
   if (sel && sel.t === 'a' && PATH !== 'songs') {
     const a = art[sel.i], sx = a.x * z + ox, sy = a.y * z + oy;
     if (PATH === 'map') {
-      a.nb.forEach(n => {
-        const b = art[n[0]]; if (b.sc < .05) return; const bx = b.x * z + ox, by = b.y * z + oy;
-        const mx = (sx + bx) / 2 + (by - sy) * .12, my = (sy + by) / 2 - (bx - sx) * .12;
-        const g = ctx.createLinearGradient(sx, sy, bx, by); g.addColorStop(0, rgba(a.rgb, .65)); g.addColorStop(1, rgba(b.rgb, .65));
-        ctx.lineWidth = 1 + n[1] * 2.5; ctx.strokeStyle = g; ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(sx, sy); ctx.quadraticCurveTo(mx, my, bx, by); ctx.stroke(); ctx.setLineDash([]);
-        const rb = Math.max(b.R * b.sc * z, 3.5) + 3; ctx.lineWidth = 1.4; ctx.strokeStyle = rgba(b.rgb, .7); ctx.beginPath(); ctx.arc(bx, by, rb, 0, 6.2832); ctx.stroke();
-        if (show.labels && b.k === 0) addLabel(bx, by + rb + 4, b.n, null, 11, 5e8, b.rgb, 'below', false);
-        else if (show.labels) addLabel(bx, by + rb + 4, trk[b.tr[0]] ? trk[b.tr[0]].n : b.n, b.n, 11, 5e8, b.rgb, 'below', false);
-      });
+      const linked = new Set(a.nb.map(n => n[0]));
+      edgesOf[a.i].forEach(e => { drawEdgeHL(e, z, ox, oy); linked.add(e[0] === a.i ? e[1] : e[0]); });
+      linked.forEach(id => { if (id !== a.i) ringLinked(art[id], z, ox, oy, false); });
       a.ft.forEach(k => {
         const t = trk[k]; if (t.sc < .05) return; const tx = t.x * z + ox, ty = t.y * z + oy;
-        ctx.lineWidth = 1; ctx.strokeStyle = rgba(a.rgb, .4); ctx.setLineDash([2, 4]); ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(tx, ty); ctx.stroke(); ctx.setLineDash([]);
         const mr = Math.max(t.r * z, 3) + 2; ctx.lineWidth = 1.5; ctx.strokeStyle = rgba(a.rgb, .8); roundRectPath(tx - mr, ty - mr, mr * 2, mr * 2, mr * .25); ctx.stroke();
         if (show.labels) addLabel(tx + mr + 4, ty, t.n, 'Feature · ' + t.art.n, 11, 4e8, a.rgb, 'right', false);
       });
@@ -977,12 +992,12 @@ function drawFocusOverlay(z, ox, oy) {
     ring(sx, sy, rs + 5, TH.tint === 'light' ? [255, 255, 255] : [20, 24, 38], 1.6);
   } else if (sel && sel.t === 'k' && PATH !== 'artists') {
     const t = trk[sel.i], tx = t.x * z + ox, ty = t.y * z + oy, mr = Math.max(t.r * t.sc * z, 5);
-    if (PATH === 'map') t.a.forEach(id => {
-      const b = art[id]; if (b.i === t.p && b.k === 1 || b.sc < .05) return; const bx = b.x * z + ox, by = b.y * z + oy;
-      ctx.lineWidth = 1.2; ctx.strokeStyle = rgba(b.rgb, .6); ctx.setLineDash([4, 5]); ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(bx, by); ctx.stroke(); ctx.setLineDash([]);
-      const rb = Math.max(b.R * b.sc * z, 4) + 3; ctx.lineWidth = 1.6; ctx.strokeStyle = rgba(b.rgb, .9); ctx.beginPath(); ctx.arc(bx, by, rb, 0, 6.2832); ctx.stroke();
-      if (show.labels) addLabel(bx, by + rb + 4, b.n, null, 12, 5e8, b.rgb, 'below', true);
-    });
+    if (PATH === 'map') {
+      const seen = new Set(), ends = new Set();
+      t.a.forEach(id => edgesOf[id].forEach(e => { if (seen.has(e)) return; seen.add(e); drawEdgeHL(e, z, ox, oy); ends.add(e[0]); ends.add(e[1]); }));
+      ends.forEach(id => { if (t.a.indexOf(id) < 0) ringLinked(art[id], z, ox, oy, false); });
+      t.a.forEach(id => { const b = art[id]; if (b.i === t.p && b.k === 1) return; ringLinked(b, z, ox, oy, true); });
+    }
     pulse = (performance.now() % 2200) / 2200;
     ctx.globalAlpha = 1 - pulse; ctx.lineWidth = 2; ctx.strokeStyle = rgba(t.rgb, 1); roundRectPath(tx - mr - 6 - pulse * 20, ty - mr - 6 - pulse * 20, (mr + 6 + pulse * 20) * 2, (mr + 6 + pulse * 20) * 2, mr * .4 + 8); ctx.stroke(); ctx.globalAlpha = 1;
     ctx.lineWidth = 1.8; ctx.strokeStyle = HLC; roundRectPath(tx - mr - 4, ty - mr - 4, (mr + 4) * 2, (mr + 4) * 2, mr * .3 + 4); ctx.stroke();
@@ -2014,6 +2029,11 @@ $('d-apply').onclick = () => {
 $('d-close').onclick = () => toggleDatePop(false);
 /* Abspielen: Karte waechst Monat fuer Monat */
 let playT = 0, playing = false;
+/* Tempo der Entwicklung: 1x = ruhiges Grundtempo, 3x ungefaehr das fruehere; die Wahl bleibt im Browser gespeichert und gilt auch waehrend des Abspielens sofort */
+const PLAY_SP = [.5, 1, 1.5, 3]; let playSp = 1; try { const v = +localStorage.getItem('kk-playsp'); if (PLAY_SP.indexOf(v) >= 0) playSp = v; } catch (e) { }
+const spLabel = v => String(v).replace('.', LANG === 'de' ? ',' : '.') + '×';
+$('play-sp').textContent = spLabel(playSp);
+$('play-sp').onclick = () => { playSp = PLAY_SP[(PLAY_SP.indexOf(playSp) + 1) % PLAY_SP.length]; $('play-sp').textContent = spLabel(playSp); try { localStorage.setItem('kk-playsp', String(playSp)); } catch (e) { } };
 function stopPlay() { playing = false; clearTimeout(playT); $('play').innerHTML = '<svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg><span>Entwicklung</span>'; }
 function startPlay() {
   if (playing) { stopPlay(); return; }
@@ -2025,7 +2045,7 @@ function startPlay() {
   const step = () => {
     if (!playing) return;
     setRange(0, MON[b].e, { force: true, keepPlay: true, noView: true });
-    const dur = clamp(160 + Math.sqrt(MON[b].min / tot) * 700, 170, 900);
+    const dur = clamp(260 + Math.sqrt(MON[b].min / tot) * 1050, 270, 1350) / playSp;
     b++; if (b >= NM) { stopPlay(); return; }
     playT = setTimeout(step, dur);
   };
@@ -3960,7 +3980,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('fixdlg'
   const pick = v => (v && typeof v === 'object') ? (v[LANG] || v.de || v.en || '') : (v || '');
   const surveyUrl = () => pick(cfg.survey || cfg.feedback);
   const dlg = $('community'), openDlg = on => { dlg.classList.toggle('show', on); if (on) { setMenu(false); $('soc-survey').classList.toggle('hidden', !surveyUrl()); } };
-  $('t-social').onclick = () => openDlg(true); $('soc-close').onclick = () => openDlg(false);
+  if ($('t-social')) $('t-social').onclick = () => openDlg(true); $('soc-close').onclick = () => openDlg(false);
   dlg.addEventListener('click', e => { if (e.target === dlg) openDlg(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && dlg.classList.contains('show')) openDlg(false); });
   const KEY = 'kk-survey', load = () => { try { return Object.assign({ s: 'new', n: 0, t: 0 }, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { return { s: 'new', n: 0, t: 0 }; } };
@@ -4424,10 +4444,14 @@ if ($('t-sync')) $('t-sync').onclick = () => { setMenu(false); liveSync(true); }
 /* Huelle der Web-App: Zurueck zur Startseite (Karten bleiben im Browser gespeichert), Feedback-Link und Beta-Marke. Ohne Startseite (Einzeldatei, installierte App) entfallen die Knoepfe. */
 (function shell() {
   const cfg = window.__KK_CFG__ || {}, prod = !!window.__PRODUCT__;
-  const goHome = () => { try { location.assign(location.pathname); } catch (e) { location.href = './'; } };
-  ['t-homebtn', 't-home'].forEach(id => { const b = $(id); if (!b) return; if (!prod) { b.remove(); return; } b.classList.remove('hidden'); b.onclick = () => { setMenu(false); goHome(); }; });
+  /* Ohne eingebaute Startseite (Demo-Karte, Einzeldatei): cfg.home = Adresse der Startseite (z. B. https://tunelands.com); in der installierten App und auf derselben Adresse entfaellt der Knopf */
+  let ext = '';
+  if (!prod && cfg.home) { try { const same = new URL(cfg.home, location.href).origin === location.origin, app = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone; if (!same && !app) ext = cfg.home; } catch (e) { } }
+  const can = prod || !!ext;
+  const goHome = () => { if (ext) { location.href = ext; return; } try { location.assign(location.pathname); } catch (e) { location.href = './'; } };
+  ['t-homebtn', 't-home'].forEach(id => { const b = $(id); if (!b) return; if (!can) { b.remove(); return; } b.classList.remove('hidden'); b.onclick = () => { setMenu(false); goHome(); }; });
   const k = document.querySelector('#hud .kicker');
-  if (k && prod) { k.classList.add('home'); k.setAttribute('role', 'link'); k.tabIndex = 0; k.title = T('Zur Startseite'); k.onclick = goHome; k.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); } }; }
+  if (k && can) { k.classList.add('home'); if (ext) k.classList.add('logo'); k.setAttribute('role', 'link'); k.tabIndex = 0; k.title = T(ext ? 'Zur Tunelands-Startseite' : 'Zur Startseite'); k.onclick = goHome; k.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); } }; }
   if (k && cfg.beta) k.insertAdjacentHTML('beforeend', '<span class="beta">Beta</span>');
   const pick = v => (v && typeof v === 'object') ? (v[LANG] || v.de || v.en || '') : (v || '');  /* ein Link fuer alle Sprachen oder { de, en } */
   [['t-feedback', cfg.feedback], ['t-donate', cfg.donate]].forEach(([id, v]) => { const b = $(id); if (!b) return; if (pick(v)) { b.classList.remove('hidden'); b.onclick = () => { setMenu(false); window.open(pick(v), '_blank', 'noopener'); }; } else b.remove(); });
@@ -4446,7 +4470,13 @@ $('pdf-go').onclick = () => exportPDF({ theme: $('pdf-theme').querySelector('.on
 $('t-help').onclick = () => $('help').classList.add('show');
 $('help-ok').onclick = () => $('help').classList.remove('show');
 $('help').addEventListener('click', e => { if (e.target.id === 'help') $('help').classList.remove('show'); });
-$('t-full').onclick = () => { try { if (document.fullscreenElement) document.exitFullscreen(); else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => toast('Vollbild ist hier nicht verfügbar')); } catch (e) { toast('Vollbild ist hier nicht verfügbar'); } };
+/* Vollbild: Knopf in der Leiste (Desktop) und im Menue (Handy); ohne Browser-Unterstuetzung (z. B. iPhone-Safari) entfallen beide */
+(function fullscreen() {
+  const can = !!(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen);
+  const toggle = () => { setMenu(false); try { if (document.fullscreenElement) document.exitFullscreen(); else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(() => toast('Vollbild ist hier nicht verfügbar')); } catch (e) { toast('Vollbild ist hier nicht verfügbar'); } };
+  ['t-full', 't-full2'].forEach(id => { const b = $(id); if (!b) return; if (!can) { b.remove(); return; } b.onclick = toggle; });
+  document.addEventListener('fullscreenchange', () => ['t-full', 't-full2'].forEach(id => { const b = $(id); if (b) b.classList.toggle('on', !!document.fullscreenElement); }));
+})();
 $('t-shot').onclick = () => {
   draw(); cv.toBlob(async b => { if (await saveFile(b, 'Klangkarte_' + HUD.user + '.png')) toast('Ansicht gespeichert'); });
 };

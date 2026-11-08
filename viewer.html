@@ -63,9 +63,9 @@
     <button class="tm" id="t-pdf" aria-label="Als PDF exportieren"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M5 2.5h7l3.5 3.5v11.5h-10.5z"/><path d="M12 2.5V6h3.5M7.5 12.5h5M7.5 15h3"/></svg><span>Als PDF exportieren</span></button>
     <button class="tm hidden" id="t-donate" aria-label="Projekt unterstützen"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.5s-6-3.7-6-8.2A3.4 3.4 0 0110 6.4a3.4 3.4 0 016 1.9c0 4.5-6 8.2-6 8.2z"/></svg><span>Projekt unterstützen</span></button>
     <button class="tm hidden" id="t-feedback" aria-label="Feedback geben"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 4.5h13v9h-6.2l-3.6 3v-3H3.5z"/><path d="M7 8h6M7 10.7h3.5"/></svg><span>Feedback geben</span></button>
-    <button class="tm" id="t-social" aria-label="Folge Tunelands"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.4S3.6 12.6 3.6 8a3.2 3.2 0 0 1 6.4-.9A3.2 3.2 0 0 1 16.4 8c0 4.6-6.4 8.4-6.4 8.4z"/></svg></button>
+    <button class="tm only-m" id="t-full2" aria-label="Vollbild"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8V4h4M16 8V4h-4M4 12v4h4M16 12v4h-4"/></svg><span>Vollbild</span></button>
     <button class="tm" id="t-help" aria-label="Hilfe"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="10" r="7"/><path d="M8 8a2 2 0 114 .3c0 1.4-2 1.5-2 3M10 14.2v.1"/></svg><span>Hilfe</span></button>
-    <button class="tm" id="t-drawer2" aria-label="Listen und Details"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M12 4v12"/></svg><span>Listen &amp; Details</span></button>
+    <button class="tm only-m" id="t-drawer2" aria-label="Listen und Details"><svg width="19" height="19" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M12 4v12"/></svg><span>Listen &amp; Details</span></button>
   </div>
 </div>
 
@@ -107,7 +107,7 @@
       <div class="ttl">Zeitraum</div>
       <div class="rng" id="rng">Gesamte Zeit<small id="rng-sub"></small></div>
     </div>
-    <button id="play" aria-label="Entwicklung abspielen"><svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg><span>Entwicklung</span></button>
+    <div class="plrow"><button id="play" aria-label="Entwicklung abspielen"><svg width="11" height="11" viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg><span>Entwicklung</span></button><button id="play-sp" aria-label="Abspielgeschwindigkeit" title="Abspielgeschwindigkeit">1×</button></div>
   </div>
   <div id="tl"><canvas id="tlc"></canvas></div>
   <div class="pre" id="presets"></div>

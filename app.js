@@ -60,6 +60,7 @@
   function footLinks() {
     const cfg = window.__KK_CFG__ || {}, pick = v => (v && typeof v === 'object') ? (v[LANG] || v.de || v.en || '') : (v || '');
     [['foot-fb', cfg.feedback], ['foot-donate', cfg.donate]].forEach(([id, v]) => { const url = pick(v); if (url && $(id)) { $(id).href = url; $(id).classList.remove('hidden'); } });
+    if (cfg.social) ['instagram', 'tiktok', 'youtube'].forEach(n => { const a = document.querySelector('.f-soc .fsoc-' + n); if (!a) return; if (cfg.social[n]) a.href = cfg.social[n]; else a.classList.add('hidden'); });
   }
 
   /* ---------- Cache (IndexedDB): fertige Karten schnell wieder oeffnen ---------- */
@@ -210,9 +211,15 @@
     if ('serviceWorker' in navigator && /^https?:/.test(location.protocol)) navigator.serviceWorker.register('sw.js').catch(() => { });
     /* dekorative Karten-Punkte im Hintergrund */
     try {
-      const blobs = [[210, 240, 150, '#a58bff'], [500, 180, 120, '#ff9d7a'], [470, 400, 150, '#4fe0cf']]; let seed = 7; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647; const hs = ['', '', ''];
-      for (let i = 0; i < 230; i++) { const k = i % 3, b = blobs[k], a = r() * 6.283, d = Math.sqrt(r()) * b[2], rad = 1 + r() * r() * 7, tw = r() < .22; hs[k] += '<circle' + (tw ? ' class="tw" style="animation-delay:-' + (r() * 5).toFixed(1) + 's;animation-duration:' + (3.5 + r() * 4).toFixed(1) + 's"' : '') + ' cx="' + (b[0] + Math.cos(a) * d).toFixed(1) + '" cy="' + (b[1] + Math.sin(a) * d).toFixed(1) + '" r="' + rad.toFixed(1) + '" fill="' + b[3] + '" fill-opacity="' + (.3 + r() * .5).toFixed(2) + '"/>'; }
-      [1, 2, 3].forEach(n => { $('dots' + n).innerHTML = hs[n - 1]; });
+      const blobs = [[210, 240, 150, '#a58bff'], [500, 180, 120, '#ff9d7a'], [470, 400, 150, '#4fe0cf']]; let seed = 7; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647; const hs = ['', '', ''], ts = ['', ''];
+      for (let i = 0; i < 230; i++) { const k = i % 3, b = blobs[k], a = r() * 6.283, d = Math.sqrt(r()) * b[2], rad = 1 + r() * r() * 7, tw = r() < .22;
+        const c = '<circle cx="' + (b[0] + Math.cos(a) * d).toFixed(1) + '" cy="' + (b[1] + Math.sin(a) * d).toFixed(1) + '" r="' + rad.toFixed(1) + '" fill="' + b[3] + '" fill-opacity="' + (.3 + r() * .5).toFixed(2) + '"/>';
+        if (tw) ts[i % 2] += c; else hs[k] += c; }
+      [1, 2, 3].forEach(n => { $('dots' + n).innerHTML = hs[n - 1]; }); [1, 2].forEach(n => { $('dotsT' + n).innerHTML = ts[n - 1]; });
+      /* Bewegung nur, solange der Hintergrund sichtbar ist (spart Akku und Rechenzeit) */
+      /* Notbremse: laeuft der Hintergrund auf diesem Geraet nicht fluessig (unter 40 Bilder/s), wird er angehalten */
+      setTimeout(() => { let n = 0, t0 = 0, hid = document.hidden; const vc = () => { hid = true; }; document.addEventListener('visibilitychange', vc); const f = t => { if (!t0) t0 = t; n++; if (t - t0 < 2000) requestAnimationFrame(f); else { document.removeEventListener('visibilitychange', vc); if (!hid && n / ((t - t0) / 1000) < 40) document.documentElement.classList.add('calm'); } }; requestAnimationFrame(f); }, 3500);
+      if ('IntersectionObserver' in window) { const hero = document.querySelector('.hero'); new IntersectionObserver(es => es.forEach(e => hero.classList.toggle('paused', !e.isIntersecting)), { threshold: 0 }).observe(hero); }
     } catch (e) { }
     if (cfg.demo && $('demo-go')) $('demo-go').href = cfg.demo; else if (cfg.demo === '' && $('demo')) $('demo').remove();
     /* Einblenden beim Scrollen (nicht bei "weniger Bewegung") */

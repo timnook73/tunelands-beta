@@ -31,6 +31,7 @@
       s.textContent = '';
       [['instagram', 'Instagram'], ['tiktok', 'TikTok'], ['youtube', 'YouTube']].forEach(function (k) { if (!cfg.social[k[0]]) return; var a = document.createElement('a'); a.href = cfg.social[k[0]]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = k[1]; s.appendChild(a); });
     }
+    if (cfg.social) ['instagram', 'tiktok', 'youtube'].forEach(function (n) { var a = document.querySelector('.f-soc .fsoc-' + n); if (!a) return; if (cfg.social[n]) a.href = cfg.social[n]; else a.classList.add('hidden'); });
     if (cfg.beta && $('betachip')) $('betachip').hidden = false;
   }
   function apply() {
