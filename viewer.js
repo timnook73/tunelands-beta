@@ -20,6 +20,38 @@ const I18N_PAIRS = [
   ['Übersicht (Minimap)', 'Overview (minimap)'], ['Übersicht ein- oder ausblenden', 'Show or hide overview'], ['Übersicht schließen', 'Close overview'], ['Übersicht', 'Overview'], ['Legende', 'Legend'], ['Legende ein- oder ausblenden', 'Show or hide legend'], ['Legende schließen', 'Close legend'],
   ['Verbindungs-Finder', 'Connection finder'], ['Nur Karte', 'Map only'], ['Nur die Karte anzeigen', 'Show only the map'], ['Oberfläche einblenden [H]', 'Show interface [H]'], ['Oberfläche wieder einblenden', 'Show interface again'], ['Geführte Tour', 'Guided tour'], ['Geführte Tour starten', 'Start guided tour'],
   ['Als Bild speichern', 'Save as image'], ['Ansicht als PNG speichern', 'Save view as PNG'], ['Als PDF exportieren', 'Export as PDF'], ['Hilfe', 'Help'], ['Abbrechen', 'Cancel'], ['Schließen', 'Close'], ['Übernehmen', 'Apply'],
+  ['30-Sek.-Vorschau', '30-sec preview'], ['Zum Song', 'Go to song'], ['Vorschau schließen', 'Close preview'], ['Weiter', 'Resume'], ['▶ 30-Sek.-Vorschau', '▶ 30-sec preview'], ['⏸ Vorschau stoppen', '⏸ Stop preview'],
+  ['Folge Tunelands', 'Follow Tunelands'], ['Neue Funktionen, Karten und Einblicke – und deine Meinung zählt.', 'New features, maps and insights – and your opinion counts.'], ['Zur Umfrage', 'Take the survey'], ['Kurze Umfrage', 'Quick survey'], ['Hilf mit, Tunelands besser zu machen', 'Help make Tunelands better'], ['Dauert etwa 3 Minuten. Antworten sind anonym, solange du keinen Namen eingibst.', 'Takes about 3 minutes. Answers are anonymous unless you enter a name.'], ['Später', 'Later'], ['Nicht mehr anzeigen', 'Don’t show again'], ['Umfrage schließen', 'Close survey'], ['Umfrage', 'Survey'],
+  ['Presets', 'Presets'], ['Erscheinungsbild', 'Appearance'], ['Ein Preset bündelt alle Einstellungen und das Farbschema der Kontinente. Zum Teilen kopieren und beim anderen einfügen (die Lage der Kontinente gehört nicht dazu, dafür gibt es „Layout kopieren“).', 'A preset bundles all settings and the continent colour scheme. To share it, copy it and paste it on the other device (the continents’ positions are not included – use “Copy layout” for that).'],
+  ['Standard', 'Default'], ['Die ursprüngliche Darstellung mit Farben nach Lage', 'The original look with colours by position'], ['Ruhig', 'Calm'], ['Wenige Namen, kaum Linien, Pastellfarben', 'Few names, hardly any lines, pastel colours'], ['Papier', 'Paper'], ['Helles Design mit Serifenschrift', 'Light theme with a serif font'], ['Neon', 'Neon'], ['Tiefschwarz mit starkem Leuchten und kräftigen Farben', 'Deep black with strong glow and vivid colours'], ['Ozean', 'Ocean'], ['Blaues Design mit runder Schrift', 'Blue theme with a rounded font'],
+  ['Groß und lesbar', 'Large and readable'], ['Große Schrift und Kreise, Übersicht und Legende aus (für das Handy)', 'Large text and circles, overview and legend off (for phones)'], ['Nur die Großen', 'Only the big ones'], ['Die 50 größten Artists, viele Namen, keine Monde', 'The 50 biggest artists, many names, no moons'], ['Detailreich', 'Detailed'], ['Viele Namen, mehr Abstand, Songs als Monde', 'Many names, more spacing, songs as moons'],
+  ['Anwenden', 'Apply'], ['Kopieren', 'Copy'], ['Löschen', 'Delete'], ['Aktuelle Einstellungen speichern …', 'Save current settings …'], ['Preset einfügen', 'Paste preset'], ['Alle kopieren', 'Copy all'], ['Preset angewendet', 'Preset applied'], ['Preset löschen', 'Delete preset'], ['Name für das Preset:', 'Name for the preset:'], ['Mein Preset', 'My preset'], ['Preset gespeichert', 'Preset saved'],
+  ['Preset-Code (alles kopieren):', 'Preset code (copy everything):'], ['Preset-Code kopiert. Beim anderen unter „Preset einfügen“ einfügen.', 'Preset code copied. Paste it on the other device under “Paste preset”.'], ['Alle Presets kopiert. Beim anderen unter „Preset einfügen“ einfügen.', 'All presets copied. Paste them on the other device under “Paste preset”.'], ['Preset-Code einfügen:', 'Paste preset code:'], ['Das ist kein gültiger Preset-Code.', 'That is not a valid preset code.'], ['Preset eingefügt und angewendet', 'Preset pasted and applied'], ['Presets eingefügt', 'presets pasted'], ['Speichern nicht möglich (der Browser blockiert den Speicher)', 'Cannot save (the browser blocks storage)'],
+  ['Layout kopieren', 'Copy layout'], ['Layout einfügen', 'Paste layout'], ['Layout-Code kopiert. Auf dem anderen Gerät unter „Layout einfügen“ einfügen.', 'Layout code copied. Paste it on the other device under “Paste layout”.'], ['Layout-Code (alles kopieren):', 'Layout code (copy everything):'], ['Layout-Code einfügen:', 'Paste layout code:'], ['Der Code passt nicht zu dieser Karte.', 'The code does not match this map.'],
+  ['Fehler melden', 'Report a problem'], ['Falscher Kontinent oder falsches Genre', 'Wrong continent or genre'], ['Gehört nicht auf meine Karte (z. B. falscher Song zugeordnet)', 'Does not belong on my map (e.g. wrong song assigned)'], ['Etwas anderes', 'Something else'],
+  ['Die Vorschau gehört nicht zu diesem Song', 'The preview does not belong to this song'], ['Diesen Song habe ich nie gehört (falsch zugeordnet)', 'I never listened to this song (wrongly assigned)'], ['Gehört in den Kontinent', 'Belongs in continent'], ['Genre-Vorschlag (optional)', 'Genre suggestion (optional)'], ['z. B. Bedroom Pop', 'e.g. Bedroom Pop'],
+  ['Anmerkung (optional)', 'Note (optional)'], ['Meldung an Tunelands senden', 'Send report to Tunelands'], ['Öffnet eine vorbereitete E-Mail (und kopiert den Text). So kann der Fehler später für alle Karten behoben werden.', 'Opens a prepared email (and copies the text). That way the problem can be fixed for all maps later.'], ['Korrigieren', 'Fix it'],
+  ['Bitte wählen …', 'Please choose …'], ['Bitte einen Kontinent wählen', 'Please choose a continent'], ['Korrigiert: nicht mehr auf der Karte', 'Fixed: no longer on the map'], ['Korrigiert: Vorschau entfernt', 'Fixed: preview removed'], ['Korrigiert: nicht auf der Karte.', 'Fixed: not on the map.'], ['Rückgängig', 'Undo'],
+  ['Meldung kopiert und Formular geöffnet', 'Report copied and form opened'], ['Meldung vorbereitet und kopiert', 'Report prepared and copied'], ['Meldungen kopiert', 'Reports copied'], ['Meldungen (alles kopieren):', 'Reports (copy everything):'], ['Korrekturen', 'Corrections'],
+  ['Fehler, die du über „Fehler melden“ in der Detailansicht eines Artists oder Songs korrigierst, gelten sofort auf dieser Karte und bleiben im Browser gespeichert. Hier kannst du sie zurücknehmen.', 'Problems you fix via “Report a problem” in an artist’s or song’s detail view apply to this map immediately and stay saved in your browser. You can undo them here.'],
+  ['Noch keine Korrekturen.', 'No corrections yet.'], ['Artist ausgeblendet', 'Artist hidden'], ['Song ausgeblendet', 'Song hidden'], ['Vorschau entfernt', 'Preview removed'],
+  ['Korrigiert:', 'Fixed:'],
+  ['Das Standard-Preset von Tunelands', 'The Tunelands default preset'],
+  ['Wald', 'Forest'], ['Dämmerung', 'Dusk'], ['Bordeaux', 'Bordeaux'], ['Glut', 'Ember'], ['Schiefer', 'Slate'], ['Himmel', 'Sky'], ['Rosé', 'Rosé'],
+  ['Nur diesen Artist anzeigen', 'Show only this artist'], ['Nur diesen Song anzeigen', 'Show only this song'], ['Ausnahme aufheben', 'Remove exception'], ['Ausnahme · Artist', 'Exception · Artist'], ['Ausnahme · Song', 'Exception · Song'], ['Ausnahme: bleibt sichtbar, obwohl die Szene ausgeblendet ist.', 'Exception: stays visible although the scene is hidden.'], ['Ausnahme: bleibt sichtbar, obwohl der Kontinent ausgeblendet ist.', 'Exception: stays visible although the continent is hidden.'],
+  ['Falscher Kontinent oder falsches Genre der Szene', 'Wrong continent or genre of the scene'], ['Falsches Genre', 'Wrong genre'], ['Kontinent beibehalten', 'Keep continent'], ['Eigenes Genre (mehrere mit Komma)', 'Your own genre (separate several with commas)'], ['z. B. Hip-House, Dance-Pop, Pop-Rap', 'e.g. Hip-House, Dance-Pop, Pop-Rap'],
+  ['Bitte einen Kontinent wählen oder ein Genre eingeben', 'Please choose a continent or enter a genre'], ['Eigenes Genre', 'Own genre'], ['Eigenes Genre (Song)', 'Own genre (song)'], ['Szene umbenannt', 'Scene renamed'],
+  ['Anordnung der Reihen', 'Row layout'], ['Waagerecht', 'Horizontal'], ['Senkrecht', 'Vertical'], ['Gilt für die Ansicht „Reihen“: Die Größten stehen zuerst, waagerecht Zeile für Zeile oder senkrecht Spalte für Spalte.', 'For the “Rows” view: the biggest come first, either row by row or column by column.'], ['Spalten', 'Columns'], ['Zeilen', 'Rows'], ['Anzahl pro Zeile (waagerecht). 0 = automatisch.', 'Items per row (horizontal). 0 = automatic.'], ['Anzahl pro Spalte (senkrecht). 0 = automatisch.', 'Items per column (vertical). 0 = automatic.'],
+  ['Gefällt dir Tunelands?', 'Enjoying Tunelands?'],
+  ['Unterstütze das Projekt mit einem Kaffee', 'Support the project with a coffee'],
+  ['Tunelands ist kostenlos und wird von einer Person gebaut. Jeder Beitrag hilft bei Hosting und neuen Funktionen.', 'Tunelands is free and built by one person. Every contribution helps with hosting and new features.'],
+  ['Auf Ko-fi unterstützen', 'Support on Ko-fi'],
+  ['Hinweis schließen', 'Close notice'],
+  ['Unterstützen', 'Support'],
+  ['Vergleichsfarben', 'Comparison colors'], ['Nur einer / beide', 'Only one / both'], ['Verlauf statt Gruppen', 'Gradient instead of groups'], ['Beide ähnlich', 'Both similar'],
+  ['Nur einer / beide: leuchtend = nur eine Person hat es gehört, blass = beide.', 'Only one / both: vivid = only one person listened, pale = both.'],
+  ['Farben', 'Colors'], ['auf der Karte (Färbung „Wer hört mehr“)', 'on the map (coloring “Who listens more”)'],
+  ['Leuchtend = nur eine Person hat den Artist gehört. Blass = beide haben ihn gehört, der Ton zeigt, wer mehr gehört hat.', 'Vivid = only one person listened to the artist. Pale = both did, the tint shows who listened more.'],
   /* --- Zeitleiste --- */
   ['Zeitraum', 'Period'], ['Gesamte Zeit', 'All time'], ['Entwicklung', 'Growth'], ['Entwicklung abspielen', 'Play growth over time'], ['Pause', 'Pause'], ['Alles', 'All'], ['Letzter Tag', 'Last day'], ['7 Tage', '7 days'], ['30 Tage', '30 days'], ['90 Tage', '90 days'],
   ['Zeitraum nach Datum', 'Period by date'], ['Von', 'From'], ['Bis', 'To'], ['Datum eingeben', 'Enter a date'], ['Achse herauszoomen', 'Zoom timeline out'], ['Achse hineinzoomen (auch Mausrad oder Pinch auf der Achse)', 'Zoom timeline in (also mouse wheel or pinch on the axis)'], ['Achse nach links', 'Move timeline left'], ['Achse nach rechts', 'Move timeline right'],
@@ -61,17 +93,30 @@ const I18N_PAIRS = [
   ['Unten Bereich aufziehen: die Karte ordnet sich dynamisch neu an', 'Drag a range at the bottom: the map rearranges itself dynamically'], ['wechselt Karte, Rangliste, Spirale', 'switches map, ranking, spiral'], ['Songs / Linien', 'Songs / lines'], ['Namen', 'Names'], ['Übersicht ein/aus', 'Overview on/off'], ['Tour', 'Tour'], ['– alle Kontinente nacheinander', '– all continents one after another'],
   ['Kreis = Artist', 'Circle = artist'], ['Kachel = Song (Cover)', 'Tile = song (cover)'], ['Monde = Songs des Artists', 'Moons = songs of the artist'], ['Größe = Hörzeit (oder Streams)', 'Size = listening time (or streams)'], ["Los geht's", "Let's go"],
   /* --- PDF-Dialog --- */
-  ['Die ganze Karte als eine riesige Seite: Formen und Schrift sind Vektoren und bleiben in jeder Zoomstufe scharf, Cover sind eingebettet, Artists und Songs führen per Klick zu Spotify, Kontinente findest du in der Gliederung. Es wird der aktuell gewählte Zeitraum mit allen Filtern exportiert.', 'The whole map as one huge page: shapes and text are vectors and stay sharp at any zoom level, covers are embedded, artists and songs link to Spotify, continents are in the outline. The currently chosen period with all filters is exported.'],
+  ['Die ganze Karte als eine riesige Seite: Formen und Schrift sind Vektoren und bleiben in jeder Zoomstufe scharf, Cover sind eingebettet, Artists und Songs führen per Klick zu Spotify, Kontinente findest du in der Gliederung. Es wird der aktuell gewählte Zeitraum mit allen Filtern exportiert, ohne ausgeblendete Elemente.', 'The whole map as one huge page: shapes and text are vectors and stay sharp at any zoom level, covers are embedded, artists and songs link to Spotify, continents are in the outline. The currently chosen period with all filters is exported, without hidden items.'],
   ['Hintergrund', 'Background'], ['Dunkel', 'Dark'], ['Hell (Druck)', 'Light (print)'], ['Cover', 'Covers'], ['Hochauflösend (lädt Bilder)', 'High resolution (loads images)'], ['PDF erstellen', 'Create PDF'],
   /* --- Sonstiges --- */
-  ['Neue Streams laden', 'Load new streams'], ['Ansicht gespeichert', 'View saved'], ['Vollbild ist hier nicht verfügbar', 'Fullscreen is not available here'], ['Ansicht: Karte', 'View: map'], ['Ansicht: Rangliste in Reihen', 'View: ranking in rows'], ['Ansicht: Spirale', 'View: spiral'], ['Weitere Klänge', 'Other sounds'], ['Kontinente anpassen', 'Adjust continents'], ['Kontinente verschieben', 'Move continents'], ['Lage zurücksetzen', 'Reset positions'], ['Farbschema', 'Color scheme'], ['Original', 'Original'], ['Nach Lage', 'By position'], ['Pastell', 'Pastel'], ['Kräftig', 'Vivid'], ['Farbe und Lage', 'Color and position'], ['Geändert', 'Changed'], ['Farbe ändern', 'Change color'], ['Farben …', 'Colors …'], ['Kontinent verschoben', 'Continent moved'], ['Kontinente getauscht', 'Continents swapped'], ['Karte neu geordnet', 'Map rearranged'], ['Aufräumen', 'Tidy up'], ['Räume auf …', 'Tidying up …'], ['Ziehen: Kontinent', 'Drag: continent'], ['Ziehen: Artist', 'Drag: artist'], ['Zum Kontinent zurückholen', 'Bring back to its continent'], ['Artist zurückgeholt', 'Artist brought back'], ['Ziehe einen Artist an eine neue Stelle', 'Drag an artist to a new place'], ['Einzelne Artists verschieben: ziehe einen Artist an eine neue Stelle, die Nachbarn weichen aus.', 'Move single artists: drag an artist to a new place, its neighbors make room.'], ['Gespeicherte Positionen einer älteren Version wurden verworfen, die Farben bleiben erhalten.', 'Saved positions from an older version were discarded, your colors are kept.'], ['Speichern ist in dieser Ansicht nicht möglich', 'Saving is not possible in this view'], ['Nicht gespeichert', 'Not saved'], ['Magnet', 'Magnet'], ['(Zusammenhalt)', '(cohesion)'], ['Aus', 'Off'], ['Mittel', 'Medium'], ['Stark', 'Strong'], ['Layout und Farben', 'Layout and colors'], ['Klassisch', 'Classic'], ['Neu', 'New'], ['Klassisch: Anordnung und Farben vom 21.10. – Neu: verbesserte Genre-Zuordnung (21 Kontinente).', 'Classic: layout and colors from 21 Oct – New: improved genre assignment (21 continents).'], ['Kontinente verschieben: ziehe einen Kontinent an eine neue Stelle – die anderen weichen aus und rücken nach.', 'Move continents: drag a continent to a new place – the others make room and move in.'],['Ordne neu …', 'Rearranging …'], ['Positionen zurückgesetzt', 'Positions reset'], ['Ziehe einen Kontinent, um ihn zu verschieben', 'Drag a continent to move it'], ['Kontinente verschieben: ziehe einen Kontinent an eine neue Stelle.', 'Move continents: drag a continent to a new place.'], ['Vergleich', 'Comparison'], ['Wer', 'Who'], ['Beide', 'Both'], ['Wer hört mehr', 'Who listens more'], ['Musik-Übereinstimmung', 'Music match'], ['Gleiche Artists', 'Shared artists'], ['von euch beiden gehört', 'played by both of you'], ['Geteilte Hörzeit', 'Shared listening time'], ['in gemeinsamen Artists', 'in shared artists'], ['Genre-Nähe', 'Genre similarity'], ['Anteil an der jeweiligen Hörzeit', 'Share of each person’s listening time'], ['Gemeinsame Favoriten', 'Shared favorites'], ['Live-Modus', 'Live mode'], ['Live-Modus an', 'Live mode on'], ['Live-Modus aus', 'Live mode off'], ['Gerade läuft nichts', 'Nothing is playing right now'], ['Keine Verbindung zu stats.fm', 'No connection to stats.fm'], ['Neu auf deiner Karte', 'New on your map'], ['Kamera folgt', 'Camera follows'], ['Live · stats.fm', 'Live · stats.fm'], ['und', 'and'], ['Artist · Rang', 'Artist · Rank'], ['An', 'On'], ['Deutschpop', 'German pop'], ['Deutschrap', 'German rap'], ['Elektronik', 'Electronic'], ['Deutsch-Indie', 'German indie'], ['NDW · Indie', 'NDW · Indie'], ['Easy Listening', 'Easy Listening'],
+  ['Zur Startseite', 'Back to home'], ['Feedback geben', 'Give feedback'], ['Projekt unterstützen', 'Support the project'], ['Neue Streams laden', 'Load new streams'], ['Ansicht gespeichert', 'View saved'], ['Vollbild ist hier nicht verfügbar', 'Fullscreen is not available here'], ['Ansicht: Karte', 'View: map'], ['Ansicht: Rangliste in Reihen', 'View: ranking in rows'], ['Ansicht: Spirale', 'View: spiral'], ['Weitere Klänge', 'Other sounds'], ['Kontinente anpassen', 'Adjust continents'], ['Kontinente verschieben', 'Move continents'], ['Lage zurücksetzen', 'Reset positions'], ['Farbschema', 'Color scheme'], ['Original', 'Original'], ['Nach Lage', 'By position'], ['Pastell', 'Pastel'], ['Kräftig', 'Vivid'], ['Farbe und Lage', 'Color and position'], ['Geändert', 'Changed'], ['Farbe ändern', 'Change color'], ['Farben …', 'Colors …'], ['Kontinent verschoben', 'Continent moved'], ['Kontinente getauscht', 'Continents swapped'], ['Karte neu geordnet', 'Map rearranged'], ['Aufräumen', 'Tidy up'], ['Räume auf …', 'Tidying up …'], ['Ziehen: Kontinent', 'Drag: continent'], ['Ziehen: Artist', 'Drag: artist'], ['Zum Kontinent zurückholen', 'Bring back to its continent'], ['Artist zurückgeholt', 'Artist brought back'], ['Ziehe einen Artist an eine neue Stelle', 'Drag an artist to a new place'], ['Einzelne Artists verschieben: ziehe einen Artist an eine neue Stelle, die Nachbarn weichen aus.', 'Move single artists: drag an artist to a new place, its neighbors make room.'], ['Gespeicherte Positionen einer älteren Version wurden verworfen, die Farben bleiben erhalten.', 'Saved positions from an older version were discarded, your colors are kept.'], ['Speichern ist in dieser Ansicht nicht möglich', 'Saving is not possible in this view'], ['Nicht gespeichert', 'Not saved'], ['Magnet', 'Magnet'], ['(Zusammenhalt)', '(cohesion)'], ['Aus', 'Off'], ['Mittel', 'Medium'], ['Stark', 'Strong'], ['Layout und Farben', 'Layout and colors'], ['Klassisch', 'Classic'], ['Neu', 'New'], ['Klassisch: Anordnung und Farben vom 21.10. – Neu: verbesserte Genre-Zuordnung (21 Kontinente).', 'Classic: layout and colors from 21 Oct – New: improved genre assignment (21 continents).'], ['Kontinente verschieben: ziehe einen Kontinent an eine neue Stelle – die anderen weichen aus und rücken nach.', 'Move continents: drag a continent to a new place – the others make room and move in.'],['Ordne neu …', 'Rearranging …'], ['Positionen zurückgesetzt', 'Positions reset'], ['Ziehe einen Kontinent, um ihn zu verschieben', 'Drag a continent to move it'], ['Kontinente verschieben: ziehe einen Kontinent an eine neue Stelle.', 'Move continents: drag a continent to a new place.'], ['Vergleich', 'Comparison'], ['Wer', 'Who'], ['Beide', 'Both'], ['Wer hört mehr', 'Who listens more'], ['Musik-Übereinstimmung', 'Music match'], ['Gleiche Artists', 'Shared artists'], ['von euch beiden gehört', 'played by both of you'], ['Geteilte Hörzeit', 'Shared listening time'], ['in gemeinsamen Artists', 'in shared artists'], ['Genre-Nähe', 'Genre similarity'], ['Anteil an der jeweiligen Hörzeit', 'Share of each person’s listening time'], ['Gemeinsame Favoriten', 'Shared favorites'], ['Live-Modus', 'Live mode'], ['Live-Modus an', 'Live mode on'], ['Live-Modus aus', 'Live mode off'], ['Gerade läuft nichts', 'Nothing is playing right now'], ['Keine Verbindung zu stats.fm', 'No connection to stats.fm'], ['Neu auf deiner Karte', 'New on your map'], ['Kamera folgt', 'Camera follows'], ['Live · stats.fm', 'Live · stats.fm'], ['und', 'and'], ['Artist · Rang', 'Artist · Rank'], ['An', 'On'], ['Deutschpop', 'German pop'], ['Deutschrap', 'German rap'], ['Elektronik', 'Electronic'], ['Deutsch-Indie', 'German indie'], ['NDW · Indie', 'NDW · Indie'], ['Easy Listening', 'Easy Listening'],
   ['Größe = Hörzeit · Farbe = Genre-Kontinent · kleine Quadrate rund um einen Artist = seine Songs · Nähe = ähnliche Musik · Mit Zoom entdeckst du jeden Song', 'Size = listening time · color = genre continent · small squares around an artist = their songs · proximity = similar music · zoom in to discover every song'],
-  ['Hintergrund & Farbflächen', 'Background & color fields'], ['Kontinent- und Szenennamen', 'Continent and scene names'], ['Artists & Namen', 'Artists & names'], ['Titel & Legende', 'Title & legend'], ['Layout wird abgeschlossen …', 'Finishing layout …'], ['Karte wird gezeichnet …', 'Drawing the map …'], ['Beschriftungen werden gesetzt …', 'Placing labels …'], ['Cover werden eingebettet …', 'Embedding covers …'], ['Hochauflösende Cover …', 'High-resolution covers …'], ['Sonderzeichen …', 'Special characters …'], ['PDF wird geschrieben …', 'Writing PDF …'], ['Fertig', 'Done'], ['Keine sichtbaren Objekte', 'No visible objects']
+  ['Hintergrund & Farbflächen', 'Background & color fields'], ['Kontinent- und Szenennamen', 'Continent and scene names'], ['Artists & Namen', 'Artists & names'], ['Titel & Legende', 'Title & legend'], ['Layout wird abgeschlossen …', 'Finishing layout …'], ['Karte wird gezeichnet …', 'Drawing the map …'], ['Beschriftungen werden gesetzt …', 'Placing labels …'], ['Cover werden eingebettet …', 'Embedding covers …'], ['Hochauflösende Cover …', 'High-resolution covers …'], ['Sonderzeichen …', 'Special characters …'], ['PDF wird geschrieben …', 'Writing PDF …'], ['Fertig', 'Done'], ['Keine sichtbaren Objekte', 'No visible objects'],
+  /* --- Ausblenden, Einstellungen-Suche --- */
+  ['ausgeblendet', 'hidden'], ['Alle zeigen', 'Show all'], ['Alles wieder einblenden', 'Show everything again'], ['Wieder einblenden', 'Show again'], ['Ausblenden', 'Hide'],
+  ['Nimmt Kontinente, Szenen, Artists oder Songs von der Karte, auch aus Bild und PDF. Ranglisten und Summen bleiben gleich. Das wird nicht gespeichert: Nach dem Neuladen ist wieder alles da.', 'Takes continents, scenes, artists or songs off the map, including image and PDF export. Rankings and totals stay the same. This is not saved: after reloading, everything is back.'],
+  ['Kontinent, Szene, Artist oder Song suchen …', 'Search continent, scene, artist or song …'], ['Zum Ausblenden suchen', 'Search to hide'], ['Noch nichts ausgeblendet.', 'Nothing hidden yet.'],
+  ['Kontinent ausblenden', 'Hide continent'], ['Szene ausblenden', 'Hide scene'], ['Artist ausblenden', 'Hide artist'], ['Song ausblenden', 'Hide song'],
+  ['Kontinent wieder einblenden', 'Show continent again'], ['Szene wieder einblenden', 'Show scene again'], ['Artist wieder einblenden', 'Show artist again'], ['Song wieder einblenden', 'Show song again'],
+  ['Ausgeblendet: nicht auf der Karte und nicht im Export.', 'Hidden: not on the map and not in the export.'], ['Ausgeblendet über den Kontinent.', 'Hidden via its continent.'], ['Ausgeblendet über die Szene.', 'Hidden via its scene.'], ['Ausgeblendet über den Artist.', 'Hidden via its artist.'], ['Ausgeblendet über den Song.', 'Hidden via its song.'],
+  ['Ausgeblendet: nicht auf der Karte', 'Hidden: not on the map'], ['Beim Verschieben der Kontinente ist alles sichtbar.', 'While moving continents, everything is visible.'], ['Einstellungen suchen …', 'Search settings …'],
+  /* --- Verschieben: Szenen, Artist-Auswahl --- */
+  ['Auswahl aufheben', 'Clear selection'], ['Ziehe eine Szene, um sie zu verschieben', 'Drag a scene to move it'],
+  ['Szenen verschieben: ziehe eine Szene (Unter-Genre) an eine neue Stelle – sie gehört weiter zu ihrem Kontinent, die Nachbarn weichen aus.', 'Moving scenes: drag a scene (sub-genre) to a new spot – it stays part of its continent, the neighbours make way.'],
+  ['Artists verschieben: ziehe einen Artist an eine neue Stelle. Mehrere auswählen: Umschalt+Klick oder Umschalt+Rahmen aufziehen, dann gemeinsam ziehen.', 'Moving artists: drag an artist to a new spot. To pick several, Shift+click or Shift+drag a frame, then drag them together.'],
+  ['Artists verschieben: tippe Artists an, um sie auszuwählen, und ziehe sie dann gemeinsam.', 'Moving artists: tap artists to select them, then drag them together.'],
 ];
 const EN = new Map(I18N_PAIRS);
 /* Muster fuer Texte mit Zahlen (nur Englisch): [Regex, Ersatz oder Funktion] */
 const I18N_PAT = [
-  [/^Alle ([\d.,]+) anzeigen$/, 'Show all $1'], [/^Artist-Nähe (\d+) %$/, 'Artist similarity $1 %'], [/^Nur (.+)$/, 'Only $1'], [/^Blau = (.+) hört mehr, Orange = (.+) hört mehr, hell = beide ähnlich viel\.$/, 'Blue = $1 listens more, orange = $2 listens more, light = both about equally.'], [/^von ([\d.,]+) Songs$/, 'of $1 songs'], [/^von ([\d.,]+) Alben$/, 'of $1 albums'], [/^(im Zeitraum )?von ([\d.,]+)$/, (m, z, n) => 'of ' + n + (z ? ' in period' : '')], [/^(.*) \(Zahl eingeben\)$/, (m, a) => trText(a) + ' (enter a number)'], [/^Nähe (\d+) %$/, 'Similarity $1 %'], [/^([\d.,]+) Tagen$/, '$1 days'], [/^([\d.,]+) Songs$/, '$1 songs'], [/^(.*) · ([\d.,]+) Artists$/, '$1 · $2 artists'], [/^([\d.,]+) Artists$/, '$1 artists'],
+  [/^Alle ([\d.,]+) anzeigen$/, 'Show all $1'], [/^Artist-Nähe (\d+) %$/, 'Artist similarity $1 %'], [/^Nur (.+)$/, 'Only $1'], [/^Beide, (.+) mehr$/, 'Both, $1 more'], [/^Blau = (.+) hört mehr, Orange = (.+) hört mehr, hell = beide ähnlich viel\.$/, 'Blue = $1 listens more, orange = $2 listens more, light = both about equally.'], [/^von ([\d.,]+) Songs$/, 'of $1 songs'], [/^von ([\d.,]+) Alben$/, 'of $1 albums'], [/^(im Zeitraum )?von ([\d.,]+)$/, (m, z, n) => 'of ' + n + (z ? ' in period' : '')], [/^(.*) \(Zahl eingeben\)$/, (m, a) => trText(a) + ' (enter a number)'], [/^Nähe (\d+) %$/, 'Similarity $1 %'], [/^([\d.,]+) Tagen$/, '$1 days'], [/^([\d.,]+) Songs$/, '$1 songs'], [/^(.*) · ([\d.,]+) Artists$/, '$1 · $2 artists'], [/^([\d.,]+) Artists$/, '$1 artists'],
  [/^Song #(\d+) ·/, 'Song #$1 ·'], [/^(.*) % deiner Hörzeit · ([\d.,]+) Artists$/, '$1 % of your listening time · $2 artists'],
   [/^Daten: stats\.fm \((.*)\)\.$/, 'Data: stats.fm ($1).'], [/^Seit (\S+) ’(\d\d)$/, 'Since $1 ’$2'], [/^(\d+) Uhr: (.*)$/, '$1:00: $2'], [/^\((\d+) Songs, (.*)\)$/, '($1 songs, $2)'], [/^ \((\d+) Songs, (.*)\)$/, ' ($1 songs, $2)'], [/^(\d+)–(\d+) Uhr$/, '$1:00–$2:00'],
   [/^Kontinent (\d+) von (\d+)$/, 'Continent $1 of $2'], [/^von „(.*)“ zu „(.*)“$/, 'from “$1” to “$2”'], [/^Route (\d+) · (\d+) Schritte?$/, (m, a, b) => 'Route ' + a + ' · ' + b + (b === '1' ? ' step' : ' steps')],
@@ -81,7 +126,7 @@ const I18N_PAT = [
   [/^Nach (\d+) Tag/, 'After $1 day'],
   [/^(\d+) Artists und ([\d.,]+) Songs, gruppiert nach Klang-Verwandtschaft: (\d+) Kontinente\. Je größer ein Kreis, desto länger hast du ihn gehört\. Gleich fliegen wir zu jedem Kontinent, beginnend mit dem größten\.$/, '$1 artists and $2 songs, grouped by sound: $3 continents. The bigger a circle, the longer you listened to it. We will now fly to every continent, starting with the biggest.'],
   [/^deiner Hörzeit · ([\d.,]+) Artists\. Allen voran$/, 'of your listening time · $1 artists. Led by'], [/^\. Meistgehört: „$/, '. Most played: “'], [/^“ von$/, '” by'], [/^Meistgehört: „$/, 'Most played: “'],
-  [/^([\d.,]+) Std\.$/, '$1 h'], [/^([\d.,]+) Std\. · ([\d.,]+) Streams$/, '$1 h · $2 streams']
+  [/^([\d.,]+) Std\.$/, '$1 h'], [/^([\d.,]+) Std\. · ([\d.,]+) Streams$/, '$1 h · $2 streams'], [/^(\d+) ausgeblendet$/, '$1 hidden']
 ];
 /* Einzelne Woerter in Zeilen mit Zahlen */
 const I18N_WORDS = [[/\bStd\./g, 'h'], [/\bgestreamt\b/g, 'streamed'], [/\bTage\b/g, 'days'], [/\bStunden\b/g, 'hours']];
@@ -232,18 +277,20 @@ function ramp(stops, t) {
 
 /* ---------- Einstellungen / Zustand ---------- */
 const S = {
-  theme: 'night', font: 'sans', fontScale: 1, labelDensity: 1,
-  regionLabels: true, regionSize: 1, sceneLabels: true,
-  stars: true, glowAmt: 1,
+  theme: 'night', font: 'round', fontScale: 1, labelDensity: 1.2,
+  regionLabels: true, regionSize: .5, sceneLabels: true,
+  stars: true, glowAmt: 1.6,
   view: 'map',            // map | rows | spiral
   objs: 'artists',        // artists | songs   (nur Rangliste/Spirale)
   metric: 'min',          // min | str
   timeMode: 'dynamic',    // dynamic | fixed
   sizeCurve: 'sqrt',      // soft | sqrt | strong
-  artScale: 1, songScale: 1, spread: 1, moonScale: .9,
+  artScale: 1.1, songScale: 1.55, spread: .95, moonScale: 1,
   colorMode: 'region',    // region | heat | new
-  linkAmt: 1, rings: true, followCam: true, animSpeed: 1,
+  cmpMode: 'excl', cmpMe: '#5698ff', cmpFr: '#ff9650',      // Freundes-Vergleich: excl = leuchtend nur einer / blass beide, ramp = Verlauf; Farben von "ich" und Freund
+  linkAmt: 1.1, rings: true, followCam: true, animSpeed: .6,
   perf: 'balanced',
+  rowDir: 'h', gridCols: 0, gridRows: 0,     // Reihen-Ansicht: Richtung (h Reihen / v Spalten), Spalten, Zeilen (0 = automatisch)
   topN: 0, minMin: 0, minStr: 0,      // Filter: nur Top-N, Mindest-Hoerzeit (min), Mindest-Streams
   who: 'B'                            // Vergleich: B = beide, M = ich, F = Freund
 };
@@ -254,12 +301,19 @@ const PERF = {
 };
 const PF = () => PERF[S.perf] || PERF.balanced;
 const show = { songs: true, links: true, labels: true };
-const UI = { minimap: true, legend: true, mmPos: null, timeline: true, clean: false };
+const UI = { minimap: false, legend: false, mmPos: null, timeline: true, clean: false };
 const THEMES = {
   night: { name: 'Mitternacht', ui: 'dark', base: '#070910', bg: ['#0f1424', '#080a14', '#04050a'], dust: '190,205,255', glowMode: 'lighter', glowK: 1, halo: 'rgba(5,7,13,.88)', haloS: 'rgba(4,6,12,.82)', text: '#d9deee', textB: '#f3f5fb', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
   black: { name: 'Tiefschwarz', ui: 'dark', base: '#000000', bg: ['#050507', '#020203', '#000000'], dust: '210,215,255', glowMode: 'lighter', glowK: .8, halo: 'rgba(0,0,0,.92)', haloS: 'rgba(0,0,0,.88)', text: '#dde1ee', textB: '#ffffff', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
   paper: { name: 'Papier', ui: 'light', base: '#efe8d8', bg: ['#f8f3e9', '#efe8d8', '#e3dac4'], dust: null, glowMode: 'source-over', glowK: .5, halo: 'rgba(248,243,233,.92)', haloS: 'rgba(248,243,233,.9)', text: '#2a3042', textB: '#0e1220', sub: 'rgba(40,46,64,.92)', hl: '#111522', tint: 'dark' },
-  ocean: { name: 'Ozean', ui: 'dark', base: '#062030', bg: ['#0e3a4f', '#08283a', '#041823'], dust: '160,230,255', glowMode: 'lighter', glowK: 1, halo: 'rgba(3,18,28,.88)', haloS: 'rgba(3,16,26,.84)', text: '#d6ecf5', textB: '#f1fbff', sub: 'rgba(214,236,245,.92)', hl: '#ffffff', tint: 'light' }
+  ocean: { name: 'Ozean', ui: 'dark', base: '#062030', bg: ['#0e3a4f', '#08283a', '#041823'], dust: '160,230,255', glowMode: 'lighter', glowK: 1, halo: 'rgba(3,18,28,.88)', haloS: 'rgba(3,16,26,.84)', text: '#d6ecf5', textB: '#f1fbff', sub: 'rgba(214,236,245,.92)', hl: '#ffffff', tint: 'light' },
+  forest: { name: 'Wald', ui: 'dark', base: '#07120d', bg: ['#102a1e', '#09160f', '#040a07'], dust: '170,255,200', glowMode: 'lighter', glowK: 1, halo: 'rgba(4,12,8,.88)', haloS: 'rgba(4,12,8,.82)', text: '#d9deee', textB: '#f3f5fb', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
+  dusk: { name: 'Dämmerung', ui: 'dark', base: '#0d0a1c', bg: ['#2a1a4a', '#140e2a', '#080614'], dust: '215,190,255', glowMode: 'lighter', glowK: 1, halo: 'rgba(8,5,20,.88)', haloS: 'rgba(8,5,20,.82)', text: '#d9deee', textB: '#f3f5fb', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
+  wine: { name: 'Bordeaux', ui: 'dark', base: '#14070b', bg: ['#3a1220', '#1c0911', '#0a0307'], dust: '255,200,210', glowMode: 'lighter', glowK: 1, halo: 'rgba(12,3,6,.88)', haloS: 'rgba(12,3,6,.82)', text: '#d9deee', textB: '#f3f5fb', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
+  ember: { name: 'Glut', ui: 'dark', base: '#120b06', bg: ['#33200f', '#1a1008', '#090502'], dust: '255,220,170', glowMode: 'lighter', glowK: 1, halo: 'rgba(10,6,2,.88)', haloS: 'rgba(10,6,2,.82)', text: '#d9deee', textB: '#f3f5fb', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
+  slate: { name: 'Schiefer', ui: 'dark', base: '#0e1114', bg: ['#232a33', '#14181d', '#07090b'], dust: '200,210,225', glowMode: 'lighter', glowK: 1, halo: 'rgba(7,9,11,.88)', haloS: 'rgba(7,9,11,.82)', text: '#d9deee', textB: '#f3f5fb', sub: 'rgba(222,227,242,.92)', hl: '#ffffff', tint: 'light' },
+  sky: { name: 'Himmel', ui: 'light', base: '#e3eef8', bg: ['#f2f8fd', '#e3eef8', '#cfe0ee'], dust: null, glowMode: 'source-over', glowK: .5, halo: 'rgba(242,248,253,.92)', haloS: 'rgba(242,248,253,.9)', text: '#2a3042', textB: '#0e1220', sub: 'rgba(40,46,64,.92)', hl: '#111522', tint: 'dark' },
+  rose: { name: 'Rosé', ui: 'light', base: '#f6e6e8', bg: ['#fdf3f4', '#f6e6e8', '#ebd2d6'], dust: null, glowMode: 'source-over', glowK: .5, halo: 'rgba(253,243,244,.92)', haloS: 'rgba(253,243,244,.9)', text: '#2a3042', textB: '#0e1220', sub: 'rgba(40,46,64,.92)', hl: '#111522', tint: 'dark' }
 };
 let TH = THEMES.night;
 const tint = (rgb, k) => TH.tint === 'light' ? lighten(rgb, k) : darken(rgb, k * 1.05);
@@ -270,6 +324,12 @@ let PATH = 'map';          // Darstellungspfad: map | artists | songs
 let K_STR = HUD.minutes / Math.max(1, HUD.streams);
 const nameGetter = o => { o.de = o.name; Object.defineProperty(o, 'name', { get() { return LANG === 'en' && o.en ? o.en : o.de; }, set(v) { o.de = v; }, enumerable: true, configurable: true }); };
 regs.forEach(nameGetter); scs.forEach(nameGetter);
+/* Gleich benannte Szenen ("Hip-Hop", "Hip-Hop 2", "Hip-Hop 3" ...) unterscheidbar machen: die zwei meistgehoerten Artists in Klammern (aeltere Karten-Staende tragen noch Nummern) */
+(function nameScenesApart() {
+  const num = n => (n || '').replace(/ \d+$/, ''), by = new Map();
+  scs.forEach(s => { const k = s.reg + '|' + num(s.de); (by.get(k) || by.set(k, []).get(k)).push(s); });
+  by.forEach(list => { if (list.length < 2) return; list.forEach(s => { const t2 = (s.sub || '').split(' · ').slice(0, 2).join(', '); if (!t2) return; const en = s.en ? (EN.has(num(s.en)) ? EN.get(num(s.en)) : num(s.en)) : null; s.de = num(s.de) + ' (' + t2 + ')'; if (en != null) s.en = en + ' (' + t2 + ')'; }); });
+})();
 regs.forEach(r => { r.rgb = hex2rgb(r.color); r.light = lighten(r.rgb, .35); r.cm = r.m; r.members = []; r.shortDe = SHORT[r.anchor] || r.de.split(/[ ,&]/)[0]; Object.defineProperty(r, 'short', { get() { return LANG === 'en' ? (r.short_en || T(r.shortDe)) : r.shortDe; }, enumerable: true, configurable: true }); r.bcx = r.cx; r.bcy = r.cy; r.brad = r.rad; r.tcx = r.cx; r.tcy = r.cy; r.trad = r.rad; r.act = r.n; });
 scs.forEach(s => { s.rgb = hex2rgb(regs[s.reg].color); s.light = lighten(s.rgb, .4); s.cm = s.m; s.members = []; s.bcx = s.cx; s.bcy = s.cy; s.brad = s.rad; s.tcx = s.cx; s.tcy = s.cy; s.trad = s.rad; s.act = s.n; });
 art.forEach((a, i) => {
@@ -304,7 +364,7 @@ function recolor() {
   art.forEach(a => {
     a._rs = null;
     if (mode === 'region') { a.c = a.c0; a.rgb = a.rgb0; }
-    else if (mode === 'who' && CMP) { const rgb = ramp(WHOC, (a.mM + 1e-6) / (a.mM + a.mF + 2e-6)).map(Math.round); a.rgb = rgb; a.c = rgb2hex(rgb); }
+    else if (mode === 'who' && CMP) { const rgb = whoRGB(a).map(Math.round); a.rgb = rgb; a.c = rgb2hex(rgb); }
     else {
       const rgb = mode === 'heat' ? ramp(HEAT, Math.log(1 + a.m) / Math.log(1 + maxArtM)) : ramp(NEWC, (a.f - minF) / Math.max(1, maxF - minF));
       a.rgb = rgb.map(Math.round); a.c = rgb2hex(rgb);
@@ -531,6 +591,7 @@ function computeFocus() {
   focus.on = true;
   if (LINKV) { LINKV.nodes.forEach(i => focus.arts.add(i)); LINKV.trks.forEach(k => { focus.trks.add(k); trk[k].a.forEach(x => focus.arts.add(x)); }); }
   if (!sel) return;
+  if (hideIs(sel.t, sel.i)) { if (!LINKV) focus.on = false; return; }      // ausgeblendetes Element: nichts hervorheben
   if (sel.t === 'a') {
     const a = art[sel.i]; focus.arts.add(a.i); a.tr.forEach(t => focus.trks.add(t)); a.ft.forEach(t => { focus.trks.add(t); focus.arts.add(trk[t].p); });
     a.nb.forEach(n => focus.arts.add(n[0]));
@@ -888,6 +949,7 @@ function drawFocusOverlay(z, ox, oy) {
   ctx.save();
   if (LINKV) drawLinkOverlay(z, ox, oy);
   if (LIVE.on && LIVE.cur) drawLiveOverlay(z, ox, oy);
+  if (RC.edit && (RC.sel.size || RC.band)) drawEditSel(z, ox, oy);
   const ring = (x, y, r, rgb, w) => { ctx.lineWidth = w; ctx.strokeStyle = rgba(rgb, .95); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.stroke(); };
   const HLC = TH.hl, HLRGB = TH.tint === 'light' ? [255, 255, 255] : [16, 20, 34];
   if (sel && sel.t === 'a' && PATH !== 'songs') {
@@ -1082,9 +1144,9 @@ const CURVES = { soft: { e: .38, k: Math.pow(40, .12) }, sqrt: { e: .5, k: 1 }, 
 const sizeHub = v => v <= 0 ? 0 : S.artScale * (5 + 5.2 * CURVES[S.sizeCurve].k * Math.pow(v, CURVES[S.sizeCurve].e));
 const sizeMoon = v => v <= 0 ? 0 : S.songScale * (2 + 3.6 * CURVES[S.sizeCurve].k * Math.pow(v, CURVES[S.sizeCurve].e));
 const sizeTile = v => v <= 0 ? 0 : S.songScale * .88 * (5 + 5.2 * CURVES[S.sizeCurve].k * Math.pow(v, CURVES[S.sizeCurve].e));
-const filtersOn = () => S.topN > 0 || S.minMin > 0 || S.minStr > 0;
-const passA = a => (!S.topN || PATH === 'songs' || a.rk <= S.topN) && a.cm >= S.minMin && a.cs >= S.minStr;
-const passT = t => (!S.topN || PATH !== 'songs' || t.rk <= S.topN) && t.cm >= S.minMin && t.cs >= S.minStr;
+const filtersOn = () => S.topN > 0 || S.minMin > 0 || S.minStr > 0 || (HID.n > 0 && !HID.off);          // Ausblenden zaehlt wie ein Filter: die uebrigen Artists ruecken zusammen, die Karte bleibt ohne Luecken
+const passA = a => !isHidA(a) && (!S.topN || PATH === 'songs' || a.rk <= S.topN) && a.cm >= S.minMin && a.cs >= S.minStr;
+const passT = t => !isHidT(t) && (!S.topN || PATH !== 'songs' || t.rk <= S.topN) && t.cm >= S.minMin && t.cs >= S.minStr;
 const PADE = 8;     // Mindestabstand zwischen zwei Einheiten bei der Neuberechnung
 
 function hash01(a, b) { let h = (Math.imul(a + 7, 374761393) + Math.imul(b + 13, 668265263)) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; }
@@ -1192,17 +1254,17 @@ let solver = null;
 
 /* ---------- Karte (semantisches Layout, optional zeitabhängig) ---------- */
 function layoutMap() {
-  const dyn = S.timeMode === 'dynamic', full = isFull(), useRange = dyn || full, whoAll = !CMP || S.who === 'B';
-  const baked = S.metric === 'min' && S.sizeCurve === 'sqrt' && S.artScale === 1 && S.songScale === 1 && (full || !dyn) && !filtersOn() && whoAll;
+  const ed = RC.edit, dyn = S.timeMode === 'dynamic', full = isFull(), useRange = dyn || full || ed, whoAll = !CMP || S.who === 'B';
+  const baked = ed || S.metric === 'min' && S.sizeCurve === 'sqrt' && S.artScale === 1 && S.songScale === 1 && (full || !dyn) && !filtersOn() && whoAll;
   const act = [];
   let sNew = 0, sBase = 0;
   for (let i = 0; i < NA; i++) {
     const a = art[i], val = useRange ? a.rv : a.lv;
-    const active = ((full && whoAll) || !dyn || a.rv > 0) && passA(a) && (a.k !== 1 || passT(trk[a.tr[0]]));
+    const active = ed || (((full && whoAll) || !dyn || a.rv > 0) && passA(a) && (a.k !== 1 || passT(trk[a.tr[0]])));
     a.tsc = !active ? 0 : (useRange ? 1 : Math.sqrt(clamp(a.rv / Math.max(1e-9, a.lv), 0, 1)));
     if (baked) {
       a.tR = a.bR; a.tF = a.bF; a.tRings = a.bRings;
-      for (let m = 0; m < a.tr.length; m++) { const t = trk[a.tr[m]]; t.tr = t.br; t.ox = t.bx - a.bx; t.oy = t.by - a.by; t.tsc = a.tsc ? (useRange ? 1 : Math.sqrt(clamp(t.rv / Math.max(1e-9, t.lv), 0, 1))) : 0; }
+      for (let m = 0; m < a.tr.length; m++) { const t = trk[a.tr[m]]; t.tr = t.br; t.ox = t.bx - a.bx; t.oy = t.by - a.by; t.tsc = a.tsc && !isHidT(t) ? (useRange ? 1 : Math.sqrt(clamp(t.rv / Math.max(1e-9, t.lv), 0, 1))) : 0; }
     } else if (!active) {
       a.tR = sizeHub(a.lv); a.tF = a.tR; a.tRings = [];
       for (let m = 0; m < a.tr.length; m++) { const t = trk[a.tr[m]]; t.tsc = 0; t.ox = 0; t.oy = 0; t.tr = sizeMoon(t.lv); }
@@ -1227,9 +1289,9 @@ function layoutMap() {
     const rms = Math.sqrt(r2 / w) || 1, need = Math.sqrt(w / .46) / Math.SQRT2;
     sc = clamp(need / rms, .06, 1.6);
   }
-  const spread = S.spread;
+  const spread = ed ? 1 : S.spread;
   for (let i = 0; i < NA; i++) { const a = art[i]; a.ax = ccx + (a.bx - ccx) * sc * spread; a.ay = ccy + (a.by - ccy) * sc * spread; a.tx = a.ax; a.ty = a.ay; }
-  const partial = (dyn && !full) || filtersOn();
+  const partial = !ed && ((dyn && !full) || filtersOn());
   let cfg = null;
   if (partial || !baked || spread < 1) {
     if (partial) {
@@ -1253,13 +1315,23 @@ function syncMoons() {
 
 /* ---------- Rangliste (Reihen) und Spirale ---------- */
 function rowsLayout(items) {
-  const gap = 8; let area = 0; items.forEach(it => { const d = 2 * it.r + gap; area += d * d; });
+  const gap = 8, n = items.length, vert = S.rowDir === 'v', C = S.gridCols | 0, R = S.gridRows | 0;
+  if (C || R) {                                                   // festes Raster: waagerecht zaehlt die Spaltenzahl, senkrecht die Zeilenzahl (die andere nur bei Auto)
+    const per = Math.max(1, vert ? (R || Math.ceil(n / C)) : (C || Math.ceil(n / R))), lines = Math.ceil(n / per);
+    const nc = vert ? lines : per, nr = vert ? per : lines, w = new Float64Array(nc), h = new Float64Array(nr);
+    items.forEach((it, i) => { const d = 2 * it.r + gap, dh = 2 * it.r * 1.26 + gap, ln = Math.floor(i / per), ps = i % per, c = vert ? ln : ps, r = vert ? ps : ln; it.gc = c; it.gr = r; if (d > w[c]) w[c] = d; if (dh > h[r]) h[r] = dh; });          // Zeilen etwas hoeher: Platz fuer Rang und Namen unter dem Kreis
+    const xo = new Float64Array(nc + 1), yo = new Float64Array(nr + 1);
+    for (let c = 0; c < nc; c++) xo[c + 1] = xo[c] + w[c]; for (let r = 0; r < nr; r++) yo[r + 1] = yo[r] + h[r];
+    items.forEach(it => { it.x = xo[it.gc] + w[it.gc] / 2 - xo[nc] / 2; it.y = yo[it.gr] + h[it.gr] / 2 - yo[nr] / 2; });
+    return;
+  }
+  let area = 0; items.forEach(it => { const d = 2 * it.r + gap; area += d * d; });
   const Wt = Math.max(2 * items[0].r + gap, Math.sqrt(area * 1.9));
   let x = 0, y = 0, rowH = 0, row = [];
   const flush = () => { const cy = y + rowH / 2; row.forEach(it => it.y = cy); y += rowH; row = []; x = 0; rowH = 0; };
   items.forEach(it => { const d = 2 * it.r + gap; if (x + d > Wt && row.length) flush(); if (!row.length) rowH = d; it.x = x + d / 2; x += d; row.push(it); });
   flush();
-  items.forEach(it => { it.x -= Wt / 2; it.y -= y / 2; });
+  items.forEach(it => { it.x -= Wt / 2; it.y -= y / 2; if (vert) { const t = it.x; it.x = it.y; it.y = t; } });          // senkrecht: dieselbe Anordnung gedreht (Spalte fuer Spalte)
 }
 function spiralLayout(items) {
   const B = 4096, outer = new Float64Array(B), gap = 8, TWO = 2 * Math.PI;
@@ -1457,10 +1529,14 @@ function closeDrawer() { body.classList.remove('drawer-open'); }
 function setTab(t, silent) {
   drawerTab = t; document.querySelectorAll('#drawer .tab').forEach(b => b.classList.toggle('on', b.dataset.tab === t));
   if (!silent) body.classList.add('drawer-open'); renderDrawer();
+  /* aktiven Reiter in der (seitlich scrollbaren) Leiste sichtbar halten, z. B. „Optionen“ am rechten Rand */
+  const on = document.querySelector('#drawer .tab.on'), tb = on && on.parentElement;
+  if (tb && tb.scrollWidth > tb.clientWidth) { const r = on.getBoundingClientRect(), q = tb.getBoundingClientRect(); if (r.right > q.right) tb.scrollLeft += r.right - q.right + 8; else if (r.left < q.left) tb.scrollLeft -= q.left - r.left + 8; }
 }
 function renderDrawer() {
   const st = dbody.scrollTop;
   if (drawerTab === 'detail') dbody.innerHTML = detailHTML(); else if (drawerTab === 'top') dbody.innerHTML = topHTML(); else if (drawerTab === 'settings') dbody.innerHTML = settingsHTML(); else if (drawerTab === 'cmp') dbody.innerHTML = cmpHTML(); else if (drawerTab === 'link') { dbody.innerHTML = linkHTML(); } else dbody.innerHTML = regionsHTML();
+  if (drawerTab === 'settings') settingsFold();
   dbody.scrollTop = st;
   if (drawerTab === 'detail' && sel) {
     if (sel.t === 'a') upgradeHero('a', art[sel.i]); else if (sel.t === 'k') { const al = alb[trk[sel.i].al]; if (al) upgradeHero('b', al); } else if (sel.t === 'b') upgradeHero('b', alb[sel.i]);
@@ -1513,7 +1589,8 @@ function artistHTML(a) {
   let h = rangeBadge();
   const pic = a.hc >= 0 ? thumbCStyle(a.hc, 84) : a.h >= 0 ? thumbHiStyle(a.h, 84) : thumbStyle(a.i, 84);
   h += '<div class="hero" style="--c:' + col + '"><div class="pic" id="hero-pic" style="' + pic + '"></div><div><h2>' + esc(a.n) + '</h2><div class="sub">Artist · Rang <b>#' + a.rk + '</b>' + (isFull() ? '' : ' im Zeitraum') + ' von ' + NA + '</div></div></div>';
-  h += '<div class="chips"><span class="chip reg" style="--c:' + regs[a.r].color + '" data-go="r' + a.r + '">' + esc(regs[a.r].name) + '</span><span class="chip reg" style="--c:' + regs[a.r].color + '" data-go="s' + a.s + '">' + esc(scs[a.s].name) + '</span>' + a.g.slice(0, 6).map(g => '<span class="chip">' + esc(tagName(g)) + '</span>').join('') + '</div>';
+  h += hideNote('a', a.i);
+  h += '<div class="chips"><span class="chip reg" style="--c:' + regs[a.r].color + '" data-go="r' + a.r + '">' + esc(regs[a.r].name) + '</span><span class="chip reg" style="--c:' + regs[a.r].color + '" data-go="s' + a.s + '">' + esc(scs[a.s].name) + '</span>' + (a.gx ? a.gx : a.g.slice(0, 6).map(tagName)).map(g => '<span class="chip">' + esc(g) + '</span>').join('') + '</div>';
   h += '<div class="kpis">' + kpi('Hörzeit', fmtMin(a.cm), fmtHours(a.cm)) + kpi('Streams', fmt(a.cs), isFull() ? 'gesamt' : 'im Zeitraum') + kpi('Anteil', NF1.format(a.cm / totalRange() * 100) + ' %', 'deiner Hörzeit') + '</div>';
   h += '<div class="sect"><h3>Verlauf <em>' + (S.metric === 'str' ? 'Streams' : 'Minuten') + ' pro Monat</em></h3>' + sparkHTML(a.dy, col) + '<div class="rec" style="margin-top:8px">Erster Stream <b>' + fmtDay(a.f) + '</b> · Zuletzt <b>' + fmtDay(a.l) + '</b><br>Stärkster Monat: <b>' + peakMonth(a.dy) + '</b></div></div>';
   // Songs
@@ -1527,7 +1604,7 @@ function artistHTML(a) {
   const als = a.al.map(k => alb[k]).filter(b => isFull() || b.cm > 0).sort((x, y) => y.cm - x.cm).slice(0, 9);
   if (als.length) h += '<div class="sect"><h3>Alben</h3><div class="alb-grid">' + als.map(b => '<div class="alb" data-go="b' + b.i + '"><span class="th" style="' + thumbStyle(b.t, 100) + ';display:block;border-radius:9px"></span><b>' + esc(b.n) + '</b><span>' + fmtMin(b.cm) + '</span></div>').join('') + '</div></div>';
   if (a.nb.length) h += '<div class="sect"><h3>Liegt nah bei <em>Tippe „?“ für den Grund</em></h3><div class="nb-grid">' + a.nb.map(n => { const b = art[n[0]]; return '<div class="nb" data-go="a' + b.i + '">' + thumbA(b, 46) + '<span>' + esc(b.n) + '</span><i class="why" data-why="' + a.i + '-' + b.i + '" title="Warum liegt ' + esc(b.n) + ' hier?">?</i></div>'; }).join('') + '</div></div>';
-  h += '<div class="btns"><a class="btn pri" target="_blank" rel="noopener" href="' + spotifyUrl('artist', a.sp, a.n) + '">In Spotify öffnen ↗</a><button class="btn" data-act="center">Auf Karte zeigen</button><button class="btn" data-act="lk-from">Verbindung finden …</button><button class="btn" data-act="art-home">Zum Kontinent zurückholen</button></div>';
+  h += '<div class="btns"><a class="btn pri" target="_blank" rel="noopener" href="' + spotifyUrl('artist', a.sp, a.n) + '">In Spotify öffnen ↗</a><button class="btn" data-act="center">Auf Karte zeigen</button><button class="btn" data-act="lk-from">Verbindung finden …</button><button class="btn" data-act="art-home">Zum Kontinent zurückholen</button>' + hideBtn('a', a.i) + fixBtn('a', a.i) + '</div>';
   return h;
 }
 function artistLinks(t) { return t.a.map(i => '<a href="#" data-go="a' + i + '" style="color:' + art[i].c + '">' + esc(art[i].n) + '</a>').join(', '); }
@@ -1536,10 +1613,12 @@ function trackHTML(t) {
   const col = t.c, al = t.al >= 0 ? alb[t.al] : null;
   let h = rangeBadge();
   h += '<div class="hero" style="--c:' + col + '"><div class="pic sq" id="hero-pic" style="' + (al && al.hc >= 0 ? thumbCStyle(al.hc, 84) : al && al.h >= 0 ? thumbHiStyle(al.h, 84) : thumbStyle(t.t, 84)) + '"></div><div><h2>' + esc(t.n) + '</h2><div class="sub">Song von ' + artistLinks(t) + (t.ex ? ' · <span class="chip" style="padding:0 6px">E</span>' : '') + '</div></div></div>';
+  h += hideNote('k', t.i);
   if (al) h += '<div class="chips"><span class="chip reg" style="--c:' + col + '" data-go="b' + al.i + '">💿 ' + esc(al.n) + '</span><span class="chip reg" style="--c:' + regs[t.art.r].color + '" data-go="r' + t.art.r + '">' + esc(regs[t.art.r].name) + '</span></div>';
+  if (t.gx) h += '<div class="chips">' + t.gx.map(g => '<span class="chip">' + esc(g) + '</span>').join('') + '</div>';
   const avg = t.d && t.st ? Math.min(100, t.m * 60 / t.st / t.d * 100) : 0;
   h += '<div class="kpis">' + kpi('Hörzeit', fmtMin(t.cm), fmtHours(t.cm)) + kpi('Streams', fmt(t.cs), isFull() ? 'gesamt' : 'im Zeitraum') + kpi('Rang', '#' + t.rk, 'von ' + NT + ' Songs') + '</div>';
-  h += '<div class="btns" style="margin-top:12px">' + (t.pv && !IS_ART ? '<button class="btn pri" data-act="play-prev" id="pv-btn">' + (audioId === t.i ? '⏸ Vorschau stoppen' : '▶ 30-Sek.-Vorschau') + '</button>' : '') + '<a class="btn' + (IS_ART || !t.pv ? ' pri' : '') + '" target="_blank" rel="noopener" href="' + spotifyUrl('track', t.sp, t.n + ' ' + t.art.n) + '">' + (IS_ART ? '▶ In Spotify anhören ↗' : 'In Spotify ↗') + '</a><button class="btn" data-act="center">Auf Karte zeigen</button><button class="btn" data-act="lk-from">Verbindung finden …</button></div>';
+  h += '<div class="btns" style="margin-top:12px">' + (t.pv && !IS_ART ? '<button class="btn pri" data-act="play-prev" id="pv-btn">' + (audioId === t.i ? '⏸ Vorschau stoppen' : '▶ 30-Sek.-Vorschau') + '</button>' : '') + '<a class="btn' + (IS_ART || !t.pv ? ' pri' : '') + '" target="_blank" rel="noopener" href="' + spotifyUrl('track', t.sp, t.n + ' ' + t.art.n) + '">' + (IS_ART ? '▶ In Spotify anhören ↗' : 'In Spotify ↗') + '</a><button class="btn" data-act="center">Auf Karte zeigen</button><button class="btn" data-act="lk-from">Verbindung finden …</button>' + hideBtn('k', t.i) + fixBtn('k', t.i) + '</div>';
   h += '<div class="sect"><h3>Verlauf <em>' + (S.metric === 'str' ? 'Streams' : 'Minuten') + ' pro Monat</em></h3>' + sparkHTML(t.dy, col) + '<div class="rec" style="margin-top:8px">Erster Stream <b>' + fmtDay(t.f) + '</b> · Zuletzt <b>' + fmtDay(t.l) + '</b><br>Länge <b>' + Math.floor(t.d / 60) + ':' + String(t.d % 60).padStart(2, '0') + '</b>' + (avg ? ' · im Schnitt <b>' + Math.round(avg) + ' %</b> pro Stream gehört' : '') + '<br>Anteil am Artist: <b>' + NF1.format(t.m / Math.max(1, t.art.m) * 100) + ' %</b></div></div>';
   if (al && al.tr.length > 1) {
     const sib = al.tr.map(k => trk[k]).sort((x, y) => y.cm - x.cm).slice(0, 12);
@@ -1566,7 +1645,8 @@ function regionHTML(r) {
   const share = isFull() ? r.share : r.cm / totalRange();
   let h = rangeBadge();
   h += '<div class="hero" style="--c:' + r.color + '"><div><div class="kicker" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:' + r.color + ';font-weight:650">Kontinent</div><h2>' + esc(r.name) + '</h2><div class="sub">' + esc(r.sub) + '</div></div></div>';
-  h += '<div class="rc-detail"><label class="rc-row"><input type="color" value="' + r.color + '" data-rc="' + r.id + '"><span>Farbe ändern</span></label><button class="btn" data-rcp="edit">Kontinente verschieben</button></div>';
+  h += hideNote('r', r.id);
+  h += '<div class="rc-detail"><label class="rc-row"><input type="color" value="' + r.color + '" data-rc="' + r.id + '"><span>Farbe ändern</span></label><button class="btn" data-rcp="edit">Kontinente verschieben</button>' + hideBtn('r', r.id) + '</div>';
   h += '<div class="kpis">' + kpi('Anteil', NF1.format(share * 100) + ' %', 'deiner Hörzeit') + kpi('Hörzeit', fmtMin(r.cm), fmtHours(r.cm)) + kpi('Artists', fmt(r.n), tracksIn.length + ' Songs') + '</div>';
   const sc = r.sc.map(id => scs[id]).filter(s => s.n >= 3).sort((x, y) => y.cm - x.cm);
   if (sc.length) h += '<div class="sect"><h3>Szenen <em>' + sc.length + '</em></h3>' + sc.map(s => '<div class="row" data-go="s' + s.id + '" style="--c:' + r.color + '"><div class="rk">' + s.n + '</div><div class="rt"><div class="nm">' + esc(s.name) + '</div><div class="sb">' + esc(s.sub) + '</div><div class="bar"><i style="width:' + Math.max(2, s.cm / Math.max(1, sc[0].cm) * 100) + '%"></i></div></div><div class="mn">' + fmtMin(s.cm) + '</div></div>').join('') + '</div>';
@@ -1581,6 +1661,8 @@ function sceneHTML(s) {
   const tr = []; for (let k = 0; k < NT; k++) if (art[trk[k].p].s === s.id && (isFull() || trk[k].cm > 0)) tr.push(trk[k]); tr.sort((x, y) => y.cm - x.cm);
   let h = rangeBadge();
   h += '<div class="hero" style="--c:' + r.color + '"><div><div class="kicker" style="font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:' + r.color + ';font-weight:650">Szene · <a href="#" data-go="r' + r.id + '" style="color:' + r.color + '">' + esc(r.name) + '</a></div><h2>' + esc(s.name) + '</h2><div class="sub">' + esc(s.sub) + '</div></div></div>';
+  h += hideNote('s', s.id);
+  { const hb = hideBtn('s', s.id); h += '<div class="btns" style="margin:12px 0 2px">' + hb + fixBtn('s', s.id) + '</div>'; }
   h += '<div class="kpis">' + kpi('Anteil', NF1.format(s.cm / totalRange() * 100) + ' %', 'deiner Hörzeit') + kpi('Hörzeit', fmtMin(s.cm), fmtHours(s.cm)) + kpi('Artists', fmt(s.n), tr.length + ' Songs') + '</div>';
   h += '<div class="sect"><h3>Artists</h3>' + ta.map(a => artistRow(a, ta[0] ? ta[0].cm : 1, 0)).join('') + '</div>';
   h += '<div class="sect"><h3>Top-Songs</h3>' + tr.slice(0, 8).map(t => trackRow(t, tr[0] ? tr[0].cm : 1, 0, { artist: true })).join('') + '</div>';
@@ -1610,12 +1692,12 @@ function selectItem(t, i, opt) {
   LINKV = null; sel = { t, i }; computeFocus(); drawerTab = 'detail'; document.querySelectorAll('#drawer .tab').forEach(b => b.classList.toggle('on', b.dataset.tab === 'detail'));
   songLimit = 40; body.classList.add('drawer-open'); renderDrawer(); dbody.scrollTop = 0;
   if (opt.fly !== false) flyToSel();
-  if (t !== 'k') stopPreview();
   requestDraw();
 }
-function clearSel() { sel = null; hl = null; computeFocus(); if (drawerTab === 'detail') renderDrawer(); stopPreview(); requestDraw(); }
+function clearSel() { sel = null; hl = null; computeFocus(); if (drawerTab === 'detail') renderDrawer(); requestDraw(); }
 function flyToSel() {
   if (!sel) return;
+  if (hideIs(sel.t, sel.i)) { toast('Ausgeblendet: nicht auf der Karte'); return; }
   const b = availBox();
   if (sel.t === 'a') {
     const a = art[sel.i];
@@ -1642,14 +1724,27 @@ function flyToSel() {
 function parseGo(s) { return { t: s[0], i: +s.slice(1) }; }
 
 /* ---------- Vorschau (Audio) ---------- */
-function stopPreview() { if (audio) { audio.pause(); audio = null; } if (audioId >= 0) { audioId = -1; const b = $('pv-btn'); if (b) b.textContent = '▶ 30-Sek.-Vorschau'; } }
+/* Die 30-Sekunden-Vorschau laeuft zu Ende, auch wenn man auf der Karte weiterstoebert oder Einstellungen aendert; ein kleiner Player unten rechts zeigt sie an (Pause, Schliessen, Antippen = zum Song). */
+function pvSync() {
+  const m = $('pv-mini'), t = audioId >= 0 ? trk[audioId] : null; if (!m) return;
+  m.classList.toggle('hidden', !t); document.body.classList.toggle('pv-on', !!t);
+  if (t) { $('pm-cover').innerHTML = thumbT(t, 44); $('pm-t').textContent = t.n; $('pm-a').textContent = t.a.map(i => art[i].n).join(', '); }
+  $('pm-play').textContent = audio && audio.paused ? '▶' : '⏸'; $('pm-play').setAttribute('aria-label', T(audio && audio.paused ? 'Weiter' : 'Pause'));
+  const b = $('pv-btn'); if (b && sel && sel.t === 'k') b.textContent = audioId === sel.i ? T('⏸ Vorschau stoppen') : T('▶ 30-Sek.-Vorschau');
+}
+function stopPreview() { if (audio) { audio.onended = audio.onerror = audio.ontimeupdate = null; audio.pause(); audio = null; } audioId = -1; $('pm-bar').style.width = '0'; pvSync(); }
 function togglePreview(t) {
   if (audioId === t.i) { stopPreview(); return; }
-  stopPreview(); audio = new Audio(t.pv); audioId = t.i; audio.volume = .85;
-  audio.onended = () => { stopPreview(); };
-  audio.onerror = () => { stopPreview(); toast('Vorschau nicht verfügbar (offline?)'); };
-  audio.play().then(() => { const b = $('pv-btn'); if (b) b.textContent = '⏸ Vorschau stoppen'; }).catch(() => { stopPreview(); toast('Vorschau konnte nicht gestartet werden'); });
+  stopPreview(); const au = new Audio(t.pv); audio = au; audioId = t.i; au.volume = .85;
+  au.onended = () => { if (audio === au) stopPreview(); };
+  au.onerror = () => { if (audio === au) { stopPreview(); toast('Vorschau nicht verfügbar (offline?)'); } };
+  au.ontimeupdate = () => { if (audio === au && au.duration) $('pm-bar').style.width = (au.currentTime / au.duration * 100) + '%'; };
+  au.play().then(() => { if (audio === au) pvSync(); }).catch(() => { if (audio === au) { stopPreview(); toast('Vorschau konnte nicht gestartet werden'); } });
+  pvSync();
 }
+$('pm-play').onclick = () => { if (!audio) return; if (audio.paused) audio.play().catch(() => { }); else audio.pause(); pvSync(); };
+$('pm-x').onclick = stopPreview;
+$('pm-txt').onclick = () => { if (audioId >= 0) selectItem('k', audioId); };
 
 /* ---------- Toast / Tooltip ---------- */
 let toastT = 0;
@@ -1693,19 +1788,19 @@ alb.forEach(b => sidx.push({ t: 'b', i: b.i, key: norm(b.n + ' ' + (b.a >= 0 ? a
 regs.forEach(r => sidx.push({ t: 'r', i: r.id, key: norm(r.name + ' ' + r.sub), m: r.m * 5 }));
 scs.forEach(s => { if (s.n >= 6) sidx.push({ t: 's', i: s.id, key: norm(s.name + ' ' + s.sub), m: s.m * 2 }); });
 let resSel = 0, resList = [];
-function search(q) {
+function search(q, only, caps, maxN) {
   q = norm(q).trim(); if (!q) return [];
   const toks = q.split(/\s+/); const out = [];
   for (let n = 0; n < sidx.length; n++) {
-    const e = sidx[n]; let ok = true, sc = 0;
+    const e = sidx[n]; if (only && only.indexOf(e.t) < 0) continue; let ok = true, sc = 0;
     for (let k = 0; k < toks.length; k++) { const p = e.key.indexOf(toks[k]); if (p < 0) { ok = false; break; } sc += p === 0 ? 3 : e.key[p - 1] === ' ' ? 2 : 1; }
     if (!ok) continue;
     out.push({ e, s: sc / toks.length + Math.log10(e.m + 1) * .45 + (e.t === 'a' ? .3 : 0) });
   }
   out.sort((a, b) => b.s - a.s);
   // Mischung: von jedem Typ die besten
-  const caps = { a: 5, k: 5, b: 3, r: 2, s: 2 }, cnt = {}, res = [];
-  for (const o of out) { const c = cnt[o.e.t] || 0; if (c < caps[o.e.t]) { cnt[o.e.t] = c + 1; res.push(o.e); } if (res.length >= 14) break; }
+  caps = caps || { a: 5, k: 5, b: 3, r: 2, s: 2 }; maxN = maxN || 14; const cnt = {}, res = [];
+  for (const o of out) { const c = cnt[o.e.t] || 0; if (c < (caps[o.e.t] || 0)) { cnt[o.e.t] = c + 1; res.push(o.e); } if (res.length >= maxN) break; }
   return res;
 }
 function renderResults() {
@@ -1721,7 +1816,7 @@ function renderResults() {
     else if (e.t === 'b') { const b = alb[e.i]; th = '<span class="th sq" style="' + thumbStyle(b.t, 34) + '"></span>'; nm = b.n; sb = (b.a >= 0 ? art[b.a].n + ' · ' : '') + fmtMin(b.m); }
     else if (e.t === 'r') { const r = regs[e.i]; th = '<span class="th" style="background:radial-gradient(circle,' + r.color + ',transparent 70%)"></span>'; nm = r.name; sb = r.n + ' Artists · ' + NF1.format(r.share * 100) + ' %'; }
     else { const s = scs[e.i]; th = '<span class="th" style="background:radial-gradient(circle,' + s.rgb.join(',').replace(/^/, 'rgb(').concat(')') + ',transparent 70%)"></span>'; nm = s.name; sb = s.n + ' Artists · ' + regs[s.reg].name; }
-    return '<div class="res' + (n === 0 ? ' on' : '') + '" data-n="' + n + '"><div style="width:34px;height:34px;border-radius:' + (e.t === 'k' || e.t === 'b' ? '7px' : '50%') + ';overflow:hidden">' + th + '</div><div style="min-width:0"><div class="nm">' + esc(nm) + '</div><div class="sb">' + esc(sb) + '</div></div><div class="tp">' + TL[e.t] + '</div></div>';
+    return '<div class="res' + (n === 0 ? ' on' : '') + '" data-n="' + n + '"><div style="width:34px;height:34px;border-radius:' + (e.t === 'k' || e.t === 'b' ? '7px' : '50%') + ';overflow:hidden">' + th + '</div><div style="min-width:0"><div class="nm">' + esc(nm) + '</div><div class="sb">' + esc(sb) + '</div></div><div class="tp">' + TL[e.t] + (hideIs(e.t, e.i) ? '<span class="hid-tag">ausgeblendet</span>' : '') + '</div></div>';
   }).join('');
   box.classList.add('show');
 }
@@ -1944,7 +2039,7 @@ function tourStart() {
   if (tour.on) { tourEnd(); return; }
   tour.on = true; tour.paused = false; tour.i = 0; clearSel(); closeDrawer(); stopPlay();
   if (S.view !== 'map') { S.view = 'map'; if (typeof syncSettingsUI === 'function') syncSettingsUI(); applyLayout({ fit: false }); }
-  tour.steps = [{ t: 'o' }].concat(regOrder.map(id => ({ t: 'r', id })));
+  tour.steps = [{ t: 'o' }].concat(regOrder.filter(id => regs[id].act > 0 && !hideIs('r', id)).map(id => ({ t: 'r', id })));
   $('t-tour').classList.add('on'); tourGo(0);
 }
 function tourEnd() { tour.on = false; clearTimeout(tour.t); $('caption').classList.remove('show'); $('t-tour').classList.remove('on'); }
@@ -1954,11 +2049,11 @@ function tourGo(i) {
   let html;
   if (st.t === 'o') {
     sel = null; computeFocus(); fitAll(true);
-    html = '<div class="k">Willkommen · Tour</div><h2>Deine Musik als Landkarte</h2><p>' + fmt(HUD.artists) + ' Artists und ' + fmt(HUD.tracks) + ' Songs, gruppiert nach Klang-Verwandtschaft: ' + regs.length + ' Kontinente. Je größer ein Kreis, desto länger hast du ihn gehört. Gleich fliegen wir zu jedem Kontinent, beginnend mit dem größten.</p>';
+    html = '<div class="k">Willkommen · Tour</div><h2>Deine Musik als Landkarte</h2><p>' + fmt(HUD.artists) + ' Artists und ' + fmt(HUD.tracks) + ' Songs, gruppiert nach Klang-Verwandtschaft: ' + (tour.steps.length - 1) + ' Kontinente. Je größer ein Kreis, desto länger hast du ihn gehört. Gleich fliegen wir zu jedem Kontinent, beginnend mit dem größten.</p>';
   } else {
     const r = regs[st.id]; sel = { t: 'r', i: r.id }; computeFocus(); focusOn(r.tcx, r.tcy, Math.max(r.trad, 60), 1.05, 1500);
-    const tt = []; for (let k = 0; k < NT && tt.length < 2; k++) if (art[trk[k].p].r === r.id) tt.push(trk[k]);
-    html = '<div class="k" style="color:' + r.color + '">Kontinent ' + tour.i + ' von ' + regs.length + '</div><h2 style="color:' + r.color + '">' + esc(r.name) + '</h2><p><b style="color:#fff">' + NF1.format(r.share * 100) + ' %</b> deiner Hörzeit · ' + r.n + ' Artists. Allen voran <b style="color:#fff">' + r.top.slice(0, 3).map(i => esc(art[i].n)).join('</b>, <b style="color:#fff">') + '</b>. Meistgehört: „' + esc(tt[0].n) + '“ von ' + esc(tt[0].art.n) + ' (' + fmtMin(tt[0].m) + ').</p>';
+    const tt = []; for (let k = 0; k < NT && tt.length < 2; k++) if (art[trk[k].p].r === r.id && !isHidT(trk[k])) tt.push(trk[k]);
+    html = '<div class="k" style="color:' + r.color + '">Kontinent ' + tour.i + ' von ' + (tour.steps.length - 1) + '</div><h2 style="color:' + r.color + '">' + esc(r.name) + '</h2><p><b style="color:#fff">' + NF1.format(r.share * 100) + ' %</b> deiner Hörzeit · ' + r.n + ' Artists. Allen voran <b style="color:#fff">' + r.top.filter(i => !isHidA(art[i])).concat(r.members.filter(i => !isHidA(art[i]) && r.top.indexOf(i) < 0).sort((x, y) => art[y].cm - art[x].cm)).slice(0, 3).map(i => esc(art[i].n)).join('</b>, <b style="color:#fff">') + '</b>.' + (tt.length ? ' Meistgehört: „' + esc(tt[0].n) + '“ von ' + esc(tt[0].art.n) + ' (' + fmtMin(tt[0].m) + ').' : '') + '</p>';
   }
   html += '<div class="tb"><button class="btn" data-tour="prev">‹ Zurück</button><button class="btn" data-tour="pause">' + (tour.paused ? '▶ Weiter' : '❚❚ Pause') + '</button><button class="btn" data-tour="next">Weiter ›</button><span class="sp"></span><button class="btn" data-tour="end">Beenden</button></div>';
   cap.innerHTML = html; cap.classList.add('show'); requestDraw();
@@ -2674,7 +2769,7 @@ function liveTick() {                       // Fortschrittsbalken lokal fortschr
   const p = clamp((cur.prog + (performance.now() - cur.at)) / cur.dur, 0, 1); const b = $('lv-bar'); if (b) b.style.width = (p * 100).toFixed(1) + '%';
 }
 function liveFly() {
-  const c = LIVE.cur; if (!c || c.ai == null || PATH === 'songs') return; const a = art[c.ai];
+  const c = LIVE.cur; if (!c || c.ai == null || PATH === 'songs') return; const a = art[c.ai]; if (isHidA(a)) return;
   if (PATH === 'map') focusOn(a.tx, a.ty, a.k === 1 ? Math.max(a.tR, 8) : Math.max(a.tF * .9, 28), 1.5, 1500); else focusOn(a.tx, a.ty, Math.max(a.tR, 8), 4, 1200);
 }
 function liveSet(item) {
@@ -2781,9 +2876,11 @@ async function liveSync(manual) {
   finally { SYNC.busy = false; }
 }
 function syncStart() { if (SYNC.timer) return; SYNC.timer = setInterval(() => { if (LIVE.on && !document.hidden) liveSync(false); }, 75000); }
-function setLive(on) {
-  LIVE.on = on; $('t-live').classList.toggle('on', on); liveCard();
-  if (on) { liveIndex(); LIVE.err = 0; liveRender(); livePoll(); LIVE.tick = setInterval(liveTick, 500); toast('Live-Modus an'); liveSync(false); syncStart(); }
+const liveWanted = () => { try { return localStorage.getItem('kk-live') !== '0'; } catch (e) { return true; } };          // Standard: an, bis man ihn selbst ausschaltet
+function setLive(on, quiet) {
+  try { localStorage.setItem('kk-live', on ? '1' : '0'); } catch (e) { }
+  LIVE.on = on; $('t-live').classList.toggle('on', on); document.body.classList.toggle('live-on', on); liveCard();
+  if (on) { liveIndex(); LIVE.err = 0; liveRender(); livePoll(); LIVE.tick = setInterval(liveTick, 500); if (!quiet) toast('Live-Modus an'); liveSync(false); syncStart(); }
   else { clearTimeout(LIVE.timer); clearInterval(LIVE.tick); LIVE.cur = null; liveRender(); toast('Live-Modus aus'); }
   requestDraw();
 }
@@ -2791,7 +2888,7 @@ function setLive(on) {
 function drawLiveOverlay(z, ox, oy) {
   const c = LIVE.cur; if (!c || PATH === 'songs') return;
   const now = performance.now(), t = (now - c.born) / 1000;
-  if (c.ai == null) return;
+  if (c.ai == null || isHidA(art[c.ai])) return;
   const a = art[c.ai], sx = a.x * z + ox, sy = a.y * z + oy, rs = Math.max((PATH === 'map' && a.k === 1 ? a.R * .88 : a.R * Math.max(a.sc, .2)) * z, 7);
   ctx.save();
   const g = ctx.createRadialGradient(sx, sy, rs * .5, sx, sy, rs * 3.6); g.addColorStop(0, rgba(a.rgb, .55)); g.addColorStop(1, rgba(a.rgb, 0));
@@ -2806,7 +2903,24 @@ function drawLiveOverlay(z, ox, oy) {
 }
 
 /* ---------- Freundes-Vergleich: gemeinsame Karte zweier Profile, "Wer"-Filter, Faerbung nach Anteil, Vergleichsseite ---------- */
-const WHOC = [[255, 150, 80], [226, 223, 238], [86, 152, 255]];            // Freund -> gleich -> ich
+const WHOC_MID = [226, 223, 238];            // beide ähnlich viel
+const mixRGB = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+/* Farbe eines Artists beim Vergleich. excl: nur einer hat ihn gehoert = leuchtende Farbe der Person; beide haben ihn gehoert = blasser Ton, zur Person hin getoent, die mehr gehoert hat.
+   ramp: der alte Verlauf von Freund ueber "gleich" zu ich. Schwelle fuer "nur einer": der andere hoert weniger als 3 % davon. */
+function whoRGB(a) {
+  const me = hex2rgb(S.cmpMe), fr = hex2rgb(S.cmpFr), share = (a.mM + 1e-6) / (a.mM + a.mF + 2e-6);
+  if (S.cmpMode === 'ramp') return ramp([fr, WHOC_MID, me], share);
+  const onlyM = a.mM > 0 && a.mF <= a.mM * .03, onlyF = a.mF > 0 && a.mM <= a.mF * .03;
+  if (onlyM) return me; if (onlyF) return fr;
+  const t = Math.abs(share - .5) * 2; return mixRGB(WHOC_MID, share >= .5 ? me : fr, .18 + .34 * t);
+}
+function cmpColorRows() {
+  const row = (key, label) => '<div class="set-row"><div class="lb">' + label + '</div><div class="ctrl"><input type="color" value="' + S[key] + '" data-cmpc="' + key + '" aria-label="' + esc(label) + '"></div></div>';
+  return row('cmpMe', CMP.names[0]) + row('cmpFr', CMP.names[1]);
+}
+const cmpDefault = () => { S.cmpMe = DEF.S.cmpMe; S.cmpFr = DEF.S.cmpFr; };
+document.addEventListener('input', e => { const c = e.target.closest && e.target.closest('[data-cmpc]'); if (c && CMP) { S[c.dataset.cmpc] = c.value; recolor(); requestDraw(); } });
+document.addEventListener('change', e => { const c = e.target.closest && e.target.closest('[data-cmpc]'); if (c && CMP) { setSetting(c.dataset.cmpc, c.value, { force: true }); if (drawerTab === 'cmp') renderDrawer(); } });
 function cmpName(w) { return w === 'M' ? CMP.names[0] : w === 'F' ? CMP.names[1] : T('Beide'); }
 function recalcMonths() { MON.forEach(mo => { mo.min = 0; mo.n = 0; for (let d = mo.s; d <= mo.e; d++) { mo.min += HUD.day_min[d]; mo.n += HUD.day_n[d]; } }); }
 function setWho(w) {
@@ -2847,14 +2961,20 @@ function cmpHTML() {
   h += list('Gemeinsame Favoriten', both, a => cmpRow(a, '<span class="m1">' + fmtMin(a.mM) + '</span> · <span class="f1">' + fmtMin(a.mF) + '</span>'));
   h += list('Nur ' + esc(n1), onlyM, a => cmpRow(a, '<span class="m1">' + fmtMin(a.mM) + '</span>'));
   h += list('Nur ' + esc(n2), onlyF, a => cmpRow(a, '<span class="f1">' + fmtMin(a.mF) + '</span>'));
-  h += '<div class="rec" style="margin-top:14px;color:var(--dim)">Blau = ' + esc(n1) + ' hört mehr, Orange = ' + esc(n2) + ' hört mehr, hell = beide ähnlich viel.</div>';
+  const sw = (c, t) => '<span class="cmp-sw"><i style="background:' + c + '"></i><span>' + t + '</span></span>';
+  const c1 = rgb2hex(hex2rgb(S.cmpMe)), c2 = rgb2hex(hex2rgb(S.cmpFr)), pale = (c, on) => rgb2hex(mixRGB(WHOC_MID, hex2rgb(c), .5));
+  h += '<div class="sect"><h3>Farben <em>auf der Karte (Färbung „Wer hört mehr“)</em></h3><div class="cmp-leg">'
+    + sw(c1, 'Nur ' + esc(n1)) + sw(c2, 'Nur ' + esc(n2)) + sw(pale(S.cmpMe), 'Beide, ' + esc(n1) + ' mehr') + sw(pale(S.cmpFr), 'Beide, ' + esc(n2) + ' mehr') + sw(rgb2hex(WHOC_MID), 'Beide ähnlich')
+    + '</div><div class="cmp-colors"><label><input type="color" value="' + S.cmpMe + '" data-cmpc="cmpMe" aria-label="' + esc(n1) + '"><span>' + esc(n1) + '</span></label><label><input type="color" value="' + S.cmpFr + '" data-cmpc="cmpFr" aria-label="' + esc(n2) + '"><span>' + esc(n2) + '</span></label>'
+    + '<button class="btn" data-cmpmode="' + (S.cmpMode === 'excl' ? 'ramp' : 'excl') + '">' + (S.cmpMode === 'excl' ? 'Verlauf statt Gruppen' : 'Nur einer / beide') + '</button></div>'
+    + '<div class="rec" style="margin-top:8px;color:var(--dim)">Leuchtend = nur eine Person hat den Artist gehört. Blass = beide haben ihn gehört, der Ton zeigt, wer mehr gehört hat.</div></div>';
   return h;
 }
-document.addEventListener('click', e => { const b = e.target.closest('[data-who]'); if (b && CMP) setSetting('who', b.dataset.who); });
+document.addEventListener('click', e => { const b = e.target.closest('[data-who]'); if (b && CMP) setSetting('who', b.dataset.who); const m = e.target.closest('[data-cmpmode]'); if (m && CMP) { setSetting('cmpMode', m.dataset.cmpmode); if (drawerTab === 'cmp') renderDrawer(); } });
 
 /* ---------- Kontinente anpassen: Farbe je Kontinent und Verschieben per Ziehen (wird im Browser gemerkt) ---------- */
 const RC = { key: 'klangkarte-kontinente-v4:' + HUD.user + (MAPS ? ':' + MAPV : ''), legacy: (MAPS && MAPV === 'classic' ? 'klangkarte-kontinente-v3:' + HUD.user + ':classic' : 'klangkarte-kontinente-v2:' + HUD.user),
-  colors: {}, pos: null, anc: {}, opos: {}, magnet: 1, unit: 'region', dropped: false, edit: false, drag: null, glowT: 0 };
+  colors: {}, pos: null, anc: {}, opos: {}, magnet: 1, unit: 'region', dropped: false, edit: false, drag: null, glowT: 0, sel: new Set(), band: null, empty: null };
 const rkey = r => r.anchor || r.de || String(r.id);
 /* Gespeichert wird je Karte: Farben, Positionen aller Artists, Anker verschobener Kontinente, von Hand verschobene Artists (opos), Magnet-Stufe.
    Positionen aus aelteren Versionen (v2/v3) werden verworfen, nur die Farben werden uebernommen. */
@@ -2927,43 +3047,64 @@ function rcApplySaved() {
 }
 
 /* ---- Dynamisches Umordnen beim Verschieben ----
-   Der gezogene Kontinent wird von der "Hand" mit begrenzter Geschwindigkeit getragen und verdraengt die uebrigen Artists wie eine inkompressible
-   Fluessigkeit (Potentialstroemung auf einem Raster): Nachbarn fliessen um ihn herum und schliessen hinter ihm die Luecke, ohne den Kontinent zu wechseln
-   oder sich zu kreuzen. Beim Loslassen zieht eine sanfte Schwerkraft zur Kartenmitte die Nachbarn in verbliebene Luecken (Federn zu aehnlichen Artists
-   halten dabei die Nachbarschaft zusammen und werden mit der Zeit weicher); zuletzt werden alle Ueberlappungen aufgeloest. Laeuft als Animation. */
+   Verschoben wird eine Gruppe: ein Kontinent, eine Szene oder frei gewaehlte Artists. Die "Hand" traegt sie mit begrenzter Geschwindigkeit (und nur bis knapp ueber den Kartenrand hinaus)
+   und verdraengt die uebrigen Artists wie eine inkompressible Fluessigkeit (Potentialstroemung auf einem Raster): Nachbarn fliessen um sie herum und schliessen hinter ihr die Luecke,
+   ohne den Kontinent zu wechseln oder sich zu kreuzen. Beim Loslassen haelt die Gruppe ihre Mitte (darf sich aber verformen), liegt sie abseits, wird sie bis zur Beruehrung herangeschoben (andocken).
+   Die uebrigen Kontinente federn zu ihrer Form zurueck (Federn zu aehnlichen Artists halten die Nachbarschaft zusammen) und ruecken per sanfter Schwerkraft in verbliebene Luecken; zuletzt werden alle
+   Ueberlappungen aufgeloest und versprengte Gruppen herangeholt (keine Inseln). Laeuft als Animation. */
 const RPAD = 9, BIGF = 70, SCELL = 150, BCELL = 500, HB = 8191;
-const RPH = { vflow: 70, h: 100, pad: 2200, omega: 1, iters: 120, vcap: 2.5, push: 2, sN: 260, kp: .03, kh: .03, gc: 6, gp: .02, pinM: 8, cN: 700,
+const RPH = { vflow: 70, vmax: 260, vpx: 16, h: 100, pad: 2600, omega: 1.8, iters: 200, tol: .002, cs: 3, vcap: 2.5, pinM: 8, pinG: 40, push: 2, sN: 150, kp: .03, kh: .03, gc: 6, gp: .02, cN: 700, vs: 80, dock: 300, stray: 150,
   mag: [{ kl: .03, km: 0, lim: 1.6 }, { kl: .1, km: .003, lim: 1 }, { kl: .16, km: .01, lim: .6 }] };      // Magnet aus / mittel / stark: Zusammenhalt der Artists im Kontinent
-const RSIM = { on: false, ph: 'D', fixed: -1, pin: -1, release: false, it: 0, raf: 0, n: 0, R: 0, worst: 0, hx: 0, hy: 0, sx: 0, sy: 0 };
+const RSIM = { on: false, ph: 'D', kind: 'region', gr: -1, G: [], carry: false, release: false, it: 0, raf: 0, n: 0, R: 0, worst: 0, hx: 0, hy: 0, sx: 0, sy: 0, gm: 1, sN: 260, tries: 0 };
 
-function rcSimInit() {
-  const s = RSIM, n = NA, R = regs.length; s.n = n; s.R = R; s.mx = 0;
-  const F64 = k => new Float64Array(k);
+/* gm: Mitglieder einer frei gewaehlten Gruppe (Szene, Artists): sie bilden einen eigenen Cluster neben dem Rest ihres Kontinents; ohne gm sind die Kontinente die Cluster */
+function rcSimInit(gm) {
+  const s = RSIM, n = NA, R0 = regs.length, R = R0 + (gm ? 1 : 0); s.n = n; s.R = R; s.mx = 0;
+  const F64 = k => new Float64Array(k), ing = new Uint8Array(n); if (gm) gm.forEach(i => { ing[i] = 1; });
   s.px = F64(n); s.py = F64(n); s.ax = F64(n); s.ay = F64(n); s.F = F64(n); s.w = F64(n); s.ox = F64(n); s.oy = F64(n); s.ex = F64(n); s.ey = F64(n); s.mass = F64(n);
   s.rid = new Int32Array(n);
-  art.forEach((a, i) => { s.px[i] = s.ax[i] = a.bx; s.py[i] = s.ay[i] = a.by; s.F[i] = a.bF; s.w[i] = a.bF * a.bF; s.rid[i] = a.r; s.mass[i] = a.bF + 4; if (a.bF > s.mx) s.mx = a.bF; });
-  s.cx = F64(R); s.cy = F64(R); s.cw = F64(R); s.dX = F64(R); s.dY = F64(R); s.cnt = F64(R); s.rr = F64(R);
-  s.mem = regs.map(r => r.members); s.home = regs.map(r => RC.anc[rkey(r)] || null);          // frueher platzierte Kontinente kehren zu ihrem Anker zurueck
-  s.p0x = F64(n); s.p0y = F64(n); s.nbj = new Array(n); s.nbw = new Array(n);                  // Ausgangsform: Abstaende zu aehnlichen Artists im selben Kontinent
+  art.forEach((a, i) => { s.px[i] = s.ax[i] = a.bx; s.py[i] = s.ay[i] = a.by; s.F[i] = a.bF; s.w[i] = a.bF * a.bF; s.rid[i] = ing[i] ? R0 : a.r; s.mass[i] = a.bF + 4; if (a.bF > s.mx) s.mx = a.bF; });
+  s.cx = F64(R); s.cy = F64(R); s.cw = F64(R); s.rr = F64(R);
+  s.mem = regs.map(r => gm ? r.members.filter(i => !ing[i]) : r.members); s.home = regs.map(r => RC.anc[rkey(r)] || null);          // frueher platzierte Kontinente kehren zu ihrem Anker zurueck
+  if (gm) { s.mem.push(gm.slice()); s.home.push(null); }
+  s.nbj = new Array(n); s.nbw = new Array(n);                                                    // Ausgangsform: Abstaende zu aehnlichen Artists im selben Cluster
   for (let i = 0; i < n; i++) {
-    s.p0x[i] = s.px[i]; s.p0y[i] = s.py[i]; const j = [], w = [];
-    art[i].nb.forEach(u => { if (art[u[0]].r === art[i].r) { j.push(u[0]); w.push(u[1] + .05); } });
+    const j = [], w = [];
+    art[i].nb.forEach(u => { if (s.rid[u[0]] === s.rid[i]) { j.push(u[0]); w.push(u[1] + .05); } });
     s.nbj[i] = j; s.nbw[i] = w;
   }
   s.hS = new Int32Array(HB + 1); s.hB = new Int32Array(HB + 1); s.nx = new Int32Array(n); s.stamp = new Int32Array(n); s.q = 0;
   s.cap = 1 << 15; s.ci = new Int32Array(s.cap); s.cj = new Int32Array(s.cap); s.cov = F64(s.cap); s.cux = F64(s.cap); s.cuy = F64(s.cap); s.nc = 0;
   rcCentroids();
-  {                                                    // Ruhelage (Form) = Ursprungs-Layout des Kontinents (immer dieselbe, damit sich Verformungen von Zug zu Zug nicht aufsummieren)
-    const sx = F64(R), sy = F64(R), sw = F64(R); for (let i = 0; i < n; i++) { const r = s.rid[i]; sx[r] += art[i].px0 * s.w[i]; sy[r] += art[i].py0 * s.w[i]; sw[r] += s.w[i]; }
-    for (let i = 0; i < n; i++) { const r = s.rid[i]; s.ox[i] = art[i].px0 - sx[r] / sw[r]; s.oy[i] = art[i].py0 - sy[r] / sw[r]; }
-    for (const k in RC.opos) { const i = +k; if (i >= 0 && i < n) { s.ox[i] = RC.opos[k][0]; s.oy[i] = RC.opos[k][1]; } }       // von Hand verschobene Artists behalten ihre neue Ruhelage
+  {                                                    // Ruhelage (Form) = gespeicherte Anordnung des Kontinents (Ursprungs-Layout, ausser fuer von Hand verformte Kontinente); eine frei gewaehlte Gruppe behaelt ihre aktuelle Anordnung
+    const sx = F64(R), sy = F64(R), sw = F64(R), qx = i => ing[i] ? art[i].bx : art[i].px0, qy = i => ing[i] ? art[i].by : art[i].py0;
+    for (let i = 0; i < n; i++) { const r = s.rid[i]; sx[r] += qx(i) * s.w[i]; sy[r] += qy(i) * s.w[i]; sw[r] += s.w[i]; }
+    for (let i = 0; i < n; i++) { const r = s.rid[i]; s.ox[i] = qx(i) - sx[r] / sw[r]; s.oy[i] = qy(i) - sy[r] / sw[r]; }
+    for (const k in RC.opos) { const i = +k; if (i >= 0 && i < n && !ing[i]) { s.ox[i] = RC.opos[k][0]; s.oy[i] = RC.opos[k][1]; } }
     const mx = F64(R), my = F64(R); for (let i = 0; i < n; i++) { const r = s.rid[i]; mx[r] += s.ox[i] * s.w[i]; my[r] += s.oy[i] * s.w[i]; }
     for (let i = 0; i < n; i++) { const r = s.rid[i]; s.ox[i] -= mx[r] / sw[r]; s.oy[i] -= my[r] / sw[r]; }                         // Schwerpunkt der Ruhelage = 0 (kein Driften)
   }
-  s.fixed = -1; s.fixedArt = -1; s.pin = -1; s.release = false; s.ph = 'D'; s.it = 0; s.hx = s.hy = s.sx = s.sy = 0; s.grid = null;
+  s.kind = 'region'; s.gr = -1; s.G = []; s.carry = false; s.release = false; s.ph = 'D'; s.it = 0; s.tries = 0; s.hx = s.hy = s.sx = s.sy = 0; s.grid = null; s.gm = 1; s.sN = RPH.sN; s.done = null;
 }
-function rcSetMass() {                                // der getragene Kontinent ist unbeweglich, der zuletzt abgelegte sehr traege
-  const s = RSIM; for (let i = 0; i < s.n; i++) { const r = s.rid[i]; s.mass[i] = r === s.fixed || i === s.fixedArt ? 1e7 : (s.F[i] + 4) * (r === s.pin ? RPH.pinM : 1); }
+/* Cluster gr wird getragen: Handbereich = Kartenrahmen der uebrigen Artists, nur ein Stueck (RPH.dock) darueber hinaus */
+function rcSetGroup(gr, kind) {
+  const s = RSIM; s.gr = gr; s.kind = kind; s.G = s.mem[gr]; s.carry = true; s.gm = kind === 'artist' ? 0 : kind === 'scene' ? .6 : 1; s.pin = kind === 'region' ? RPH.pinM : RPH.pinG; s.sN = kind === 'artist' ? 140 : RPH.sN; rcSetMass(); rcCentroids(); s.c0x = s.cx[gr]; s.c0y = s.cy[gr];
+  let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9, g0 = 1e9, h0 = 1e9, g1 = -1e9, h1 = -1e9;
+  for (let i = 0; i < s.n; i++) {
+    const f = s.F[i], px = s.px[i], py = s.py[i];
+    if (s.rid[i] === gr) { if (px - f < g0) g0 = px - f; if (px + f > g1) g1 = px + f; if (py - f < h0) h0 = py - f; if (py + f > h1) h1 = py + f; }
+    else { if (px - f < x0) x0 = px - f; if (px + f > x1) x1 = px + f; if (py - f < y0) y0 = py - f; if (py + f > y1) y1 = py + f; }
+  }
+  const D = RPH.dock;
+  if (x0 > x1) { s.bx0 = s.by0 = -1e9; s.bx1 = s.by1 = 1e9; return; }
+  s.bx0 = x0 - D + (s.c0x - g0); s.bx1 = x1 + D - (g1 - s.c0x); s.by0 = y0 - D + (s.c0y - h0); s.by1 = y1 + D - (h1 - s.c0y);
+  if (s.bx0 > s.bx1) s.bx0 = s.bx1 = (x0 + x1) / 2; if (s.by0 > s.by1) s.by0 = s.by1 = (y0 + y1) / 2;
+}
+function rcHandTarget() {                              // wohin die Hand die Gruppe gerade tragen will (relativ zum Start), auf den Handbereich begrenzt
+  const s = RSIM; return [Math.max(s.bx0, Math.min(s.bx1, s.c0x + s.hx)) - s.c0x, Math.max(s.by0, Math.min(s.by1, s.c0y + s.hy)) - s.c0y];
+}
+function rcSetMass() {                                // die getragene Gruppe ist unbeweglich, die abgelegte sehr traege (Artists anderer Kontinente, die in ihren Luecken sitzen, muessen ausweichen koennen)
+  const s = RSIM; for (let i = 0; i < s.n; i++) s.mass[i] = s.rid[i] === s.gr ? (s.carry ? 1e7 : (s.F[i] + 4) * s.pin) : s.F[i] + 4;
 }
 function rcCentroids() {
   const s = RSIM; s.cx.fill(0); s.cy.fill(0); s.cw.fill(0);
@@ -3004,7 +3145,7 @@ function rcGrow() {
   const s = RSIM, cap = s.cap * 2, g = (A, T) => { const B = new T(cap); B.set(A); return B; };
   s.ci = g(s.ci, Int32Array); s.cj = g(s.cj, Int32Array); s.cov = g(s.cov, Float64Array); s.cux = g(s.cux, Float64Array); s.cuy = g(s.cuy, Float64Array); s.cap = cap;
 }
-/* alle Paare auseinanderschieben: leichtere Artists weichen mehr, der getragene Kontinent gar nicht */
+/* alle Paare auseinanderschieben: leichtere Artists weichen mehr, die getragene Gruppe gar nicht */
 function rcPushOut(k) {
   const s = RSIM, n = s.n, M = s.mass; rcContacts(RPAD);
   s.ex.fill(0); s.ey.fill(0); let worst = 0;
@@ -3016,7 +3157,42 @@ function rcPushOut(k) {
   for (let i = 0; i < n; i++) { s.px[i] += s.ex[i]; s.py[i] += s.ey[i]; }
   return worst;
 }
-/* Potentialstroemung: das Raster deckt die Karte samt Rand ab, der getragene Kontinent ist ein Hindernis, das sich um (dx,dy) bewegt;
+/* Gauss-Seidel-Durchgang: die Paare werden von der getragenen Gruppe nach aussen aufgeloest (Reihenfolge = Breitensuche ueber die Beruehrungen), jede Korrektur wirkt sofort auf die folgenden Paare.
+   Druckketten laufen so in einem Durchgang bis zum Rand durch (Jacobi braucht dafuer hunderte Schritte) und die Karte muss nur dort Platz machen, wo er fehlt. Rueckgabe: groesste Ueberlappung vor dem Aufloesen. */
+function rcPushGS(k, sweeps) {
+  const s = RSIM, n = s.n, M = s.mass, px = s.px, py = s.py, F = s.F; rcContacts(RPAD); const nc = s.nc; if (!nc) return 0;
+  if (!s.lv || s.lv.length !== n) { s.lv = new Int32Array(n); s.qu = new Int32Array(n); s.ao = new Int32Array(n + 1); s.fp = new Int32Array(n); }
+  if (!s.adj || s.adj.length < 2 * s.cap) { s.adj = new Int32Array(2 * s.cap); s.ord = new Int32Array(s.cap); }
+  const lv = s.lv, qu = s.qu, ao = s.ao, fp = s.fp, adj = s.adj, ord = s.ord, ci = s.ci, cj = s.cj; ao.fill(0);
+  for (let c = 0; c < nc; c++) { ao[ci[c] + 1]++; ao[cj[c] + 1]++; }
+  for (let i = 0; i < n; i++) ao[i + 1] += ao[i];
+  for (let i = 0; i < n; i++) fp[i] = ao[i];
+  for (let c = 0; c < nc; c++) { adj[fp[ci[c]]++] = cj[c]; adj[fp[cj[c]]++] = ci[c]; }
+  lv.fill(-1); let qh = 0, qt = 0;
+  if (s.gr >= 0) { for (let i = 0; i < n; i++) if (s.rid[i] === s.gr) { lv[i] = 0; qu[qt++] = i; } }
+  else { let b = 0, bd = 1e18; for (let i = 0; i < n; i++) { const d = (px[i] - s.gx) * (px[i] - s.gx) + (py[i] - s.gy) * (py[i] - s.gy); if (d < bd) { bd = d; b = i; } } lv[b] = 0; qu[qt++] = b; }
+  let top = 0;
+  while (qh < qt) { const i = qu[qh++], l = lv[i] + 1; for (let e = ao[i]; e < ao[i + 1]; e++) { const j = adj[e]; if (lv[j] < 0) { lv[j] = l; if (l > top) top = l; qu[qt++] = j; } } }
+  const K = top + 2, cnt = s.cnt && s.cnt.length >= K + 1 ? s.cnt : (s.cnt = new Int32Array(Math.max(K + 1, 256))); cnt.fill(0, 0, K + 1);
+  const key = c => { const a = lv[ci[c]], b = lv[cj[c]], m = a < b ? a : b; return m < 0 ? (a < 0 && b < 0 ? K - 1 : (a > b ? a : b)) : m; };
+  for (let c = 0; c < nc; c++) cnt[key(c) + 1]++;
+  for (let q = 0; q < K; q++) cnt[q + 1] += cnt[q];
+  for (let c = 0; c < nc; c++) ord[cnt[key(c)]++] = c;
+  let worst = 0;
+  for (let sw = sweeps || 1; sw > 0; sw--) {                                                  // weitere Durchgaenge ueber dieselbe Paarliste (neu entstandene Beruehrungen erfasst erst der naechste Aufruf)
+    let any = false;
+    for (let q = 0; q < nc; q++) {
+      const c = ord[q], i = ci[c], j = cj[c], dx = px[j] - px[i], dy = py[j] - py[i], rr = F[i] + F[j] + RPAD, d2 = dx * dx + dy * dy; if (d2 >= rr * rr) continue;
+      const d = Math.sqrt(d2), ov = rr - d; if (ov <= 2.5) continue; any = true; if (ov > worst && sw === (sweeps || 1)) worst = ov;
+      const ma = M[i], mb = M[j], sa = mb / (ma + mb) * ov * k, sb = ma / (ma + mb) * ov * k;
+      let ux, uy; if (d < 1e-6) { ux = 1; uy = 0; } else { ux = dx / d; uy = dy / d; }
+      px[i] -= ux * sa; py[i] -= uy * sa; px[j] += ux * sb; py[j] += uy * sb;
+    }
+    if (!any) break;
+  }
+  return worst;
+}
+/* Potentialstroemung: das Raster deckt die Karte samt Rand ab, die getragene Gruppe ist ein Hindernis, das sich um (dx,dy) bewegt;
    die uebrigen Artists werden entlang der (divergenzfreien) Stroemung verschoben, die das Hindernis umfliesst und hinter ihm nachstroemt. */
 function rcGridInit() {
   const s = RSIM, h = RPH.h; let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
@@ -3027,22 +3203,27 @@ function rcGridInit() {
 }
 function rcFlowStep(dx, dy) {
   const s = RSIM; if (!s.grid) rcGridInit();
-  const g = s.grid, h = RPH.h, W = g.w, H = g.hh, obst = g.obst, cnt = g.cnt, rhs = g.rhs, phi = g.phi, vx = g.vx, vy = g.vy, mem = s.mem[s.fixed];
-  obst.fill(0);
+  const g = s.grid, h = RPH.h, W = g.w, H = g.hh, obst = g.obst, cnt = g.cnt, rhs = g.rhs, phi = g.phi, vx = g.vx, vy = g.vy, mem = s.G;
+  obst.fill(0); let ob = 0;
   for (let q = 0; q < mem.length; q++) {                                          // Hindernis: Raster-Zellen, deren Mitte im (leicht vergroesserten) Artist liegt
     const i = mem[q], r = s.F[i] + 25, r2 = r * r, i0 = Math.max(1, Math.floor((s.px[i] - r - g.x0) / h)), i1 = Math.min(W - 2, Math.floor((s.px[i] + r - g.x0) / h) + 1), j0 = Math.max(1, Math.floor((s.py[i] - r - g.y0) / h)), j1 = Math.min(H - 2, Math.floor((s.py[i] + r - g.y0) / h) + 1);
-    for (let j = j0; j <= j1; j++) { const cy = g.y0 + (j + .5) * h - s.py[i]; for (let ii = i0; ii <= i1; ii++) { const cx = g.x0 + (ii + .5) * h - s.px[i]; if (cx * cx + cy * cy <= r2) obst[j * W + ii] = 1; } }
+    for (let j = j0; j <= j1; j++) { const cy = g.y0 + (j + .5) * h - s.py[i]; for (let ii = i0; ii <= i1; ii++) { const cx = g.x0 + (ii + .5) * h - s.px[i]; if (cx * cx + cy * cy <= r2 && !obst[j * W + ii]) { obst[j * W + ii] = 1; ob++; } } }
   }
+  if (!ob) return;                                                                 // zu klein fuer das Raster: nur die Kollisionen schieben die Nachbarn
   for (let j = 1; j < H - 1; j++) for (let i = 1; i < W - 1; i++) {
     const c = j * W + i; if (obst[c]) continue; let n = 0, rh = 0;
     if (obst[c + 1]) rh += h * dx; else n++; if (obst[c - 1]) rh -= h * dx; else n++; if (obst[c + W]) rh += h * dy; else n++; if (obst[c - W]) rh -= h * dy; else n++;
     cnt[c] = n; rhs[c] = rh;
   }
-  const om = RPH.omega;
-  for (let it = 0; it < RPH.iters; it++) for (let j = 1; j < H - 1; j++) for (let i = 1; i < W - 1; i++) {
-    const c = j * W + i; if (obst[c]) continue; const n = cnt[c]; if (!n) { phi[c] = 0; continue; }
-    let sm = rhs[c]; if (!obst[c + 1]) sm += phi[c + 1]; if (!obst[c - 1]) sm += phi[c - 1]; if (!obst[c + W]) sm += phi[c + W]; if (!obst[c - W]) sm += phi[c - W];
-    phi[c] += om * (sm / n - phi[c]);
+  const om = RPH.omega, tol = RPH.tol * h * Math.hypot(dx, dy);
+  for (let it = 0; it < RPH.iters; it++) {
+    let mx = 0;
+    for (let j = 1; j < H - 1; j++) for (let i = 1; i < W - 1; i++) {
+      const c = j * W + i; if (obst[c]) continue; const n = cnt[c]; if (!n) { phi[c] = 0; continue; }
+      let sm = rhs[c]; if (!obst[c + 1]) sm += phi[c + 1]; if (!obst[c - 1]) sm += phi[c - 1]; if (!obst[c + W]) sm += phi[c + W]; if (!obst[c - W]) sm += phi[c - W];
+      const dp = om * (sm / n - phi[c]); phi[c] += dp; if (dp > mx) mx = dp; else if (-dp > mx) mx = -dp;
+    }
+    if (mx < tol) break;                                                           // Aenderung unter der Toleranz: die Stroemung ist ausgerechnet (die Loesung des letzten Schritts dient als Startwert)
   }
   for (let j = 1; j < H - 1; j++) for (let i = 1; i < W - 1; i++) {
     const c = j * W + i;
@@ -3064,7 +3245,7 @@ function rcFlowStep(dx, dy) {
   }
   const lim = Math.hypot(dx, dy) * RPH.vcap;
   for (let i = 0; i < s.n; i++) {
-    if (s.rid[i] === s.fixed) continue;
+    if (s.rid[i] === s.gr) continue;
     const fx = (s.px[i] - g.x0) / h - .5, fy = (s.py[i] - g.y0) / h - .5, ix = Math.floor(fx), iy = Math.floor(fy);
     if (ix < 1 || iy < 1 || ix >= W - 2 || iy >= H - 2) continue;
     const tx = fx - ix, ty = fy - iy, c = iy * W + ix, w00 = (1 - tx) * (1 - ty), w10 = tx * (1 - ty), w01 = (1 - tx) * ty, w11 = tx * ty;
@@ -3073,76 +3254,91 @@ function rcFlowStep(dx, dy) {
     s.px[i] += ux; s.py[i] += uy;
   }
 }
-/* Tragephase: die Hand bewegt den Kontinent ein Stueck zum Ziel, der Rest stroemt um ihn herum */
+/* Tragephase: die Hand bewegt die Gruppe ein Stueck zum Ziel, der Rest stroemt um sie herum (Schritt auf dem Bildschirm etwa gleich lang, damit kleine Gruppen der Hand folgen) */
 function rcCarry() {
-  const s = RSIM, rx = s.hx - s.sx, ry = s.hy - s.sy, d = Math.hypot(rx, ry);
+  const s = RSIM, tg = rcHandTarget(), rx = tg[0] - s.sx, ry = tg[1] - s.sy, d = Math.hypot(rx, ry);
   if (d > .3) {
-    const st = Math.min(d, RPH.vflow), dx = rx / d * st, dy = ry / d * st, mem = s.mem[s.fixed];
+    const vs = Math.min(RPH.vmax, Math.max(RPH.vflow, RPH.vpx / cam.z)), st = Math.min(d, vs), dx = rx / d * st, dy = ry / d * st, mem = s.G;
     rcFlowStep(dx, dy);
     for (let q = 0; q < mem.length; q++) { s.px[mem[q]] += dx; s.py[mem[q]] += dy; }
     s.sx += dx; s.sy += dy;
   }
-  let w = 0; for (let k = 0; k < RPH.push; k++) w = rcPushOut(.6);
-  return w;
+  return rcPushGS(1, RPH.push);
 }
 /* Eine Gruppe von Artists (mem, Markierung inSet) starr in Richtung (tx,ty) rutschen lassen, bis sie andere Artists beruehrt */
 function rcSlide(mem, inSet, tx, ty) {
-  const s = RSIM; rcCentroids(); let cx = 0, cy = 0, w = 0; mem.forEach(i => { cx += s.px[i] * s.w[i]; cy += s.py[i] * s.w[i]; w += s.w[i]; }); cx /= w; cy /= w;
-  let ux = tx - cx, uy = ty - cy; const dist = Math.hypot(ux, uy); if (dist < 1) return; ux /= dist; uy /= dist;
+  const s = RSIM; let cx = 0, cy = 0, w = 0; mem.forEach(i => { cx += s.px[i] * s.w[i]; cy += s.py[i] * s.w[i]; w += s.w[i]; }); cx /= w; cy /= w;
+  let ux = tx - cx, uy = ty - cy; const dist = Math.hypot(ux, uy); if (dist < 1) return false; ux /= dist; uy /= dist;
   const touches = () => { rcContacts(RPAD); for (let c = 0; c < s.nc; c++) if (inSet[s.ci[c]] !== inSet[s.cj[c]] && s.cov[c] > 0) return true; return false; };
   const shift = k => { for (let q = 0; q < mem.length; q++) { s.px[mem[q]] += ux * k; s.py[mem[q]] += uy * k; } };
-  if (touches()) return;
+  if (touches()) return false;
   let moved = 0;
   while (moved < dist) { shift(40); moved += 40; if (touches()) { shift(-40); moved -= 40; break; } }
-  for (let k = 0; k < 8 && moved < dist; k++) { shift(5); moved += 5; if (touches()) { shift(-5); break; } }
+  for (let k = 0; k < 8 && moved < dist; k++) { shift(5); moved += 5; if (touches()) { shift(-5); moved -= 5; break; } }
+  for (let k = 0; k < 5 && moved < dist; k++) { shift(1); moved += 1; if (touches()) { shift(-1); break; } }
+  return true;
 }
-/* Abgelegter Kontinent liegt abseits der Karte? Dann starr in Richtung Kartenmitte rutschen lassen, bis er Nachbarn beruehrt (keine Insel, keine Luecke) */
-function rcSlideToContact() {
-  const s = RSIM, mem = s.mem[s.fixed], inSet = new Uint8Array(s.n); mem.forEach(i => { inSet[i] = 1; }); rcCentroids();
-  rcSlide(mem, inSet, s.gx, s.gy);
+/* Abgelegte Gruppe beruehrt nichts? Dann starr in Richtung der uebrigen Karte rutschen lassen, bis sie Nachbarn beruehrt (keine Insel, keine Luecke) */
+function rcDock() {
+  const s = RSIM; if (s.gr < 0 || !s.G.length) return;
+  const inSet = new Uint8Array(s.n); s.G.forEach(i => { inSet[i] = 1; });
+  let tx = 0, ty = 0, tw = 0; for (let i = 0; i < s.n; i++) if (!inSet[i]) { tx += s.px[i] * s.w[i]; ty += s.py[i] * s.w[i]; tw += s.w[i]; }
+  if (!tw) return; rcSlide(s.G, inSet, tx / tw, ty / tw);
+  rcCentroids(); s.tgx = s.cx[s.gr]; s.tgy = s.cy[s.gr];
 }
-/* Kontinent-Gruppen, die einander nicht beruehren (Abstand >= 150), werden nacheinander an die Hauptgruppe herangeschoben: es bleibt eine zusammenhaengende Karte */
-function rcGather() {
-  const s = RSIM, R = s.R;
-  for (let round = 0; round < 15; round++) {
-    rcContacts(150);
-    const par = Array.from({ length: R }, (_, i) => i), f = x => par[x] === x ? x : (par[x] = f(par[x]));
-    for (let c = 0; c < s.nc; c++) { const ri = s.rid[s.ci[c]], rj = s.rid[s.cj[c]]; if (ri !== rj) par[f(ri)] = f(rj); }
-    rcCentroids(); const gm = new Map();
-    for (let r = 0; r < R; r++) {
-      if (!s.cw[r]) continue; const q = f(r); let g = gm.get(q); if (!g) { g = { m: 0, mem: [], cx: 0, cy: 0 }; gm.set(q, g); }
-      g.m += s.cw[r]; g.cx += s.cx[r] * s.cw[r]; g.cy += s.cy[r] * s.cw[r]; s.mem[r].forEach(i => g.mem.push(i));
-    }
-    if (gm.size < 2) return;
+/* Die abgelegte Gruppe haelt ihre Mitte (darf sich dabei verformen): Abweichung zurueckschieben */
+function rcHold(k) {
+  const s = RSIM, g = s.gr; if (g < 0 || !s.cw[g]) return;
+  let cx = 0, cy = 0, w = 0; const mem = s.G; for (let q = 0; q < mem.length; q++) { const i = mem[q]; cx += s.px[i] * s.w[i]; cy += s.py[i] * s.w[i]; w += s.w[i]; }
+  const dx = (s.tgx - cx / w) * k, dy = (s.tgy - cy / w) * k; if (!dx && !dy) return;
+  for (let q = 0; q < mem.length; q++) { s.px[mem[q]] += dx; s.py[mem[q]] += dy; }
+}
+/* Gruppen, die einander nicht beruehren (Abstand >= RPH.stray), werden nacheinander an die Hauptgruppe herangeschoben: es bleibt eine zusammenhaengende Karte. true = es wurde etwas bewegt */
+function rcGatherStrays() {
+  const s = RSIM, n = s.n; let moved = false;
+  for (let round = 0; round < 14; round++) {
+    rcContacts(RPH.stray);
+    const par = new Int32Array(n); for (let i = 0; i < n; i++) par[i] = i;
+    const f = x => { while (par[x] !== x) { par[x] = par[par[x]]; x = par[x]; } return x; };
+    for (let c = 0; c < s.nc; c++) { const a = f(s.ci[c]), b = f(s.cj[c]); if (a !== b) par[a] = b; }
+    const gm = new Map();
+    for (let i = 0; i < n; i++) { const q = f(i); let g = gm.get(q); if (!g) { g = { m: 0, mem: [], cx: 0, cy: 0 }; gm.set(q, g); } g.m += s.w[i]; g.cx += s.px[i] * s.w[i]; g.cy += s.py[i] * s.w[i]; g.mem.push(i); }
+    if (gm.size < 2) return moved;
     const groups = [...gm.values()]; groups.forEach(g => { g.cx /= g.m; g.cy /= g.m; });
     const main = groups.reduce((p, q) => q.m > p.m ? q : p); let best = null, bd = 1e18;
     groups.forEach(g => { if (g === main) return; const d = Math.hypot(g.cx - main.cx, g.cy - main.cy); if (d < bd) { bd = d; best = g; } });
-    const inSet = new Uint8Array(s.n); best.mem.forEach(i => { inSet[i] = 1; }); rcSlide(best.mem, inSet, main.cx, main.cy);
+    const inSet = new Uint8Array(n); best.mem.forEach(i => { inSet[i] = 1; }); rcSlide(best.mem, inSet, main.cx, main.cy); moved = true;
   }
+  return moved;
 }
-/* Setzphase vorbereiten: Massen, erlaubte Abweichung je Kontinent (Form = Ursprungs-Layout aus rcSimInit) */
+/* Setzphase vorbereiten: Massen, erlaubte Abweichung je Cluster (Form = Ruhelage aus rcSimInit), Mitte der abgelegten Gruppe */
 function rcBeginSettle() {
-  const s = RSIM; rcSetMass(); s.ph = 'S'; s.it = 0; rcCentroids(); s.rr.fill(0);
+  const s = RSIM; s.carry = false; rcSetMass(); s.ph = 'S'; s.it = 0; rcCentroids(); s.rr.fill(0);
   for (let i = 0; i < s.n; i++) s.rr[s.rid[i]] += s.w[i];
-  s.lim = s.rr.map(v => 160 + .12 * Math.sqrt(v / .62));                                          // erlaubte Abweichung eines Artists von seiner Form (Gesamtlage folgt dem Kontinent)
+  s.lim = s.rr.map(v => 160 + .12 * Math.sqrt(v / .62));                                          // erlaubte Abweichung eines Artists von seiner Form (Gesamtlage folgt dem Cluster)
+  if (s.gr >= 0) { s.tgx = s.cx[s.gr]; s.tgy = s.cy[s.gr]; }
+}
+/* Gruppe abgelegt: andocken, versprengte Gruppen heranholen, dann setzen */
+function rcDropBegin() {
+  const s = RSIM; s.carry = false; rcSetMass(); rcDock(); rcGatherStrays(); rcBeginSettle();
 }
 /* Aufraeumen ohne Ziehen: verstreute Kontinente heranholen, Ausreisser zur Form zurueckholen, Luecken schliessen, Ueberlappungen aufloesen */
 function rcTidy() {
-  if (RSIM.on) return; rcSimStop(); rcGeo(); rcSimInit(); RSIM.on = true; RSIM.pin = -1;
-  toast('Räume auf …'); rcGather(); rcBeginSettle(); rcSimLoop();
+  if (RSIM.on) return; rcSimStop(); rcGeo(); rcSimInit(); RSIM.on = true;
+  toast('Räume auf …'); rcGatherStrays(); rcBeginSettle(); rcSimLoop();
 }
-/* Setzphase (Magnet): 1. Kontinente ruecken als Ganzes zur Kartenmitte / zu ihrem Anker (starr, Artists bleiben beisammen; Ueberlappungen loest
-   erst Schritt 3 lokal, da sich die Kontinente teils ineinander verzahnen); 2. Artists halten Zusammenhalt (Zug zu aehnlichen Artists und zur Kontinent-Mitte, Rueckholfeder zur Form beim Ablegen,
+/* Setzphase (Magnet): 1. Cluster ruecken als Ganzes zur Kartenmitte / zu ihrem Anker (starr, Artists bleiben beisammen; Ueberlappungen loest
+   erst Schritt 3 lokal, da sich die Kontinente teils ineinander verzahnen); 2. Artists halten Zusammenhalt (Zug zu aehnlichen Artists und zur Cluster-Mitte, Rueckholfeder zur Form beim Ablegen,
    die bei Ausreissern stark wird); 3. verbleibende Ueberlappungen werden aufgeloest. a = 1 .. 0 (laesst die Kraefte auslaufen). */
 function rcIter(a, k) {
   const s = RSIM, n = s.n, R = s.R, M = RPH.mag[RC.magnet];
   rcCentroids();
   for (let r = 0; r < R; r++) {
-    if (!s.cw[r]) continue; let tx = 0, ty = 0;
+    if (!s.cw[r] || r === s.gr) continue; let tx = 0, ty = 0;
     const h = s.home[r]; if (h) { tx += (h[0] - s.cx[r]) * RPH.kh; ty += (h[1] - s.cy[r]) * RPH.kh; }
     const gx = s.gx - s.cx[r], gy = s.gy - s.cy[r], gd = Math.hypot(gx, gy);
-    const ag = Math.max(0, (a - .3) / .7);                                                        // Schwerkraft laeuft frueh aus, der Rest ist Entspannen (Feder + Kollision)
-    if (gd > 1 && ag > 0) { const st = Math.min(gd * RPH.gp, RPH.gc) * ag * (r === s.pin ? .4 : 1); tx += gx / gd * st; ty += gy / gd * st; }
+    const ag = Math.max(0, (a - .3) / .7) * s.gm;                                                 // Schwerkraft laeuft frueh aus, der Rest ist Entspannen (Feder + Kollision)
+    if (gd > 1 && ag > 0) { const st = Math.min(gd * RPH.gp, RPH.gc) * ag; tx += gx / gd * st; ty += gy / gd * st; }
     const tl = Math.hypot(tx, ty); if (tl > 40) { tx *= 40 / tl; ty *= 40 / tl; }
     if (tx || ty) { const mem = s.mem[r]; for (let q = 0; q < mem.length; q++) { s.px[mem[q]] += tx; s.py[mem[q]] += ty; } }
   }
@@ -3150,39 +3346,34 @@ function rcIter(a, k) {
   for (let i = 0; i < n; i++) {
     const r = s.rid[i]; let x = s.px[i], y = s.py[i];
     const bx = s.cx[r] + s.ox[i], by = s.cy[r] + s.oy[i], ex = bx - x, ey = by - y, e = Math.hypot(ex, ey), L = s.lim[r] * M.lim;
-    if (e > L) { x = bx - ex * (L / e); y = by - ey * (L / e); }                                 // Ausreisser werden auf die erlaubte Entfernung zur Form zurueckgesetzt
-    else { x += ex * RPH.kp; y += ey * RPH.kp; }                                                 // sonst lineare Feder zur Form (kein Drift der Kontinent-Mitte)
+    if (e > L) { const m = Math.min(e - L, RPH.vs) / e; x += ex * m; y += ey * m; }             // Ausreisser kehren mit begrenzter Geschwindigkeit zur erlaubten Entfernung von ihrer Form zurueck
+    else { x += ex * RPH.kp; y += ey * RPH.kp; }                                                 // sonst lineare Feder zur Form (kein Drift der Cluster-Mitte)
     const nj = s.nbj[i];
-    if (M.kl > 0 && nj.length) {                                                                  // Federn zu aehnlichen Artists im selben Kontinent (Abstaende der alten Form bleiben erhalten, kein Driften)
+    if (M.kl > 0 && nj.length) {                                                                  // Federn zu aehnlichen Artists im selben Cluster (Abstaende der alten Form bleiben erhalten, kein Driften)
       const nw = s.nbw[i]; let sx = 0, sy = 0, sw = 0;
       for (let u = 0; u < nj.length; u++) { const j = nj[u], w = nw[u]; sx += (s.px[j] + s.ox[i] - s.ox[j]) * w; sy += (s.py[j] + s.oy[i] - s.oy[j]) * w; sw += w; }
       x += (sx / sw - x) * M.kl; y += (sy / sw - y) * M.kl;
     }
-    if (M.km > 0) { x += (s.cx[r] - x) * M.km * a; y += (s.cy[r] - y) * M.km * a; }                // Magnet: leichter Zug zur Mitte des Kontinents
+    if (M.km > 0) { x += (s.cx[r] - x) * M.km * a; y += (s.cy[r] - y) * M.km * a; }                // Magnet: leichter Zug zur Mitte des Clusters
     s.px[i] = x; s.py[i] = y;
   }
-  return rcPushOut(k);
+  const w = rcPushGS(k); rcHold(1); return w;
 }
 /* ein Schritt der Animation; true = fertig */
 function rcSimStep() {
   const s = RSIM;
   if (s.ph === 'D') {
     s.worst = rcCarry(); s.it++;
-    if (s.release && Math.hypot(s.hx - s.sx, s.hy - s.sy) <= .3) {                    // angekommen: Kontinent ablegen, aktuelle Form ist die neue Ausgangsform
-      rcSlideToContact(); s.pin = s.fixed; s.fixed = -1; rcGather(); rcBeginSettle();                // vom Durchzug verformte Kontinente federn zur Ursprungsform zurueck
-      s.home[s.pin] = [s.cx[s.pin], s.cy[s.pin]];                                      // der abgelegte Kontinent bleibt, wo er liegt
-    }
-  } else if (s.ph === 'L') {                                                          // einzelner Artist abgelegt: nur die Nachbarn weichen lokal aus
-    s.worst = rcPushOut(1); s.it++; if (s.worst <= 5 || s.it >= 250) return true;
+    if (s.release) { const tg = rcHandTarget(); if (Math.hypot(tg[0] - s.sx, tg[1] - s.sy) <= .3) rcDropBegin(); }       // angekommen: Gruppe ablegen, vom Durchzug verformte Kontinente federn zur Ursprungsform zurueck
   } else if (s.ph === 'S') {
-    const a = 1 - s.it / RPH.sN; s.worst = rcIter(a, .6); s.it++;
-    if (s.it >= RPH.sN) { s.ph = 'C'; s.it = 0; }
+    const a = 1 - s.it / s.sN; s.worst = rcIter(a, .6); s.it++;
+    if (s.it >= s.sN) { rcDock(); rcGatherStrays(); s.ph = 'C'; s.it = 0; s.tries = 0; }
   } else {
-    s.worst = rcPushOut(1); s.it++;
-    if (s.it > 40 && s.worst > 8) {                                                   // festgeklemmte Reste: ganze Karte minimal aufblasen, bis Platz ist
-      rcCentroids(); const f = .0007; for (let i = 0; i < s.n; i++) { s.px[i] += (s.px[i] - s.gx) * f; s.py[i] += (s.py[i] - s.gy) * f; }
+    s.worst = rcPushGS(1, RPH.cs); rcHold(1); s.it++;
+    if (s.worst <= 5 || (s.it > 120 && s.worst <= 9.5) || s.it >= RPH.cN) {
+      if (s.tries < 3 && rcGatherStrays()) { s.tries++; s.it = 0; return false; }       // beim Setzen versprengt: heranholen und nochmal aufraeumen
+      return true;
     }
-    if (s.worst <= 5 || (s.it > 120 && s.worst <= 9.5) || s.it >= RPH.cN) return true;
   }
   return false;
 }
@@ -3207,54 +3398,122 @@ function rcSimRun(ms) {                                  // fuer die Animation (
 }
 function rcSimLoop() {
   if (RSIM.raf || !RSIM.on) return;
-  const tick = () => { RSIM.raf = 0; if (!RSIM.on) return; rcSimRun(11); if (RSIM.on) RSIM.raf = requestAnimationFrame(tick); };
+  const tick = () => { RSIM.raf = 0; if (!RSIM.on) return; rcSimRun(RSIM.ph === 'D' ? 11 : 24); if (RSIM.on) RSIM.raf = requestAnimationFrame(tick); };
   RSIM.raf = requestAnimationFrame(tick);
 }
 function rcSimStop() { RSIM.on = false; if (RSIM.raf) { cancelAnimationFrame(RSIM.raf); RSIM.raf = 0; } }
+/* Schwerpunkt eines Kontinents wie in der Simulation (Gewicht = Flaeche) */
+function rcWCenter(r) {
+  let cx = 0, cy = 0, w = 0; r.members.forEach(i => { const a = art[i], q = a.bF * a.bF; cx += a.bx * q; cy += a.by * q; w += q; });
+  return w ? [cx / w, cy / w] : [r.bcx, r.bcy];
+}
+/* Aktuelle Anordnung der Kontinente wird ihre neue Ruhelage (bleibt bei spaeteren Zuegen); unveraenderte Kontinente behalten ihre Ursprungsform */
+function rcSnapshot() {
+  regs.forEach(r => {
+    const mem = r.members; let cx = 0, cy = 0, ox = 0, oy = 0, w = 0;
+    mem.forEach(i => { const a = art[i], q = a.bF * a.bF; cx += a.bx * q; cy += a.by * q; ox += a.px0 * q; oy += a.py0 * q; w += q; });
+    if (!w) return; cx /= w; cy /= w; ox /= w; oy /= w;
+    mem.forEach(i => {
+      const a = art[i], dx = a.bx - cx, dy = a.by - cy;
+      if (Math.hypot(dx - (a.px0 - ox), dy - (a.py0 - oy)) > 3) RC.opos[i] = [Math.round(dx), Math.round(dy)]; else delete RC.opos[i];
+    });
+  });
+}
 function rcSimFinish() {
-  rcSimStop(); rcGeo(); if (RSIM.pin >= 0) { const r = regs[RSIM.pin]; RC.anc[rkey(r)] = [Math.round(r.bcx), Math.round(r.bcy)]; }
-  rcPositions(); applyLayout({ instant: true, fit: false }); rcSave(); toast('Karte neu geordnet');
+  const s = RSIM, gr = s.gr, kind = s.kind; rcSimStop(); rcGeo();
+  regs.forEach((r, i) => { const k = rkey(r); if (RC.anc[k] || (kind === 'region' && i === gr)) { const c = rcWCenter(r); RC.anc[k] = [Math.round(c[0]), Math.round(c[1])]; } });      // der abgelegte Kontinent bleibt, wo er liegt; fruehere Anker ziehen mit
+  rcSnapshot(); rcPositions(); applyLayout({ instant: true, fit: false }); rcSave(); toast('Karte neu geordnet');
+  const cb = s.done; s.done = null; if (cb) cb();
 }
 
+/* ---- Zeigen und Ziehen ---- */
 function rcRegionAt(sx, sy) {
   const z = cam.z, wx = (sx - W / 2) / z + cam.x, wy = (sy - H / 2) / z + cam.y;
   const h = pick(sx, sy); if (h) return h.t === 'a' ? art[h.i].reg : trk[h.i].art.reg;
   let best = null, bd = 1e9; regs.forEach(r => { if (r.act < 1) return; const d = Math.hypot(wx - r.cx, wy - r.cy) / Math.max(1, r.rad); if (d < 1.05 && d < bd) { bd = d; best = r; } });
   return best;
 }
-cv.addEventListener('pointerdown', e => {
-  if (!RC.edit || e.button > 0 || PATH !== 'map') return;
-  if (RC.unit === 'artist') {                                                         // einzelnen Artist (samt Songs) ziehen
-    const h = pick(e.clientX, e.clientY); if (!h) return; const a = h.t === 'a' ? art[h.i] : trk[h.i].art;
-    e.stopImmediatePropagation(); try { cv.setPointerCapture(e.pointerId); } catch (_) { }
-    rcSimStop(); RC.drag = { a, lx: e.clientX, ly: e.clientY, moved: false }; fly = null; inertia = null; hover = null; showTip(null); cv.classList.add('drag'); return;
-  }
-  const r = rcRegionAt(e.clientX, e.clientY); if (!r) return;
+function rcSceneAt(sx, sy) {
+  const z = cam.z, wx = (sx - W / 2) / z + cam.x, wy = (sy - H / 2) / z + cam.y;
+  const h = pick(sx, sy); if (h) return scs[(h.t === 'a' ? art[h.i] : trk[h.i].art).s];
+  let best = null, bd = 1e9; scs.forEach(g => { if (g.act < 1) return; const d = Math.hypot(wx - g.cx, wy - g.cy) / Math.max(1, g.rad); if (d < 1.05 && d < bd) { bd = d; best = g; } });
+  return best;
+}
+const rcArtistAt = (sx, sy) => { const h = pick(sx, sy); return h ? (h.t === 'a' ? art[h.i] : trk[h.i].art) : null; };
+function rcDragStart(e, kind, mem, reg) {
   e.stopImmediatePropagation(); try { cv.setPointerCapture(e.pointerId); } catch (_) { }
-  rcSimStop(); rcGeo(); rcSimInit(); RSIM.fixed = regs.indexOf(r); rcSetMass(); RSIM.on = true;
-  RC.drag = { r, lx: e.clientX, ly: e.clientY, moved: false }; fly = null; inertia = null; hover = null; showTip(null); cv.classList.add('drag');
+  if (RSIM.on) { rcSimRun(1200); if (RSIM.on) { rcSimStop(); rcApply(); rcSimFinish(); } }          // eine noch laufende Animation vorher abschliessen
+  rcSimStop(); rcGeo(); rcSimInit(kind === 'region' ? null : mem); rcSetGroup(kind === 'region' ? reg : RSIM.R - 1, kind); RSIM.on = true;
+  RC.drag = { kind, x0: e.clientX, y0: e.clientY, lx: e.clientX, ly: e.clientY, moved: false, id: e.pointerId };
+  fly = null; inertia = null; hover = null; showTip(null); cv.classList.add('drag');
+}
+cv.addEventListener('pointerdown', e => {
+  if (!RC.edit || PATH !== 'map') return;
+  if (RC.drag || RC.band) { e.stopImmediatePropagation(); return; }                                 // ein zweiter Finger stoert das laufende Ziehen nicht
+  if (e.button > 0) return;
+  if (RC.unit === 'artist') {
+    const a = rcArtistAt(e.clientX, e.clientY), mod = e.shiftKey || e.ctrlKey || e.metaKey;
+    if (!a) {                                                                                       // freie Flaeche: Umschalt+Ziehen = Auswahlrahmen, sonst wie gewohnt die Karte verschieben (ein Klick ins Leere hebt die Auswahl auf)
+      if (mod && e.pointerType === 'mouse') { e.stopImmediatePropagation(); try { cv.setPointerCapture(e.pointerId); } catch (_) { } RC.band = { x0: e.clientX, y0: e.clientY, x1: e.clientX, y1: e.clientY, id: e.pointerId }; hover = null; showTip(null); }
+      else if (RC.sel.size) RC.empty = { x: e.clientX, y: e.clientY };
+      return;
+    }
+    if (mod) { rcToggleSel(a.i); e.stopImmediatePropagation(); return; }                           // Umschalt/Strg+Klick: Artist zur Auswahl hinzufuegen oder entfernen
+    const keep = RC.sel.has(a.i);
+    rcDragStart(e, 'artist', keep ? [...RC.sel] : [a.i]);
+    RC.drag.tap = a.i; RC.drag.keep = keep; RC.drag.touch = e.pointerType !== 'mouse';
+    return;
+  }
+  if (RC.unit === 'scene') { const g = rcSceneAt(e.clientX, e.clientY); if (g && g.members.length) rcDragStart(e, 'scene', g.members.slice()); return; }
+  const r = rcRegionAt(e.clientX, e.clientY); if (r) rcDragStart(e, 'region', null, regs.indexOf(r));
 });
 cv.addEventListener('pointermove', e => {
-  if (!RC.drag) return; e.stopImmediatePropagation();
-  const d = RC.drag, dx = (e.clientX - d.lx) / cam.z, dy = (e.clientY - d.ly) / cam.z; d.lx = e.clientX; d.ly = e.clientY;
-  if (!d.moved && Math.hypot(dx, dy) * cam.z < .5) return;
-  d.moved = true;
-  if (d.a) { rcMoveArtist(d.a, dx, dy); mmDirty = true; requestDraw(); return; }       // Artist folgt der Hand sofort
-  RSIM.hx += dx; RSIM.hy += dy; rcSimLoop();                                         // Ziel der Hand; der Kontinent folgt mit begrenzter Geschwindigkeit
+  if (RC.band) { e.stopImmediatePropagation(); if (e.pointerId === RC.band.id) { RC.band.x1 = e.clientX; RC.band.y1 = e.clientY; requestDraw(); } return; }
+  if (!RC.drag) { if (RC.empty && Math.hypot(e.clientX - RC.empty.x, e.clientY - RC.empty.y) > 4) RC.empty = null; return; }
+  e.stopImmediatePropagation();
+  const d = RC.drag; if (e.pointerId !== d.id) return;
+  if (!d.moved) {                                                                                  // erst nach ein paar Pixeln gilt es als Ziehen (auch bei sehr langsamer Hand); die Strecke seit dem Aufsetzen zaehlt mit
+    if (Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < 3) return;
+    d.moved = true; d.lx = d.x0; d.ly = d.y0;
+    if (d.kind === 'artist') { if (!d.keep) RC.sel = new Set([d.tap]); rcLabels(); }               // unmarkierter Artist: die Auswahl besteht nur noch aus ihm
+  }
+  const dx = (e.clientX - d.lx) / cam.z, dy = (e.clientY - d.ly) / cam.z; d.lx = e.clientX; d.ly = e.clientY;
+  RSIM.hx += dx; RSIM.hy += dy; rcSimLoop();                                                       // Ziel der Hand; die Gruppe folgt mit begrenzter Geschwindigkeit
 });
-/* Einzelner Artist abgelegt: Nachbarn weichen lokal aus, die neue Lage wird zur Ruhelage im Kontinent (bleibt bei spaeteren Zuegen) */
-function rcArtistDrop(a) {
-  rcGeo(); rcSimInit(); const s = RSIM; s.fixedArt = a.i; rcSetMass(); rcCentroids();
-  RC.opos[a.i] = [Math.round(s.px[a.i] - s.cx[a.r]), Math.round(s.py[a.i] - s.cy[a.r])];
-  s.ph = 'L'; s.it = 0; s.on = true; rcSimLoop();
-}
+function rcToggleSel(i) { if (RC.sel.has(i)) RC.sel.delete(i); else RC.sel.add(i); rcLabels(); requestDraw(); }
+function rcClearSel() { if (!RC.sel.size) return; RC.sel = new Set(); rcLabels(); requestDraw(); }
 function rcDragEnd(e) {
-  const d = RC.drag; if (!d) return; if (e) e.stopImmediatePropagation(); RC.drag = null; cv.classList.remove('drag');
-  if (!d.moved) { rcSimStop(); return; }
-  if (d.a) { rcArtistDrop(d.a); return; }
+  if (RC.band) {                                                                                   // Auswahlrahmen loslassen: alle sichtbaren Artists im Rahmen kommen zur Auswahl
+    if (e) e.stopImmediatePropagation(); if (e && e.pointerId !== RC.band.id) return;
+    const b = RC.band; RC.band = null;
+    const z = cam.z, ox = W / 2 - cam.x * z, oy = H / 2 - cam.y * z, x0 = Math.min(b.x0, b.x1), x1 = Math.max(b.x0, b.x1), y0 = Math.min(b.y0, b.y1), y1 = Math.max(b.y0, b.y1);
+    if (x1 - x0 > 3 || y1 - y0 > 3) art.forEach(a => { if (a.sc < .05) return; const sx = a.x * z + ox, sy = a.y * z + oy; if (sx >= x0 && sx <= x1 && sy >= y0 && sy <= y1) RC.sel.add(a.i); });
+    rcLabels(); requestDraw(); return;
+  }
+  if (RC.empty && e && e.type === 'pointerup') { RC.empty = null; rcClearSel(); }                  // Klick ins Leere (ohne Ziehen) hebt die Auswahl auf; die Karte reagiert wie gewohnt
+  const d = RC.drag; if (!d) return; if (e) e.stopImmediatePropagation(); if (e && e.pointerId !== d.id) return;
+  RC.drag = null; cv.classList.remove('drag');
+  if (!d.moved) {
+    rcSimStop();
+    if (d.kind === 'artist') { if (d.touch) rcToggleSel(d.tap); else { RC.sel = new Set([d.tap]); rcLabels(); requestDraw(); } }      // Tippen/Klicken: Touch schaltet um, Maus waehlt genau diesen Artist
+    return;
+  }
   RSIM.release = true; toast('Ordne neu …'); rcSimLoop();
 }
 cv.addEventListener('pointerup', rcDragEnd); cv.addEventListener('pointercancel', rcDragEnd);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && RC.edit && RC.sel.size && !RC.drag) rcClearSel(); });
+/* Auswahl-Overlay im Bearbeiten-Modus: Ringe um markierte Artists, Auswahlrahmen */
+function drawEditSel(z, ox, oy) {
+  if (RC.sel.size) {
+    ctx.save(); ctx.lineWidth = 2; ctx.strokeStyle = TH.tint === 'light' ? 'rgba(20,24,38,.95)' : 'rgba(255,255,255,.95)'; ctx.fillStyle = TH.tint === 'light' ? 'rgba(20,24,38,.12)' : 'rgba(255,255,255,.14)';
+    RC.sel.forEach(i => { const a = art[i]; if (a.sc < .05) return; const sx = a.x * z + ox, sy = a.y * z + oy; if (sx < -60 || sy < -60 || sx > W + 60 || sy > H + 60) return; const rs = Math.max(a.F * a.sc * z, 5) + 3; ctx.beginPath(); ctx.arc(sx, sy, rs, 0, 6.2832); ctx.fill(); ctx.stroke(); });
+    ctx.restore();
+  }
+  if (RC.band) {
+    const b = RC.band; ctx.save(); ctx.lineWidth = 1.2; ctx.setLineDash([5, 4]); ctx.strokeStyle = 'rgba(255,255,255,.9)'; ctx.fillStyle = 'rgba(160,190,255,.12)';
+    ctx.fillRect(Math.min(b.x0, b.x1), Math.min(b.y0, b.y1), Math.abs(b.x1 - b.x0), Math.abs(b.y1 - b.y0)); ctx.strokeRect(Math.min(b.x0, b.x1), Math.min(b.y0, b.y1), Math.abs(b.x1 - b.x0), Math.abs(b.y1 - b.y0)); ctx.restore();
+  }
+}
 /* Artist zu seinem Kontinent zurueckholen: Ziel ist das Mittel seiner aehnlichen Artists im Kontinent, dort wird der naechste freie Platz gesucht */
 function rcReturnArtist(i) {
   if (RSIM.on) return; const a = art[i]; let tx = 0, ty = 0, tw = 0;
@@ -3270,26 +3529,70 @@ function rcReturnArtist(i) {
   rcPositions(); applyLayout({ instant: true, fit: false }); rcSave(); toast('Artist zurückgeholt'); if (sel && sel.t === 'a' && sel.i === i) flyToSel();
 }
 function rcResetPositions() {
-  rcSimStop(); art.forEach(x => rcMoveArtist(x, x.px0 - x.bx, x.py0 - x.by)); rcGeo(); RC.pos = null; RC.anc = {}; RC.opos = {}; rcSave(); applyLayout({ instant: true, fit: 'force' }); toast('Positionen zurückgesetzt');
+  rcSimStop(); art.forEach(x => rcMoveArtist(x, x.px0 - x.bx, x.py0 - x.by)); rcGeo(); RC.pos = null; RC.anc = {}; RC.opos = {}; RC.sel = new Set(); rcSave(); applyLayout({ instant: true, fit: 'force' }); rcLabels(); toast('Positionen zurückgesetzt');
 }
+/* Bearbeiten-Modus: die Karte zeigt immer das volle Grundlayout (alle Artists, ohne Zeitraum/Filter/Ausblenden), damit die Hand genau dort ablegt, wo sie loslaesst */
 function rcEdit(on) {
-  RC.edit = on; document.body.classList.toggle('edit-conts', on); $('t-edit').classList.toggle('on', on);
+  if (!on && RSIM.on) rcSimRun(1e9);                                                      // noch laufende Animation sofort zu Ende bringen
+  RC.edit = on; if (!on) { RC.sel = new Set(); RC.band = null; RC.empty = null; }
+  hidePause(on); document.body.classList.toggle('edit-conts', on); $('t-edit').classList.toggle('on', on);
   let b = $('edit-banner');
-  if (!b) { b = document.createElement('div'); b.id = 'edit-banner'; b.className = 'glass'; b.innerHTML = '<span id="edit-hint"></span><button class="btn" data-ed="unit"></button><button class="btn" data-ed="mag"></button><button class="btn" data-ed="tidy">Aufräumen</button><button class="btn" data-ed="colors">Farben …</button><button class="btn" data-ed="reset">Zurücksetzen</button><button class="btn pri" data-ed="done">Fertig</button>'; document.body.appendChild(b);
-    b.addEventListener('click', e => { const x = e.target.closest('[data-ed]'); if (!x) return; if (x.dataset.ed === 'done') rcEdit(false); else if (x.dataset.ed === 'mag') rcSetMagnet((RC.magnet + 1) % 3); else if (x.dataset.ed === 'unit') rcSetUnit(RC.unit === 'region' ? 'artist' : 'region'); else if (x.dataset.ed === 'tidy') rcTidy(); else if (x.dataset.ed === 'reset') rcResetPositions(); else { openDrawer('settings'); setTimeout(() => { const s = document.getElementById('rc-sect'); if (s) s.scrollIntoView({ block: 'start' }); }, 60); } }); }
-  b.classList.toggle('show', on); rcLabels();
-  if (on) { clearSel(); toast(RC.unit === 'artist' ? 'Ziehe einen Artist an eine neue Stelle' : 'Ziehe einen Kontinent, um ihn zu verschieben'); }
+  if (!b) { b = document.createElement('div'); b.id = 'edit-banner'; b.className = 'glass'; b.innerHTML = '<span id="edit-hint"></span><div class="seg"><button class="btn" data-ed="u-region">Kontinent</button><button class="btn" data-ed="u-scene">Szene</button><button class="btn" data-ed="u-artist">Artists</button></div><button class="btn" data-ed="clr">Auswahl aufheben</button><button class="btn" data-ed="mag"></button><button class="btn" data-ed="tidy">Aufräumen</button><button class="btn" data-ed="colors">Farben …</button><button class="btn" data-ed="reset">Zurücksetzen</button><button class="btn pri" data-ed="done">Fertig</button>'; document.body.appendChild(b);
+    b.addEventListener('click', e => {
+      const x = e.target.closest('[data-ed]'); if (!x) return; const k = x.dataset.ed;
+      if (k === 'done') rcEdit(false); else if (k === 'mag') rcSetMagnet((RC.magnet + 1) % 3); else if (k.startsWith('u-')) rcSetUnit(k.slice(2)); else if (k === 'clr') rcClearSel(); else if (k === 'tidy') rcTidy(); else if (k === 'reset') rcResetPositions();
+      else { openDrawer('settings'); setTimeout(() => { const s = document.getElementById('rc-sect'); if (s) { openFoldOf(s); s.scrollIntoView({ block: 'start' }); } }, 60); }
+    }); }
+  b.classList.toggle('show', on); rcLabels(); applyLayout({ fit: false });
+  if (on) { clearSel(); toast(RC.unit === 'artist' ? 'Ziehe einen Artist an eine neue Stelle' : RC.unit === 'scene' ? 'Ziehe eine Szene, um sie zu verschieben' : 'Ziehe einen Kontinent, um ihn zu verschieben'); }
 }
 const RMAG = ['Aus', 'Mittel', 'Stark'];
 function rcLabels() {
-  const q = k => document.querySelector('#edit-banner [data-ed="' + k + '"]'), m = q('mag'), u = q('unit'), h = document.getElementById('edit-hint');
-  if (m) m.textContent = T('Magnet') + ': ' + T(RMAG[RC.magnet]);
-  if (u) u.textContent = RC.unit === 'artist' ? T('Ziehen: Artist') : T('Ziehen: Kontinent');
-  if (h) h.textContent = RC.unit === 'artist' ? T('Einzelne Artists verschieben: ziehe einen Artist an eine neue Stelle, die Nachbarn weichen aus.') : T('Kontinente verschieben: ziehe einen Kontinent an eine neue Stelle – die anderen weichen aus und rücken nach.');
+  const q = k => document.querySelector('#edit-banner [data-ed="' + k + '"]'), h = document.getElementById('edit-hint'), n = RC.sel.size;
+  const m = q('mag'); if (m) m.textContent = T('Magnet') + ': ' + T(RMAG[RC.magnet]);
+  ['region', 'scene', 'artist'].forEach(u => { const x = q('u-' + u); if (x) x.classList.toggle('pri', RC.unit === u); });
+  const c = q('clr'); if (c) { c.style.display = RC.unit === 'artist' && n ? '' : 'none'; c.textContent = T('Auswahl aufheben') + ' (' + n + ')'; }
+  const touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  if (h) h.textContent = RC.unit === 'artist' ? T(touch ? 'Artists verschieben: tippe Artists an, um sie auszuwählen, und ziehe sie dann gemeinsam.' : 'Artists verschieben: ziehe einen Artist an eine neue Stelle. Mehrere auswählen: Umschalt+Klick oder Umschalt+Rahmen aufziehen, dann gemeinsam ziehen.')
+    : RC.unit === 'scene' ? T('Szenen verschieben: ziehe eine Szene (Unter-Genre) an eine neue Stelle – sie gehört weiter zu ihrem Kontinent, die Nachbarn weichen aus.') : T('Kontinente verschieben: ziehe einen Kontinent an eine neue Stelle – die anderen weichen aus und rücken nach.');
 }
 function rcSetMagnet(v) { RC.magnet = v; rcSave(); rcLabels(); if (drawerTab === 'settings') renderDrawer(); toast(T('Magnet') + ': ' + T(RMAG[v])); }
-function rcSetUnit(u) { RC.unit = u; rcLabels(); if (drawerTab === 'settings') renderDrawer(); toast(u === 'artist' ? T('Ziehe einen Artist an eine neue Stelle') : T('Ziehe einen Kontinent, um ihn zu verschieben')); }
-function rcInit() { rcLoad(); rcApplySaved(); if (RC.dropped) { RC.dropped = false; rcSave(); setTimeout(() => toast(T('Gespeicherte Positionen einer älteren Version wurden verworfen, die Farben bleiben erhalten.')), 2500); } }
+function rcSetUnit(u) {
+  if (RSIM.on) return; RC.unit = u; if (u !== 'artist') RC.sel = new Set(); rcLabels(); requestDraw(); if (drawerTab === 'settings') renderDrawer();
+  toast(T(u === 'artist' ? 'Ziehe einen Artist an eine neue Stelle' : u === 'scene' ? 'Ziehe eine Szene, um sie zu verschieben' : 'Ziehe einen Kontinent, um ihn zu verschieben'));
+}
+/* Standard-Farbschema ist "Nach Lage": gilt, solange fuer diese Karte noch nichts gespeichert wurde (wird nicht selbst gespeichert) */
+/* Standard-Farbschema von Tunelands (Kontinent-Anker -> Farbe); passt zur Karte von timnook73. Auf anderen Karten ohne passenden Anker gilt "Farben nach Lage". */
+const KK_DEFCOLORS = {"The Neighbourhood": "#a052ff", "Edwin Rosen": "#59f9ff", "TV Girl": "#be30ff", "sign crushes motorist": "#6fc253", "Tame Impala": "#1cc984", "Kasi": "#43de95", "Radiohead": "#ffa1a1", "Zate": "#c27465", "Clairo": "#bf66ff", "Pastel Ghost": "#b01c95", "MXP": "#b34757", "Anri": "#dec97c", "Lyno Nine8": "#3579f0", "Videoclub": "#ff5ea1", "hkmori": "#570238", "XXXTENTACION": "#6783e6", "Nujabes": "#d6bc38", "Powfu": "#2de06c", "Joost": "#3469bf", "inverted mind": "#c2557d", "Lofi Girl": "#45f571"};
+function rcStdColors() {
+  if (!regs.some(r => KK_DEFCOLORS[rkey(r)])) { rcDefaultColors(); return; }
+  regs.forEach(r => setRegionColor(r, KK_DEFCOLORS[rkey(r)] || r.color0, false));
+}
+function rcDefaultColors() {
+  const gx = regs.reduce((s, r) => s + r.cx, 0) / regs.length, gy = regs.reduce((s, r) => s + r.cy, 0) / regs.length;
+  regs.forEach(r => setRegionColor(r, rgb2hex(fromHsl((Math.atan2(r.cy - gy, r.cx - gx) * 180 / Math.PI + 360) % 360 + 15, .6, .68)), false));
+}
+/* Layout-Code: Farben und Positionen dieser Karte als Text (zum Uebertragen zwischen Geraeten; kann in config.js als Standard hinterlegt werden: layout: { classic: 'KK1:...' }) */
+function rcPack() {
+  const colors = {}; regs.forEach(r => { if (r.color.toLowerCase() !== r.color0.toLowerCase()) colors[rkey(r)] = r.color; });
+  const pos = art.map(a => [Math.round(a.bx * 10) / 10, Math.round(a.by * 10) / 10]);
+  return 'KK1:' + btoa(unescape(encodeURIComponent(JSON.stringify({ colors, pos, anc: RC.anc, opos: RC.opos, mag: RC.magnet }))));
+}
+function rcUnpack(code) {
+  try { const o = JSON.parse(decodeURIComponent(escape(atob(String(code).trim().replace(/^KK1:/, ''))))); return o && Array.isArray(o.pos) && o.pos.length === NA ? o : null; } catch (e) { return null; }
+}
+function rcAdopt(o) { RC.colors = o.colors || {}; RC.pos = o.pos; RC.anc = o.anc || {}; RC.opos = o.opos || {}; RC.magnet = o.mag === 0 || o.mag === 2 ? o.mag : 1; }
+function rcCodeExport() {
+  const c = rcPack(), done = () => toast(T('Layout-Code kopiert. Auf dem anderen Gerät unter „Layout einfügen“ einfügen.'));
+  try { navigator.clipboard.writeText(c).then(done, () => window.prompt(T('Layout-Code (alles kopieren):'), c)); } catch (e) { window.prompt(T('Layout-Code (alles kopieren):'), c); }
+}
+function rcCodeImport() {
+  const c = window.prompt(T('Layout-Code einfügen:')); if (!c) return;
+  const o = rcUnpack(c); if (!o) { toast(T('Der Code passt nicht zu dieser Karte.')); return; }
+  rcAdopt(o); rcSave(); location.reload();
+}
+function rcBuiltin() { try { const L = (window.__KK_CFG__ || {}).layout, c = L && (typeof L === 'object' ? L[MAPV || 'default'] : L); return c ? rcUnpack(c) : null; } catch (e) { return null; } }
+function rcInit() { let fresh = false; try { fresh = !localStorage.getItem(RC.key) && !localStorage.getItem(RC.legacy); } catch (e) { } rcLoad(); const bi = fresh ? rcBuiltin() : null; if (bi) { rcAdopt(bi); fresh = false; } rcApplySaved(); if (fresh && regs.length) rcStdColors(); if (RC.dropped) { RC.dropped = false; rcSave(); setTimeout(() => toast(T('Gespeicherte Positionen einer älteren Version wurden verworfen, die Farben bleiben erhalten.')), 2500); } }
 
 /* ---- Oberflaeche: Farbwahl je Kontinent (Einstellungen) ---- */
 function rcHTML() {
@@ -3297,6 +3600,7 @@ function rcHTML() {
   if (MAPS) h += '<div class="sect"><h3>Karte <em>Layout und Farben</em></h3></div><div class="btns" style="margin:0 0 4px">' + [['classic', 'Klassisch'], ['neu', 'Neu']].filter(m => MAPS[m[0]]).map(m => '<button class="btn' + (MAPV === m[0] ? ' pri' : '') + '" data-map="' + m[0] + '">' + m[1] + '</button>').join('') + '</div><div class="hint" style="margin:0 0 10px;font-size:12px;opacity:.7">Klassisch: Anordnung und Farben vom 21.10. – Neu: verbesserte Genre-Zuordnung (21 Kontinente).</div>';
   h += '<div class="sect" id="rc-sect"><h3>Kontinente <em>Farbe und Lage</em></h3></div>';
   h += '<div class="btns" style="margin:0 0 8px"><button class="btn' + (RC.edit ? ' pri' : '') + '" data-rcp="edit">Kontinente verschieben</button><button class="btn" data-rcp="resetpos">Lage zurücksetzen</button><button class="btn" data-rcp="tidy">Aufräumen</button></div>';
+  h += '<div class="btns" style="margin:0 0 8px"><button class="btn" data-rcp="codeout">Layout kopieren</button><button class="btn" data-rcp="codein">Layout einfügen</button></div>';
   h += '<div class="rc-presets"><span>Magnet <em style="opacity:.6">(Zusammenhalt)</em></span>' + RMAG.map((m, i) => '<button class="btn' + (RC.magnet === i ? ' pri' : '') + '" data-rcm="' + i + '">' + m + '</button>').join('') + '</div>';
   h += '<div class="rc-presets"><span>Farbschema</span>' + [['orig', 'Original'], ['spectrum', 'Nach Lage'], ['pastel', 'Pastell'], ['vivid', 'Kräftig']].map(p => '<button class="btn" data-rcp="' + p[0] + '">' + p[1] + '</button>').join('') + '</div>';
   h += '<div class="rc-list">' + regs.slice().sort((a, b) => b.cm - a.cm).map(r => '<label class="rc-row"><input type="color" value="' + r.color + '" data-rc="' + r.id + '"><span>' + esc(r.name) + '</span>' + (RC.colors[rkey(r)] ? '<i class="rc-mod" title="Geändert"></i>' : '') + '</label>').join('') + '</div>';
@@ -3308,14 +3612,393 @@ document.addEventListener('click', e => {
   const mp = e.target.closest('[data-map]'); if (mp) { const v = mp.dataset.map; if (v === MAPV) return; try { localStorage.setItem('kk-map', v); } catch (e) { } try { location.hash = 'map=' + v; location.reload(); } catch (e) { location.reload(); } return; }
   const mb = e.target.closest('[data-rcm]'); if (mb) { rcSetMagnet(+mb.dataset.rcm); return; }
   const b = e.target.closest('[data-rcp]'); if (!b) return; const k = b.dataset.rcp;
-  if (k === 'edit') rcEdit(!RC.edit); else if (k === 'resetpos') rcResetPositions(); else if (k === 'tidy') rcTidy(); else rcPreset(k);
+  if (k === 'edit') rcEdit(!RC.edit); else if (k === 'resetpos') rcResetPositions(); else if (k === 'tidy') rcTidy(); else if (k === 'codeout') rcCodeExport(); else if (k === 'codein') rcCodeImport(); else rcPreset(k);
 });
+
+/* =====================================================================
+   KLANGKARTE – Ausblenden
+   Kontinente, Szenen, einzelne Artists und Songs lassen sich von der Karte nehmen, damit auch aus Bild und PDF.
+   Es betrifft nur die Karte (Karte, Reihen, Spirale, Export): Ranglisten, Summen und die Suche bleiben unverändert.
+   Nichts wird gespeichert: Nach dem Neuladen ist wieder alles da.
+   Ausgeblendete Artists/Songs fallen über passA/passT aus dem Layout; die Karte behält ihre Plätze (Lücken), solange kein Filter aktiv ist.
+   ===================================================================== */
+const HID = { r: new Set(), s: new Set(), a: new Set(), k: new Set(), x: new Set(), y: new Set(), yA: new Set(), n: 0, off: false };      // Kontinent, Szene, Artist, Song (Nummern wie bei sel); x/y = Ausnahmen: Artist/Song bleibt sichtbar, obwohl sein Kontinent/seine Szene (bzw. sein Artist) ausgeblendet ist; yA = Artists mit Song-Ausnahme; off = pausiert (Kontinente verschieben)
+const FX = { a: new Set(), k: new Set(), n: 0 };      // dauerhaft ausgeblendet durch "Fehler melden" (03h_fix.js): gelten wie HID, werden aber gespeichert und zaehlen nicht in der Pille
+const HID_ORDER = ['r', 's', 'a', 'k'];
+const HID_LAB = { r: 'Kontinent', s: 'Szene', a: 'Artist', k: 'Song', x: 'Artist', y: 'Song' };
+const HID_VIA = { r: 'Ausgeblendet über den Kontinent.', s: 'Ausgeblendet über die Szene.', a: 'Ausgeblendet über den Artist.', k: 'Ausgeblendet über den Song.' };
+/* Gruppe (Kontinent/Szene) blendet den Artist aus, sofern keine Ausnahme gilt */
+const grpHid = a => (HID.r.has(a.r) || HID.s.has(a.s)) && !HID.x.has(a.i) && !HID.yA.has(a.i);
+const hidTotal = () => HID.r.size + HID.s.size + HID.a.size + HID.k.size;
+const isHidA = a => (HID.n > 0 || FX.n > 0) && !HID.off && (grpHid(a) || HID.a.has(a.i) || FX.a.has(a.i) || (a.k === 1 && (HID.k.has(a.tr[0]) || FX.k.has(a.tr[0]))));
+const isHidT = t => (HID.n > 0 || FX.n > 0) && !HID.off && (HID.k.has(t.i) || FX.k.has(t.i) || isHidA(art[t.p]) || (HID.yA.has(t.p) && !HID.y.has(t.i) && !HID.x.has(t.p) && (HID.r.has(art[t.p].r) || HID.s.has(art[t.p].s))));
+/* Was blendet das Element aus? {t, i} des Auslösers (das Element selbst oder sein Szene/Kontinent/Artist), sonst null */
+function hideCause(t, i) {
+  if ((!HID.n && !FX.n) || HID.off) return null;
+  if (t === 'r') return HID.r.has(i) ? { t, i } : null;
+  if (t === 's') return HID.s.has(i) ? { t, i } : HID.r.has(scs[i].reg) ? { t: 'r', i: scs[i].reg } : null;
+  if (t === 'a') {
+    const a = art[i];
+    if (FX.a.has(i)) return { t, i, fx: 1 };
+    if (HID.a.has(i)) return { t, i };
+    if (a.k === 1 && FX.k.has(a.tr[0])) return { t: 'k', i: a.tr[0], fx: 1 };
+    if (a.k === 1 && HID.k.has(a.tr[0])) return { t: 'k', i: a.tr[0] };
+    if (HID.x.has(i) || HID.yA.has(i)) return null;
+    if (HID.s.has(a.s)) return { t: 's', i: a.s };
+    return HID.r.has(a.r) ? { t: 'r', i: a.r } : null;
+  }
+  if (t === 'k') {
+    if (FX.k.has(i)) return { t, i, fx: 1 }; if (HID.k.has(i)) return { t, i };
+    const p = trk[i].p, a = art[p];
+    if (HID.y.has(i)) return FX.a.has(p) || HID.a.has(p) ? hideCause('a', p) : null;           // Ausnahme: nur dieser Song bleibt sichtbar
+    if (HID.yA.has(p) && !HID.x.has(p) && (HID.r.has(a.r) || HID.s.has(a.s))) return HID.s.has(a.s) ? { t: 's', i: a.s } : { t: 'r', i: a.r };
+    return hideCause('a', p);
+  }
+  return null;
+}
+function hideIs(t, i) { return !!hideCause(t, i); }
+const hideName = (t, i) => t === 'r' ? regs[i].name : t === 's' ? scs[i].name : (t === 'a' || t === 'x') ? art[i].n : trk[i].n;
+
+/* ---------- Ändern ---------- */
+function hideSet(t, i, on) {
+  const set = HID[t]; if (!(set instanceof Set) || t === 'yA') return;
+  const was = set.has(i); if (on == null) on = !was; if (on === was) return;
+  if (on) set.add(i); else set.delete(i);
+  if (on && t === 'a') HID.x.delete(i);                       // direkt ausgeblendet: eine fruehere Ausnahme gilt nicht mehr
+  if (on && t === 'k') HID.y.delete(i);
+  if (t === 'y') { const p = trk[i].p; if (on) HID.yA.add(p); else if (!art[p].tr.some(k => HID.y.has(k))) HID.yA.delete(p); }
+  hideApply();
+}
+function hideClear() { if (!hidTotal() && !HID.x.size && !HID.y.size) return; HID_ORDER.concat(['x', 'y', 'yA']).forEach(t => HID[t].clear()); hideApply(); }
+/* Beim Verschieben der Kontinente ist alles sichtbar (sonst stoßen sichtbare Artists an unsichtbare) */
+function hidePause(on) { on = !!on; if (HID.off === on) return; HID.off = on; if (hidTotal() || FX.n) hideApply(); }
+function hideApply() {
+  HID.n = hidTotal();
+  computeFocus(); applyLayout({ fit: false }); hideUI();
+  if (drawerTab === 'settings') hidePanel(); else if (drawerTab === 'detail') renderDrawer();
+  requestDraw();
+}
+function hideUI() {
+  const n = hidTotal();
+  document.querySelectorAll('.hid-pill').forEach(p => {
+    p.classList.toggle('hidden', !n); p.classList.toggle('paused', !!n && HID.off);
+    p.title = n && HID.off ? T('Beim Verschieben der Kontinente ist alles sichtbar.') : '';
+    const b = p.querySelector('.hp-n'); if (b) b.textContent = n + ' ausgeblendet';
+  });
+}
+
+/* ---------- Bausteine für Detailansichten ---------- */
+const hideBtn = (t, i) => hideCause(t, i) ? '' : '<button class="btn" data-hide="' + t + i + '">' + HID_LAB[t] + ' ausblenden</button>';
+function hideNote(t, i) {
+  const c = hideCause(t, i);
+  if (!c) {                                                       // sichtbar trotz ausgeblendetem Kontinent/Szene: Ausnahme anzeigen
+    const a = t === 'a' ? art[i] : t === 'k' ? art[trk[i].p] : null;
+    if (a && !HID.off && (HID.r.has(a.r) || HID.s.has(a.s)) && (t === 'a' ? HID.x.has(i) : HID.y.has(i))) return '<div class="hid-note"><span>Ausnahme: bleibt sichtbar, obwohl ' + (HID.s.has(a.s) ? 'die Szene' : 'der Kontinent') + ' ausgeblendet ist.</span><button class="btn" data-hide="' + (t === 'a' ? 'x' : 'y') + i + '">Ausnahme aufheben</button></div>';
+    return '';
+  }
+  if (c.fx) return '<div class="hid-note"><span>' + (c.t === t && c.i === i ? 'Korrigiert: nicht auf der Karte.' : HID_VIA[c.t]) + '</span><button class="btn" data-fix="undo:' + c.t + c.i + '">Rückgängig</button></div>';
+  const own = c.t === t && c.i === i, viaGrp = (t === 'a' || t === 'k') && (c.t === 'r' || c.t === 's') || (t === 'k' && c.t === 'a');
+  const ex = viaGrp ? '<button class="btn" data-hide="' + (t === 'a' ? 'x' : 'y') + i + '">' + (t === 'a' ? 'Nur diesen Artist anzeigen' : 'Nur diesen Song anzeigen') + '</button>' : '';
+  return '<div class="hid-note"><span>' + (own ? 'Ausgeblendet: nicht auf der Karte und nicht im Export.' : HID_VIA[c.t]) + '</span><button class="btn" data-hide="' + c.t + c.i + '">' + HID_LAB[c.t] + ' wieder einblenden</button>' + ex + '</div>';
+}
+
+/* ---------- Einstellungen: Suchen, Liste, Alles einblenden ---------- */
+function hideRowHTML(t, i) {
+  const direct = HID[t].has(i), c = direct ? null : hideCause(t, i);
+  let ctx = '';
+  if (t === 'a' || t === 'x') ctx = art[t === 'x' ? i : i].reg.name; else if (t === 's') ctx = regs[scs[i].reg].name; else if (t === 'k' || t === 'y') ctx = trk[i].a.map(x => art[x].n).join(', ');
+  const act = direct ? '<button class="btn hid-b" data-hide="' + t + i + '">' + (t === 'x' || t === 'y' ? 'Ausnahme aufheben' : 'Wieder einblenden') + '</button>'
+    : c ? '<span class="hid-via">' + HID_VIA[c.t] + '</span>'
+      : '<button class="btn hid-b" data-hide="' + t + i + '">Ausblenden</button>';
+  return '<div class="hid-row"><div class="hid-t"><span class="hid-k">' + (t === 'x' || t === 'y' ? 'Ausnahme · ' : '') + HID_LAB[t] + '</span><b>' + esc(hideName(t, i)) + '</b>' + (ctx ? '<small>' + esc(ctx) + '</small>' : '') + '</div>' + act + '</div>';
+}
+function hideListHTML() {
+  let rows = ''; HID_ORDER.concat(['x', 'y']).forEach(t => HID[t].forEach(i => { rows += hideRowHTML(t, i); }));
+  return rows ? rows + '<div class="btns"><button class="btn" data-hide="all">Alles wieder einblenden</button></div>' : '<div class="muted hid-none">Noch nichts ausgeblendet.</div>';
+}
+function hideFindHTML(q) {
+  const res = search(q, ['r', 's', 'a', 'k'], { r: 3, s: 4, a: 6, k: 6 }, 16);
+  return res.length ? res.map(e => hideRowHTML(e.t, e.i)).join('') : '<div class="muted hid-none">Nichts gefunden.</div>';
+}
+function hideSettingsHTML() {
+  return '<div class="sect"><h3>Ausblenden</h3></div>'
+    + '<div class="muted hid-intro">Nimmt Kontinente, Szenen, Artists oder Songs von der Karte, auch aus Bild und PDF. Ranglisten und Summen bleiben gleich. Das wird nicht gespeichert: Nach dem Neuladen ist wieder alles da.</div>'
+    + '<input class="hid-q" type="search" autocomplete="off" spellcheck="false" placeholder="' + esc(T('Kontinent, Szene, Artist oder Song suchen …')) + '" aria-label="' + esc(T('Zum Ausblenden suchen')) + '">'
+    + '<div class="hid-res"></div><div class="hid-list">' + hideListHTML() + '</div>';
+}
+function hidePanel() {                // nur Liste und Treffer neu zeichnen, damit das Suchfeld seinen Fokus behält
+  const l = dbody.querySelector('.hid-list'); if (l) l.innerHTML = hideListHTML();
+  const q = dbody.querySelector('.hid-q'), r = dbody.querySelector('.hid-res'); if (q && r) r.innerHTML = q.value.trim() ? hideFindHTML(q.value) : '';
+}
+function hideOpenPanel() {
+  setQ = ''; setTab('settings');
+  const f = dbody.querySelector('.fold[data-t="Ausblenden"]'); if (f) { openFoldOf(f); f.scrollIntoView({ block: 'start' }); }
+}
+
+document.addEventListener('click', e => {
+  const h = e.target.closest('[data-hide]'); if (!h) return;
+  e.preventDefault(); e.stopPropagation();
+  const v = h.dataset.hide;
+  if (v === 'all') hideClear(); else if (v === 'list') hideOpenPanel(); else hideSet(v[0], +v.slice(1));
+});
+dbody.addEventListener('input', e => {
+  const q = e.target; if (!q.classList || !q.classList.contains('hid-q')) return;
+  const r = dbody.querySelector('.hid-res'); if (r) r.innerHTML = q.value.trim() ? hideFindHTML(q.value) : '';
+});
+hideUI();
+
+/* =====================================================================
+   KLANGKARTE – Fehler melden und sofort auf der eigenen Karte korrigieren
+   Typische Fehler stammen aus den Quelldaten (z. B. gleicher Songtitel bei zwei Artists, falsche Vorschau, schiefes Genre). Jeder kann sie auf seiner Karte selbst beheben:
+   - Artist: in einen anderen Kontinent verschieben (Artist fliegt hin, Farbe und Zuordnung folgen) oder dauerhaft von der Karte nehmen
+   - Song: Vorschau entfernen oder dauerhaft von der Karte nehmen
+   Korrekturen werden im Browser gespeichert (je Nutzer) und lassen sich unter Einstellungen > Korrekturen zuruecknehmen. Zusaetzlich kann eine Meldung vorbereitet werden
+   (E-Mail oder Formular aus config.js: reportMail, reportUrl); gesammelte Meldungen lassen sich kopieren. Die Meldungen sollen spaeter fuer alle Karten geprueft werden.
+   ===================================================================== */
+const FXKEY = 'kk-fix:' + HUD.user;
+const FXS = { a: [], k: [], pv: [], mv: {}, off: {}, sv: {}, gn: {}, rep: [] };          // gespeichert: Schluessel (Spotify-ID oder Name) der korrigierten Artists/Songs, Verschiebungen { artist: kontinent-schluessel }, Meldungen
+const fxKA = a => a.sp || ('n:' + a.n), fxKT = t => t.sp || ('n:' + t.n + '|' + (t.art ? t.art.n : ''));
+const fxKS = s => 'sc:' + (s.n0 != null ? s.n0 : s.de) + '|' + rkey(regs[s.r0 != null ? s.r0 : s.reg]);          // Szenen: Originalname + urspruenglicher Kontinent
+const FX_BY = { a: new Map(), k: new Map(), s: new Map() };
+art.forEach(a => FX_BY.a.set(fxKA(a), a.i)); trk.forEach(t => FX_BY.k.set(fxKT(t), t.i)); scs.forEach(s => FX_BY.s.set(fxKS(s), s.id));
+function fxSave() { try { localStorage.setItem(FXKEY, JSON.stringify(FXS)); } catch (e) { } }
+function fxCount() { FX.n = FX.a.size + FX.k.size; }
+/* Zuordnung eines Artists zu einem anderen Kontinent (nur Daten: Mitglieder, Szene, Farbe, Summen) */
+function fxAssign(a, newR, keepScene) {
+  const old = a.r; if (old === newR || !regs[newR]) return false;
+  const ro = regs[old], rn = regs[newR]; if (a.r0 == null) { a.r0 = a.r; a.s0 = a.s; a.px00 = a.px0; a.py00 = a.py0; }
+  const rm = (arr, v) => { const k = arr.indexOf(v); if (k >= 0) arr.splice(k, 1); };
+  rm(ro.members, a.i); if (!keepScene) rm(scs[a.s].members, a.i);
+  let best = -1, bd = 1e18; scs.forEach((s, si) => { if (s.reg !== newR) return; const d = Math.hypot(s.bcx - a.bx, s.bcy - a.by); if (d < bd) { bd = d; best = si; } });
+  const si = !keepScene && best >= 0 ? best : a.s, sOld = scs[a.s];
+  if (!keepScene) { sOld.n = Math.max(0, sOld.n - 1); scs[si].n++; }
+  ro.n = Math.max(0, ro.n - 1); rn.n++;
+  a.r = newR; a.reg = rn; a.s = si; a.scn = scs[si]; rn.members.push(a.i); if (!keepScene) scs[si].members.push(a.i);
+  const ho = toHsl(ro.rgbO), hn = toHsl(rn.rgbO), ha = toHsl(a.rgbOrig); a.rgbOrig = fromHsl(hn.h + (ha.h - ho.h), ha.s, ha.l);       // Farbton relativ zum neuen Kontinent
+  setRegionColor(rn, rn.color, false);
+  if (newR === a.r0) { a.px0 = a.px00; a.py0 = a.py00; }                                     // zurueck im Ursprungskontinent: Ausgangsposition im Grundlayout wieder gueltig
+  else { let tj = -1, td = 1e18; rn.members.forEach(j => { if (j === a.i) return; const d = Math.hypot(art[j].bx - a.bx, art[j].by - a.by); if (d < td) { td = d; tj = j; } }); if (tj >= 0) { a.px0 = art[tj].px0; a.py0 = art[tj].py0; } }      // vorlaeufig: beim naechsten Mitglied des Zielkontinents (genaue Lage setzt fxLand)
+  return true;
+}
+/* Schwerpunkt (Gewicht = Flaeche) der Mitglieder eines Kontinents ausser a: aktuell (cur) oder im Grundlayout */
+function fxCen(r, ex, cur) { let cx = 0, cy = 0, w = 0; r.members.forEach(j => { if (j === ex) return; const b = art[j], q = b.bF * b.bF; cx += (cur ? b.bx : b.px0) * q; cy += (cur ? b.by : b.py0) * q; w += q; }); return w ? [cx / w, cy / w] : [0, 0]; }
+/* Grundlayout-Position des verschobenen Artists = Schwerpunkt des Zielkontinents + Versatz (damit "Positionen zuruecksetzen" und spaetere Verschiebungen ihn am neuen Platz halten) */
+function fxRebase(a, off) { const c = fxCen(a.reg, a.i, false); a.px0 = c[0] + off[0]; a.py0 = c[1] + off[1]; }
+function fxLand(a) {
+  const k = fxKA(a);
+  if (a.r === a.r0) { delete FXS.off[k]; return; }
+  const c = fxCen(a.reg, a.i, true); FXS.off[k] = [Math.round(a.bx - c[0]), Math.round(a.by - c[1])]; fxRebase(a, FXS.off[k]); delete RC.opos[a.i];
+}
+/* Ganze Szene in einen anderen Kontinent: alle Mitglieder wechseln mit, die Szene wandert in die Liste des Zielkontinents */
+function fxAssignScene(s, newR) {
+  const old = s.reg; if (old === newR || !regs[newR]) return false;
+  if (s.r0 == null) s.r0 = old;
+  const rm = (arr, v) => { const k = arr.indexOf(v); if (k >= 0) arr.splice(k, 1); };
+  rm(regs[old].sc, s.id); regs[newR].sc.push(s.id); s.reg = newR;
+  s.members.slice().forEach(i => fxAssign(art[i], newR, true));
+  s.rgb = regs[newR].rgb; return true;
+}
+function fxFlyGroup(s, newR, done) {
+  const st = RSIM; if (st.on) { rcSimRun(1200); if (st.on) { rcSimStop(); rcApply(); rcSimFinish(); } }
+  const mem = s.members.slice(); if (!mem.length) { if (done) done(); return; }
+  let cx = 0, cy = 0, w = 0; mem.forEach(i => { const a = art[i], q = a.bF * a.bF; cx += a.bx * q; cy += a.by * q; w += q; }); cx /= w; cy /= w;
+  const inS = new Set(mem); let tgt = null, bd = 1e18; regs[newR].members.forEach(j => { if (inS.has(j)) return; const b = art[j], d = Math.hypot(b.bx - cx, b.by - cy); if (d < bd) { bd = d; tgt = b; } });
+  if (!tgt) { if (done) done(); return; }
+  if (RC.edit) rcEdit(false);
+  rcSimStop(); rcGeo(); rcSimInit(mem); rcSetGroup(RSIM.R - 1, 'scene'); RSIM.on = true;
+  RSIM.hx = tgt.bx - cx; RSIM.hy = tgt.by - cy; RSIM.release = true; RSIM.done = () => { mem.forEach(i => fxLand(art[i])); fxSave(); rcSave(); if (done) done(); };
+  rcSimLoop();
+}
+function fxMoveScene(s, newR) {
+  const k = fxKS(s), regKey = rkey(regs[newR]);
+  if (!fxAssignScene(s, newR)) return;
+  if (s.r0 === newR) delete FXS.sv[k]; else FXS.sv[k] = regKey;
+  fxSave(); fxRefresh(); fxFlyGroup(s, newR, () => { fxRefresh(); applyLayout({ fit: false }); if (drawerTab === 'detail' || drawerTab === 'settings') renderDrawer(); });
+}
+/* Eigenes Genre: Artist und Song zeigen den Text statt der Tags, eine Szene bekommt ihn als Namen (Komma-getrennt) */
+const fxTags = txt => String(txt).split(',').map(x => x.trim()).filter(Boolean).slice(0, 6);
+function fxGenreKey(t, o) { return t === 'a' ? 'a:' + fxKA(o) : t === 'k' ? 'k:' + fxKT(o) : 's:' + fxKS(o); }
+function fxGenreSet(t, o, txt, save) {
+  const key = fxGenreKey(t, o);
+  if (txt) FXS.gn[key] = txt; else delete FXS.gn[key];
+  if (t === 's') { if (txt) { if (o.n0 == null) { o.n0 = o.de; o.en0 = o.en; } o.name = txt; o.en = ''; } else if (o.n0 != null) { o.name = o.n0; o.en = o.en0; } relines(); glowDirty = true; mmDirty = true; }
+  else { if (txt) o.gx = fxTags(txt); else delete o.gx; }
+  if (save) { fxSave(); requestDraw(); if (drawerTab === 'detail' || drawerTab === 'settings') renderDrawer(); }
+}
+function fxRefresh() { recompute(); rankings(); rcGeo(); updateRegionGeom(); rcColorsApplied(); }
+/* Feste Korrekturen fuer eine bestimmte Karte (config.js: globalFix { benutzername: { hideArtists: ['Name'] } }), z. B. wenn stats.fm einem Artist fremde Streams zuordnet; nicht rueckgaengig machbar */
+const FXG = new Set();
+(function fxGlobal() {
+  const g = ((window.__KK_CFG__ || {}).globalFix || {})[HUD.user]; if (!g || !Array.isArray(g.hideArtists)) return;
+  art.forEach(a => { if (g.hideArtists.indexOf(a.n) >= 0) { FX.a.add(a.i); FXG.add(a.i); } }); fxCount();
+})();
+/* Beim Start: gespeicherte Korrekturen anwenden (vor den gespeicherten Positionen und Farben der Kontinente) */
+(function fxLoad() {
+  try {
+    const o = JSON.parse(localStorage.getItem(FXKEY) || 'null'); if (!o) return;
+    ['a', 'k', 'pv'].forEach(k => { FXS[k] = Array.isArray(o[k]) ? o[k].filter(x => typeof x === 'string') : []; });
+    FXS.mv = o.mv && typeof o.mv === 'object' ? o.mv : {}; FXS.off = o.off && typeof o.off === 'object' ? o.off : {}; FXS.sv = o.sv && typeof o.sv === 'object' ? o.sv : {}; FXS.gn = o.gn && typeof o.gn === 'object' ? o.gn : {}; FXS.rep = Array.isArray(o.rep) ? o.rep.slice(-200) : [];
+  } catch (e) { return; }
+  FXS.a.forEach(k => { if (FX_BY.a.has(k)) FX.a.add(FX_BY.a.get(k)); });
+  FXS.k.forEach(k => { if (FX_BY.k.has(k)) FX.k.add(FX_BY.k.get(k)); });
+  FXS.pv.forEach(k => { const t = FX_BY.k.has(k) ? trk[FX_BY.k.get(k)] : null; if (t && t.pv) { t.pv0 = t.pv; t.pv = ''; } });
+  Object.keys(FXS.mv).forEach(k => { const a = FX_BY.a.has(k) ? art[FX_BY.a.get(k)] : null, r = regs.find(r => rkey(r) === FXS.mv[k]); if (a && r && fxAssign(a, r.id) && FXS.off[k]) fxRebase(a, FXS.off[k]); });
+  Object.keys(FXS.sv).forEach(k => { const s = FX_BY.s.has(k) ? scs[FX_BY.s.get(k)] : null, r = regs.find(r => rkey(r) === FXS.sv[k]); if (s && r && fxAssignScene(s, r.id)) s.members.forEach(i => { const o = FXS.off[fxKA(art[i])]; if (o) fxRebase(art[i], o); }); });
+  Object.keys(FXS.gn).forEach(k => { const t = k[0], key = k.slice(2), o = t === 'a' ? (FX_BY.a.has(key) ? art[FX_BY.a.get(key)] : null) : t === 'k' ? (FX_BY.k.has(key) ? trk[FX_BY.k.get(key)] : null) : (FX_BY.s.has(key) ? scs[FX_BY.s.get(key)] : null); if (o) fxGenreSet(t, o, FXS.gn[k], false); });
+  rcGeo(); fxCount();
+})();
+/* Verschieben mit der Simulation: der Artist fliegt zum naechsten Mitglied des Zielkontinents, die Nachbarn weichen aus */
+function fxFly(a, newR, done) {
+  const s = RSIM; if (s.on) { rcSimRun(1200); if (s.on) { rcSimStop(); rcApply(); rcSimFinish(); } }
+  let tgt = null, bd = 1e18; regs[newR].members.forEach(j => { if (j === a.i) return; const b = art[j], d = Math.hypot(b.bx - a.bx, b.by - a.by); if (d < bd) { bd = d; tgt = b; } });
+  if (!tgt) { if (done) done(); return; }
+  if (RC.edit) rcEdit(false);
+  rcSimStop(); rcGeo(); rcSimInit([a.i]); rcSetGroup(RSIM.R - 1, 'artist'); RSIM.on = true;
+  RSIM.hx = tgt.bx - a.bx; RSIM.hy = tgt.by - a.by; RSIM.release = true; RSIM.done = () => { fxLand(a); fxSave(); rcSave(); if (done) done(); };
+  rcSimLoop();
+}
+function fxMoveTo(a, newR) {
+  const k = fxKA(a), regKey = rkey(regs[newR]);
+  if (!fxAssign(a, newR)) return;
+  if (a.r0 === newR) delete FXS.mv[k]; else FXS.mv[k] = regKey;          // zurueck im Ursprungskontinent: Eintrag entfaellt
+  fxSave(); fxRefresh(); fxFly(a, newR, () => { fxRefresh(); applyLayout({ fit: false }); if (drawerTab === 'detail' || drawerTab === 'settings') renderDrawer(); });
+}
+/* ---------- Dialog ---------- */
+function fixBtn(t, i) { return '<button class="btn" data-fix="' + t + i + '">Fehler melden</button>'; }
+function fxMailText(rep) {
+  return ['Tunelands – Fehlermeldung', 'Typ: ' + rep.kind + ' (' + ({ a: 'Artist', k: 'Song', s: 'Szene' })[rep.t] + ')', ({ a: 'Artist: ', k: 'Song: ', s: 'Szene: ' })[rep.t] + rep.name + (rep.by ? ' von ' + rep.by : ''), rep.reg ? 'Kontinent auf meiner Karte: ' + rep.reg : '', rep.to ? 'Vorschlag Kontinent: ' + rep.to : '', rep.suggest ? 'Eigenes Genre/Vorschlag: ' + rep.suggest : '', rep.note ? 'Anmerkung: ' + rep.note : '', 'ID: ' + rep.id, 'Sprache: ' + LANG].filter(Boolean).join('\n');
+}
+function fxSend(rep) {
+  const cfg = window.__KK_CFG__ || {}, txt = fxMailText(rep);
+  try { navigator.clipboard.writeText(txt).catch(() => { }); } catch (e) { }
+  if (cfg.reportUrl) { window.open(cfg.reportUrl, '_blank', 'noopener'); toast('Meldung kopiert und Formular geöffnet'); return; }
+  const to = cfg.reportMail || 'tunelands@proton.me';
+  window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Tunelands: Fehler melden – ' + rep.name) + '&body=' + encodeURIComponent(txt);
+  toast('Meldung vorbereitet und kopiert');
+}
+let fxCur = null;
+function fxOpen(t, i) {
+  fxCur = { t, i }; const el = $('fixdlg'), isA = t === 'a', isS = t === 's', o = isA ? art[i] : isS ? scs[i] : trk[i];
+  const genreLab = isS ? 'Falscher Kontinent oder falsches Genre der Szene' : isA ? 'Falscher Kontinent oder falsches Genre' : 'Falsches Genre';
+  let opts;
+  if (isA) opts = [['genre', genreLab], ['hide', 'Gehört nicht auf meine Karte (z. B. falscher Song zugeordnet)'], ['other', 'Etwas anderes']];
+  else if (isS) opts = [['genre', genreLab], ['other', 'Etwas anderes']];
+  else { opts = [['genre', genreLab], ['preview', 'Die Vorschau gehört nicht zu diesem Song'], ['hide', 'Diesen Song habe ich nie gehört (falsch zugeordnet)'], ['other', 'Etwas anderes']]; if (!o.pv) opts.splice(1, 1); }
+  $('fx-what').innerHTML = (isA ? 'Artist' : isS ? 'Szene' : 'Song') + ' <b>' + esc(o.n || o.name) + '</b>' + (isA || isS ? (isS ? ' <span>' + esc(regs[o.reg].name) + '</span>' : '') : ' <span>' + esc(o.a.map(x => art[x].n).join(', ')) + '</span>');
+  $('fx-opts').innerHTML = opts.map((p, k) => '<label class="fx-opt"><input type="radio" name="fx-kind" value="' + p[0] + '"' + (k === 0 ? ' checked' : '') + '><span>' + p[1] + '</span></label>').join('');
+  const cur = isA ? o.r : isS ? o.reg : -1;
+  $('fx-reg').innerHTML = '<option value="">' + esc(T('Kontinent beibehalten')) + '</option>' + regs.filter(r => r.id !== cur).sort((x, y) => y.cm - x.cm).map(r => '<option value="' + r.id + '">' + esc(r.name) + '</option>').join('');
+  $('fx-regl').classList.toggle('hidden', t === 'k');
+  $('fx-sug').value = (isA ? o.gx : t === 'k' ? o.gx : null) ? (isA || t === 'k' ? o.gx.join(', ') : '') : ''; $('fx-note').value = ''; $('fx-send').checked = true; fxSync(); el.classList.add('show');
+}
+function fxSync() { const k = (document.querySelector('input[name="fx-kind"]:checked') || {}).value; $('fx-genre').classList.toggle('hidden', !(fxCur && k === 'genre')); }
+function fxClose() { $('fixdlg').classList.remove('show'); fxCur = null; }
+function fxApply() {
+  if (!fxCur) return; const { t, i } = fxCur, kind = (document.querySelector('input[name="fx-kind"]:checked') || {}).value, isA = t === 'a', isS = t === 's', o = isA ? art[i] : isS ? scs[i] : trk[i];
+  const rep = { id: Date.now().toString(36), d: new Date().toISOString().slice(0, 10), t, kind: ({ genre: 'Falscher Kontinent/Genre', hide: 'Gehört nicht auf die Karte', preview: 'Falsche Vorschau', other: 'Sonstiges' })[kind], name: isS ? o.name : o.n, by: t === 'k' ? o.a.map(x => art[x].n).join(', ') : '', reg: isA ? o.reg.name : isS ? regs[o.reg].name : o.art.reg.name, suggest: $('fx-sug').value.trim().slice(0, 120), note: $('fx-note').value.trim().slice(0, 300), to: '' };
+  if (kind === 'genre') {
+    const rv = t === 'k' ? '' : $('fx-reg').value, txt = $('fx-sug').value.trim().slice(0, 120);
+    if (!rv && !txt) { toast('Bitte einen Kontinent wählen oder ein Genre eingeben'); return; }
+    fxClose(); const nm = rep.name;
+    if (txt) fxGenreSet(t, o, txt, true);
+    if (rv) { const r = +rv; rep.to = regs[r].name; if (isA) fxMoveTo(o, r); else fxMoveScene(o, r); toast(T('Korrigiert:') + ' ' + nm + ' → ' + regs[r].name); }
+    else toast(T('Korrigiert:') + ' ' + nm + ' → ' + txt);
+  } else if (kind === 'hide') {
+    fxClose(); if (isA) { FXS.a.push(fxKA(o)); FX.a.add(i); } else { FXS.k.push(fxKT(o)); FX.k.add(i); }
+    fxCount(); fxSave(); hideApply(); toast('Korrigiert: nicht mehr auf der Karte');
+  } else if (kind === 'preview') {
+    fxClose(); if (audioId === i) stopPreview(); o.pv0 = o.pv; o.pv = ''; FXS.pv.push(fxKT(o)); fxSave(); if (drawerTab === 'detail') renderDrawer(); toast('Korrigiert: Vorschau entfernt');
+  } else fxClose();
+  FXS.rep.push(rep); fxSave(); if (drawerTab === 'settings') renderDrawer();
+  if ($('fx-send').checked) fxSend(rep);
+}
+function fxUndo(kind, id) {
+  if (kind === 'a') { if (FXG.has(id)) return; const a = art[id]; FX.a.delete(id); FXS.a = FXS.a.filter(k => k !== fxKA(a)); }
+  else if (kind === 'k') { const t = trk[id]; FX.k.delete(id); FXS.k = FXS.k.filter(k => k !== fxKT(t)); }
+  else if (kind === 'p') { const t = trk[id]; if (t.pv0) { t.pv = t.pv0; } FXS.pv = FXS.pv.filter(k => k !== fxKT(t)); }
+  else if (kind === 'm') { const a = art[id]; if (a.r0 != null) fxMoveTo(a, a.r0); return; }
+  else if (kind === 'c') { const s = scs[id]; if (s.r0 != null) fxMoveScene(s, s.r0); return; }
+  else if (kind === 'n') { fxGenreSet('a', art[id], '', true); return; }
+  else if (kind === 'q') { fxGenreSet('k', trk[id], '', true); return; }
+  else if (kind === 'z') { fxGenreSet('s', scs[id], '', true); return; }
+  fxCount(); fxSave(); hideApply(); if (drawerTab === 'detail') renderDrawer();
+}
+/* ---------- Einstellungen: Liste der Korrekturen ---------- */
+function fixSettingsHTML() {
+  const rows = [];
+  FX.a.forEach(i => { if (!FXG.has(i)) rows.push(['Artist ausgeblendet', art[i].n, '', 'a' + i]); });
+  FX.k.forEach(i => rows.push(['Song ausgeblendet', trk[i].n, trk[i].a.map(x => art[x].n).join(', '), 'k' + i]));
+  trk.forEach(t => { if (t.pv0 && !t.pv) rows.push(['Vorschau entfernt', t.n, t.a.map(x => art[x].n).join(', '), 'p' + t.i]); });
+  art.forEach(a => { const s = scs[a.s]; if (a.r0 != null && a.r !== a.r0 && !(s.r0 != null && s.reg !== s.r0)) rows.push(['Verschoben nach ' + a.reg.name, a.n, 'zuvor ' + regs[a.r0].name, 'm' + a.i]); });
+  scs.forEach(s => { if (s.r0 != null && s.reg !== s.r0) rows.push(['Szene verschoben nach ' + regs[s.reg].name, s.name, 'zuvor ' + regs[s.r0].name, 'c' + s.id]); if (s.n0 != null && s.de !== s.n0) rows.push(['Szene umbenannt', s.name, 'zuvor ' + s.n0, 'z' + s.id]); });
+  art.forEach(a => { if (a.gx) rows.push(['Eigenes Genre', a.n, a.gx.join(', '), 'n' + a.i]); }); trk.forEach(t => { if (t.gx) rows.push(['Eigenes Genre (Song)', t.n, t.gx.join(', '), 'q' + t.i]); });
+  let h = '<div class="sect"><h3>Korrekturen</h3></div><div class="muted hid-intro">Fehler, die du über „Fehler melden“ in der Detailansicht eines Artists oder Songs korrigierst, gelten sofort auf dieser Karte und bleiben im Browser gespeichert. Hier kannst du sie zurücknehmen.</div>';
+  h += rows.length ? rows.map(r => '<div class="hid-row"><div class="hid-t"><span class="hid-k">' + esc(r[0]) + '</span><b>' + esc(r[1]) + '</b>' + (r[2] ? '<small>' + esc(r[2]) + '</small>' : '') + '</div><button class="btn hid-b" data-fix="undo:' + r[3] + '">Rückgängig</button></div>').join('') : '<div class="muted hid-none">Noch keine Korrekturen.</div>';
+  if (FXS.rep.length) h += '<div class="btns"><button class="btn" data-fix="copyrep">Meldungen kopieren (' + FXS.rep.length + ')</button></div>';
+  return h;
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-fix]'); if (!b) return; const v = b.dataset.fix; e.preventDefault(); e.stopPropagation();
+  if (v.startsWith('undo:')) { const r = v.slice(5); fxUndo(r[0], +r.slice(1)); }
+  else if (v === 'copyrep') { const txt = FXS.rep.map(fxMailText).join('\n\n---\n\n'); try { navigator.clipboard.writeText(txt).then(() => toast('Meldungen kopiert'), () => window.prompt(T('Meldungen (alles kopieren):'), txt)); } catch (err) { window.prompt(T('Meldungen (alles kopieren):'), txt); } }
+  else fxOpen(v[0], +v.slice(1));
+});
+$('fx-cancel').onclick = fxClose; $('fx-go').onclick = fxApply;
+$('fixdlg').addEventListener('click', e => { if (e.target.id === 'fixdlg') fxClose(); });
+$('fixdlg').addEventListener('change', fxSync);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('fixdlg').classList.contains('show')) fxClose(); });
+
+/* =====================================================================
+   KLANGKARTE – Community: Social-Links (Instagram, TikTok, YouTube) und Umfrage-Hinweis
+   Der Hinweis erscheint einmal nach einer Weile auf der Karte (Standard 45 s Sichtzeit), laesst sich wegklicken und kommt dann hoechstens noch zweimal (fruehestens nach einem Tag).
+   Einstellbar in config.js: social { instagram, tiktok, youtube }, surveyDelay (Millisekunden, 0 = aus), feedback (Umfrage-Link, ein Link oder { de, en }).
+   ===================================================================== */
+(function community() {
+  const cfg = window.__KK_CFG__ || {}, SOC = Object.assign({ instagram: 'https://www.instagram.com/tunelands', tiktok: 'https://www.tiktok.com/@tunelands_maps', youtube: 'https://youtube.com/@tunelands-g3m' }, cfg.social || {});
+  const handle = u => { const m = String(u).match(/(?:instagram\.com\/|tiktok\.com\/|youtube\.com\/)(@?[^/?#]+)/i); return m ? (m[1][0] === '@' ? m[1] : '@' + m[1]) : ''; };
+  [['ig', 'instagram'], ['tt', 'tiktok'], ['yt', 'youtube']].forEach(([k, n]) => { const a = $('soc-' + k); if (!a) return; const q = $('qk-' + k); if (SOC[n]) { a.href = SOC[n]; $('soc-' + k + '-n').textContent = handle(SOC[n]); if (q) q.href = SOC[n]; } else { a.remove(); if (q) q.remove(); } });
+  const pick = v => (v && typeof v === 'object') ? (v[LANG] || v.de || v.en || '') : (v || '');
+  const surveyUrl = () => pick(cfg.survey || cfg.feedback);
+  const dlg = $('community'), openDlg = on => { dlg.classList.toggle('show', on); if (on) { setMenu(false); $('soc-survey').classList.toggle('hidden', !surveyUrl()); } };
+  $('t-social').onclick = () => openDlg(true); $('soc-close').onclick = () => openDlg(false);
+  dlg.addEventListener('click', e => { if (e.target === dlg) openDlg(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && dlg.classList.contains('show')) openDlg(false); });
+  const KEY = 'kk-survey', load = () => { try { return Object.assign({ s: 'new', n: 0, t: 0 }, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { return { s: 'new', n: 0, t: 0 }; } };
+  const save = o => { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) { } };
+  const card = $('survey'), hide = () => card.classList.add('hidden');
+  function go() { const u = surveyUrl(); if (!u) return; const o = load(); o.s = 'done'; save(o); hide(); openDlg(false); window.open(u, '_blank', 'noopener'); }
+  $('soc-survey').onclick = go; $('sv-go').onclick = go; $('qk-sv').onclick = go; if (surveyUrl()) $('qk-sv').classList.remove('hidden');
+  const later = () => { const o = load(); o.n++; o.t = Date.now(); save(o); hide(); };
+  $('sv-later').onclick = later; $('sv-x').onclick = later;
+  $('sv-never').onclick = () => { const o = load(); o.s = 'never'; save(o); hide(); };
+  const delay = cfg.surveyDelay == null ? 45000 : +cfg.surveyDelay;
+  /* Ko-fi-Hinweis: nur mit gesetztem cfg.donate, nach kofiDelay Sichtzeit (Standard 4 Minuten), nie zugleich mit der Umfrage-Karte;
+     "Spaeter" hoechstens zweimal (fruehestens nach 3 Tagen wieder), "Nicht mehr anzeigen" beendet ihn. */
+  const KF = 'kk-kofi', kload = () => { try { return Object.assign({ s: 'new', n: 0, t: 0 }, JSON.parse(localStorage.getItem(KF) || '{}')); } catch (e) { return { s: 'new', n: 0, t: 0 }; } };
+  const ksave = o => { try { localStorage.setItem(KF, JSON.stringify(o)); } catch (e) { } };
+  const kcard = $('kofi'), khide = () => kcard.classList.add('hidden'), donateUrl = () => pick(cfg.donate);
+  $('kf-go').onclick = () => { const u = donateUrl(); if (!u) return; const o = kload(); o.s = 'done'; ksave(o); khide(); window.open(u, '_blank', 'noopener'); };
+  const klater = () => { const o = kload(); o.n++; o.t = Date.now(); ksave(o); khide(); };
+  $('kf-later').onclick = klater; $('kf-x').onclick = klater;
+  $('kf-never').onclick = () => { const o = kload(); o.s = 'never'; ksave(o); khide(); };
+  const kdelay = cfg.kofiDelay == null ? 240000 : +cfg.kofiDelay, ko = kload();
+  const kofiOk = !IS_ART && !!donateUrl() && kdelay > 0 && ko.s === 'new' && ko.n < 2 && Date.now() - ko.t > 3 * 864e5;
+  const surveyOk = !IS_ART && !!surveyUrl() && delay > 0, o0 = load(), surveyDue = surveyOk && o0.s === 'new' && o0.n < 3 && Date.now() - o0.t >= 864e5;
+  if (!surveyDue && !kofiOk) return;
+  let seen = 0, shownSurvey = false;
+  const busy = () => document.hidden || RC.edit || (typeof tour !== 'undefined' && tour.on) || document.body.classList.contains('clean') || document.querySelector('#help.show,#pdf.show,#community.show');
+  const timer = setInterval(() => {
+    if (busy()) return; seen += 1000;
+    if (surveyDue && !shownSurvey && seen >= delay) { shownSurvey = true; card.classList.remove('hidden'); if (!kofiOk) clearInterval(timer); return; }
+    if (kofiOk && seen >= kdelay && card.classList.contains('hidden')) { clearInterval(timer); kcard.classList.remove('hidden'); }
+  }, 1000);
+})();
 
 /* =====================================================================
    KLANGKARTE – Einstellungen, Designs, Ansicht-Leiste, Übersicht/Legende
    ===================================================================== */
 const SKEY = 'klangkarte-einstellungen-v2';
-const DEF = { S: JSON.parse(JSON.stringify(S)), show: JSON.parse(JSON.stringify(show)), UI: { minimap: true, legend: true, mmPos: null, timeline: true } };
+const DEF = { S: JSON.parse(JSON.stringify(S)), show: JSON.parse(JSON.stringify(show)), UI: { minimap: false, legend: false, mmPos: null, timeline: true } };
 const TRANSIENT = ['view', 'objs', 'who'];      // werden nicht gespeichert (Start immer auf der Karte)
 function loadSettings() {
   if (window.innerWidth <= 900) { UI.minimap = false; UI.legend = false; UI.timeline = false; }      // auf dem Handy standardmaessig aus
@@ -3344,8 +4027,8 @@ function applyFont() {
 }
 const REACT = {
   theme: 'theme', font: 'font', fontScale: 'draw', labelDensity: 'draw', regionLabels: 'draw', regionSize: 'draw', sceneLabels: 'draw', stars: 'draw', glowAmt: 'glow',
-  view: 'view', objs: 'view', metric: 'metric', timeMode: 'time', sizeCurve: 'layout', artScale: 'layout', songScale: 'layout', spread: 'layout', moonScale: 'draw',
-  colorMode: 'recolor', linkAmt: 'draw', rings: 'draw', followCam: 'none', animSpeed: 'none', topN: 'layout', minMin: 'layout', minStr: 'layout', perf: 'perf', who: 'who'
+  view: 'view', objs: 'view', rowDir: 'view', gridCols: 'view', gridRows: 'view', metric: 'metric', timeMode: 'time', sizeCurve: 'layout', artScale: 'layout', songScale: 'layout', spread: 'layout', moonScale: 'draw',
+  colorMode: 'recolor', linkAmt: 'draw', rings: 'draw', followCam: 'none', animSpeed: 'none', topN: 'layout', minMin: 'layout', minStr: 'layout', perf: 'perf', who: 'who', cmpMode: 'recolor', cmpMe: 'recolor', cmpFr: 'recolor'
 };
 function setSetting(key, val, opts) {
   opts = opts || {};
@@ -3355,7 +4038,7 @@ function setSetting(key, val, opts) {
   switch (REACT[key]) {
     case 'theme': applyTheme(); break;
     case 'font': applyFont(); break;
-    case 'view': stopPreview(); applyLayout({ fit: 'force' }); break;
+    case 'view': applyLayout({ fit: 'force' }); break;
     case 'metric': assignValues(); rankings(); drawTimeline(); onRangeChange(); applyLayout({ fit: false }); break;
     case 'time': renderPresets(); applyLayout({ fit: 'force' }); break;
     case 'layout': scheduleLayout(30); break;
@@ -3386,18 +4069,29 @@ function syncSettingsUI(skipPanel) {
 }
 const THEME_SW = {
   night: 'radial-gradient(circle at 35% 40%,#1a2240,#080a14 70%)', black: 'radial-gradient(circle at 35% 40%,#101016,#000 70%)',
-  paper: 'radial-gradient(circle at 35% 40%,#faf5ea,#e3dac4 80%)', ocean: 'radial-gradient(circle at 35% 40%,#14506a,#041823 75%)'
+  paper: 'radial-gradient(circle at 35% 40%,#faf5ea,#e3dac4 80%)', ocean: 'radial-gradient(circle at 35% 40%,#14506a,#041823 75%)',
+  forest: 'radial-gradient(circle at 35% 40%,#1a4030,#040a07 75%)',
+  dusk: 'radial-gradient(circle at 35% 40%,#3a2a66,#080614 75%)',
+  wine: 'radial-gradient(circle at 35% 40%,#4a1a2c,#0a0307 75%)',
+  ember: 'radial-gradient(circle at 35% 40%,#46301a,#090502 75%)',
+  slate: 'radial-gradient(circle at 35% 40%,#2c3540,#07090b 75%)',
+  sky: 'radial-gradient(circle at 35% 40%,#f2f8fd,#cfe0ee 80%)',
+  rose: 'radial-gradient(circle at 35% 40%,#fdf3f4,#ebd2d6 80%)'
 };
 const rowSeg = (key, label, opts, hint) => '<div class="set-row"><div class="lb">' + label + (hint ? '<small>' + hint + '</small>' : '') + '</div><div class="ctrl"><div class="seg sm" data-set="' + key + '">' + opts.map(o => '<button data-v="' + o[0] + '" class="' + (String(S[key]) === String(o[0]) ? 'on' : '') + '">' + o[1] + '</button>').join('') + '</div></div></div>';
-const FMT = { minMin: v => v + ' min', minStr: v => v + '×',  artScale: v => v.toFixed(2) + '×', songScale: v => v.toFixed(2) + '×', spread: v => v.toFixed(2) + '×', moonScale: v => Math.round(v * 100) + ' %', labelDensity: v => v.toFixed(1) + '×', regionSize: v => v.toFixed(1) + '×', fontScale: v => Math.round(v * 100) + ' %', linkAmt: v => v.toFixed(1) + '×', glowAmt: v => v.toFixed(1) + '×' };
+const FMT = { gridCols: v => v ? String(v) : 'Auto', gridRows: v => v ? String(v) : 'Auto', minMin: v => v + ' min', minStr: v => v + '×',  artScale: v => v.toFixed(2) + '×', songScale: v => v.toFixed(2) + '×', spread: v => v.toFixed(2) + '×', moonScale: v => Math.round(v * 100) + ' %', labelDensity: v => v.toFixed(1) + '×', regionSize: v => v.toFixed(1) + '×', fontScale: v => Math.round(v * 100) + ' %', linkAmt: v => v.toFixed(1) + '×', glowAmt: v => v.toFixed(1) + '×' };
 const rowRange = (key, label, min, max, step, hint) => '<div class="set-row"><div class="lb">' + label + (hint ? '<small>' + hint + '</small>' : '') + '</div><div class="ctrl"><input type="range" min="' + min + '" max="' + max + '" step="' + step + '" value="' + S[key] + '" data-range="' + key + '" aria-label="' + label + '"><span class="val" id="v-' + key + '">' + FMT[key](S[key]) + '</span></div></div>';
 const rowNum = (key, label, min, max, step, hint) => '<div class="set-row"><div class="lb">' + label + (hint ? '<small>' + hint + '</small>' : '') + '</div><div class="ctrl"><input type="range" min="' + min + '" max="' + max + '" step="' + step + '" value="' + Math.min(max, S[key]) + '" data-range="' + key + '" aria-label="' + label + '"><input class="num" type="number" inputmode="numeric" min="' + min + '" step="' + step + '" value="' + S[key] + '" data-num="' + key + '" aria-label="' + label + ' (Zahl eingeben)"></div></div>';
 const rowSwitch = (attr, key, on, label, hint) => '<div class="set-row"><div class="lb">' + label + (hint ? '<small>' + hint + '</small>' : '') + '</div><div class="ctrl"><label class="switch"><input type="checkbox" ' + attr + '="' + key + '"' + (on ? ' checked' : '') + ' aria-label="' + label + '"><span></span></label></div></div>';
 function settingsHTML() {
   let h = '<div class="muted" style="margin-bottom:6px;line-height:1.5">Alles wird in deinem Browser gespeichert.</div>';
+  h += presetsHTML();
   h += '<div class="sect"><h3>Ansicht</h3></div>'
     + rowSeg('view', 'Darstellung', [['map', 'Karte'], ['rows', 'Reihen'], ['spiral', 'Spirale']], 'Reihen und Spirale ordnen nach Größe, ohne Genre-Nähe.')
     + rowSeg('objs', 'Objekte (Reihen/Spirale)', [['artists', 'Artists'], ['songs', 'Songs']])
+    + rowSeg('rowDir', 'Anordnung der Reihen', [['h', 'Waagerecht'], ['v', 'Senkrecht']], 'Gilt für die Ansicht „Reihen“: Die Größten stehen zuerst, waagerecht Zeile für Zeile oder senkrecht Spalte für Spalte.')
+    + rowNum('gridCols', 'Spalten', 0, 40, 1, 'Anzahl pro Zeile (waagerecht). 0 = automatisch.')
+    + rowNum('gridRows', 'Zeilen', 0, 80, 1, 'Anzahl pro Spalte (senkrecht). 0 = automatisch.')
     + rowSeg('metric', 'Größe nach', [['min', 'Hörzeit'], ['str', 'Streams']], 'Die Kreise wachsen und schrumpfen animiert.')
     + rowSeg('timeMode', 'Zeitraum-Modus', [['dynamic', 'Dynamisch'], ['fixed', 'Fest']], 'Dynamisch: Die Karte ordnet sich neu an und zeigt nur, was im Zeitraum gehört wurde. Fest: Alle Plätze bleiben, nur die Größe ändert sich.')
     + rowSwitch('data-sw', 'followCam', S.followCam, 'Kamera folgt der Karte', 'Passt den Ausschnitt an, wenn sich die Karte stark verändert.')
@@ -3409,6 +4103,8 @@ function settingsHTML() {
     + '<div class="set-row"><div class="lb">… oder genaue Anzahl<small>0 = alle</small></div><div class="ctrl"><input class="num" type="number" inputmode="numeric" min="0" step="1" value="' + S.topN + '" data-num="topN" aria-label="Anzahl eingeben"></div></div>'
     + rowNum('minMin', 'Mindest-Hörzeit (Minuten)', 0, 300, 1, 'Blendet alles unter dieser Zeit aus (im gewählten Zeitraum).')
     + rowNum('minStr', 'Mindest-Streams', 0, 100, 1, 'Blendet alles mit weniger Streams aus.');
+  h += hideSettingsHTML();
+  h += fixSettingsHTML();
   h += '<div class="sect"><h3>Größen und Abstand</h3></div>'
     + rowSeg('sizeCurve', 'Größenskala', [['soft', 'Gestaucht'], ['sqrt', 'Normal'], ['strong', 'Verstärkt']], 'Gestaucht: Kleine Objekte werden größer, große weniger dominant.')
     + rowRange('artScale', 'Artists', .5, 2, .05) + rowRange('songScale', 'Songs und Monde', .5, 2.5, .05)
@@ -3422,6 +4118,7 @@ function settingsHTML() {
     + rowRange('fontScale', 'Schriftgröße', .8, 1.5, .05);
   h += '<div class="sect"><h3>Farben und Linien</h3></div>'
     + rowSeg('colorMode', 'Färbung', [['region', 'Kontinent'], ['heat', 'Hörzeit'], ['new', 'Entdeckung']].concat(CMP ? [['who', 'Wer hört mehr']] : []), 'Hörzeit: kalt nach warm. Entdeckung: von alt nach neu.')
+    + (CMP ? rowSeg('cmpMode', 'Vergleichsfarben', [['excl', 'Nur einer / beide'], ['ramp', 'Verlauf']], 'Nur einer / beide: leuchtend = nur eine Person hat es gehört, blass = beide.') + cmpColorRows() : '')
     + rowSwitch('data-show', 'songs', show.songs, 'Songs als Monde') + rowSwitch('data-sw', 'rings', S.rings, 'Orbit-Ringe')
     + rowSwitch('data-show', 'links', show.links, 'Verbindungslinien') + rowRange('linkAmt', 'Stärke der Linien', 0, 2, .1)
     + rowRange('glowAmt', 'Leuchten und Nebel', 0, 2, .1);
@@ -3464,7 +4161,7 @@ document.addEventListener('input', e => {
 function syncSegOnly() { document.querySelectorAll('[data-set]').forEach(g => { const k = g.dataset.set; g.querySelectorAll('button[data-v]').forEach(b => b.classList.toggle('on', String(S[k]) === b.dataset.v)); }); }
 function resetSettings() {
   Object.keys(DEF.S).forEach(k => { if (!TRANSIENT.includes(k)) S[k] = DEF.S[k]; });
-  Object.assign(show, DEF.show); UI.minimap = true; UI.legend = true; UI.mmPos = null;
+  Object.assign(show, DEF.show); UI.minimap = DEF.UI.minimap; UI.legend = DEF.UI.legend; UI.mmPos = null;
   $('minimap').classList.remove('hidden'); $('legend').classList.remove('hidden'); placeMinimap();
   applyTheme(); applyFont(); recolor(); assignValues(); rankings(); onRangeChange(); renderPresets(); applyLayout({ fit: 'force' });
   saveSettings(); syncSettingsUI(); toast('Einstellungen zurückgesetzt');
@@ -3492,6 +4189,130 @@ function placeMinimap() {
   $('lg-close').addEventListener('click', () => setUI('legend', false));
   window.addEventListener('resize', placeMinimap);
 })();
+
+/* ---------- Einstellungen: Gruppen einklappbar (am Handy standardmaessig zu) und durchsuchbar ---------- */
+let setQ = '', foldPref = {};
+try { foldPref = JSON.parse(localStorage.getItem('kk-folds') || '{}') || {}; } catch (e) { }
+const foldIsOpen = t => (t in foldPref) ? !!foldPref[t] : innerWidth > 900;
+function foldSave() { try { localStorage.setItem('kk-folds', JSON.stringify(foldPref)); } catch (e) { } }
+function settingsFold() {
+  const groups = []; let cur = null;
+  Array.from(dbody.children).forEach(k => {
+    if (k.classList.contains('sect') && k.querySelector('h3')) { cur = { head: k, kids: [], title: k.querySelector('h3').textContent.trim() }; groups.push(cur); }
+    else if (cur) cur.kids.push(k);
+  });
+  groups.forEach(g => {
+    const f = document.createElement('div'), b = document.createElement('div'); f.className = 'fold'; f.dataset.t = g.title; b.className = 'fold-body';
+    dbody.insertBefore(f, g.head); g.head.classList.add('fold-h'); f.appendChild(g.head); f.appendChild(b); g.kids.forEach(k => b.appendChild(k));
+  });
+  dbody.insertAdjacentHTML('afterbegin', '<input class="set-search" type="search" autocomplete="off" spellcheck="false" placeholder="' + esc(T('Einstellungen suchen …')) + '" value="' + esc(setQ) + '" aria-label="' + esc(T('Einstellungen suchen …')) + '">');
+  settingsFilter();
+}
+function settingsFilter() {
+  const q = setQ.trim().toLowerCase();
+  dbody.querySelectorAll('.fold').forEach(f => {
+    const title = f.dataset.t, titleHit = !!q && title.toLowerCase().includes(q); let any = false;
+    Array.from(f.querySelector('.fold-body').children).forEach(c => { const hit = !q || titleHit || c.textContent.toLowerCase().includes(q); c.style.display = hit ? '' : 'none'; if (hit) any = true; });
+    f.style.display = (any || !q) ? '' : 'none';
+    f.classList.toggle('closed', q ? false : !foldIsOpen(title));
+  });
+}
+function openFoldOf(el) { const f = el && el.closest && el.closest('.fold'); if (f) { foldPref[f.dataset.t] = true; foldSave(); settingsFilter(); } }
+dbody.addEventListener('input', e => { if (e.target.classList && e.target.classList.contains('set-search')) { setQ = e.target.value; settingsFilter(); } });
+dbody.addEventListener('click', e => {
+  const h = e.target.closest('.fold-h'); if (!h || setQ.trim()) return; const f = h.closest('.fold');
+  foldPref[f.dataset.t] = f.classList.contains('closed'); foldSave(); settingsFilter();
+});
+
+/* =====================================================================
+   KLANGKARTE – Presets: Erscheinungsbild (alle Einstellungen + Farbschema der Kontinente) anwenden, speichern, kopieren und einfuegen
+   Ein Preset ist ein kleines Objekt { n: Name, s: Einstellungen, sh: Ein-/Aus-Schalter, ui: Uebersicht/Legende, c: Farben je Kontinent | cs: Farbschema }.
+   Eigene Presets liegen im Browser (kk-presets); als Text 'KP1:...' lassen sie sich einzeln oder als Sammlung teilen. Nicht enthalten: Layout der Kontinente (dafuer gibt es den Layout-Code),
+   Ansicht/Objekte (fluechtig), Qualitaetsstufe (haengt vom Geraet ab). Beim Anwenden werden nur die Werte gesetzt, die das Preset enthaelt.
+   ===================================================================== */
+const PP_KEY = 'kk-presets';
+const PP_SKIP = ['perf'];
+const PP_RANGE = { fontScale: [.8, 1.5], labelDensity: [.4, 2], regionSize: [.5, 1.8], glowAmt: [0, 2], artScale: [.5, 2], songScale: [.5, 2.5], spread: [.7, 2], moonScale: [.6, 1], linkAmt: [0, 2], animSpeed: [.6, 1.8], gridCols: [0, 40], gridRows: [0, 80], topN: [0, 100000], minMin: [0, 10000], minStr: [0, 10000] };
+const PP_ENUM = { sizeCurve: ['soft', 'sqrt', 'strong'], metric: ['min', 'str'], timeMode: ['dynamic', 'fixed'], rowDir: ['h', 'v'], colorMode: ['region', 'heat', 'new'] };
+function ppBuilt() {
+  const look = ['theme', 'font', 'fontScale', 'labelDensity', 'regionLabels', 'regionSize', 'sceneLabels', 'stars', 'glowAmt', 'sizeCurve', 'artScale', 'songScale', 'spread', 'moonScale', 'colorMode', 'linkAmt', 'rings', 'topN'];
+  const std = {}; look.concat(['metric', 'timeMode', 'followCam', 'animSpeed', 'minMin', 'minStr']).forEach(k => { std[k] = DEF.S[k]; });
+  return [
+    { id: 'std', n: 'Standard', d: 'Das Standard-Preset von Tunelands', s: std, sh: { songs: true, links: true, labels: true }, ui: { minimap: false, legend: false }, cs: 'std' },
+    { id: 'calm', n: 'Ruhig', d: 'Wenige Namen, kaum Linien, Pastellfarben', s: { labelDensity: .6, sceneLabels: false, linkAmt: .3, glowAmt: .7, stars: false, rings: false }, sh: { songs: false, links: true, labels: true }, cs: 'pastel' },
+    { id: 'paper', n: 'Papier', d: 'Helles Design mit Serifenschrift', s: { theme: 'paper', font: 'serif', glowAmt: .6, stars: false }, cs: 'pastel' },
+    { id: 'neon', n: 'Neon', d: 'Tiefschwarz mit starkem Leuchten und kräftigen Farben', s: { theme: 'black', glowAmt: 1.6, linkAmt: 1.3 }, cs: 'vivid' },
+    { id: 'ocean', n: 'Ozean', d: 'Blaues Design mit runder Schrift', s: { theme: 'ocean', font: 'round' }, cs: 'spectrum' },
+    { id: 'big', n: 'Groß und lesbar', d: 'Große Schrift und Kreise, Übersicht und Legende aus (für das Handy)', s: { fontScale: 1.3, labelDensity: .8, regionSize: 1.3, artScale: 1.2 }, ui: { minimap: false, legend: false } },
+    { id: 'top', n: 'Nur die Großen', d: 'Die 50 größten Artists, viele Namen, keine Monde', s: { topN: 50, labelDensity: 1.4 }, sh: { songs: false, links: true, labels: true } },
+    { id: 'rich', n: 'Detailreich', d: 'Viele Namen, mehr Abstand, Songs als Monde', s: { labelDensity: 1.6, spread: 1.3, songScale: 1.2, rings: true }, sh: { songs: true, links: true, labels: true } }
+  ];
+}
+function ppLoad() { try { const a = JSON.parse(localStorage.getItem(PP_KEY) || '[]'); return Array.isArray(a) ? a.filter(o => o && typeof o.n === 'string') : []; } catch (e) { return []; } }
+function ppStore(a) { try { localStorage.setItem(PP_KEY, JSON.stringify(a)); return true; } catch (e) { toast('Speichern nicht möglich (der Browser blockiert den Speicher)'); return false; } }
+function ppCurrent(name) {
+  const s = {}; Object.keys(DEF.S).forEach(k => { if (!TRANSIENT.includes(k) && !PP_SKIP.includes(k)) s[k] = S[k]; });
+  return { n: name, s, sh: Object.assign({}, show), ui: { minimap: UI.minimap, legend: UI.legend }, c: Object.assign({}, RC.colors) };
+}
+function ppEncode(x) { return 'KP1:' + btoa(unescape(encodeURIComponent(JSON.stringify(x)))); }
+function ppDecode(code) {
+  try {
+    const o = JSON.parse(decodeURIComponent(escape(atob(String(code).trim().replace(/^KP1:/, ''))))), a = (Array.isArray(o) ? o : [o]).filter(x => x && typeof x === 'object' && (x.s || x.c || x.cs));
+    return a.length ? a.map(x => ({ n: String(x.n || 'Preset').slice(0, 40), s: x.s && typeof x.s === 'object' ? x.s : {}, sh: x.sh, ui: x.ui, c: x.c && typeof x.c === 'object' ? x.c : undefined, cs: typeof x.cs === 'string' ? x.cs : undefined })) : null;
+  } catch (e) { return null; }
+}
+/* Preset anwenden: Werte pruefen und setzen, Farben, dann alles neu aufbauen (wie beim Zuruecksetzen der Einstellungen) */
+function ppApply(o) {
+  const s = o.s || {};
+  Object.keys(DEF.S).forEach(k => {
+    if (TRANSIENT.includes(k) || PP_SKIP.includes(k) || !(k in s) || typeof s[k] !== typeof DEF.S[k]) return;
+    let v = s[k];
+    if (k === 'theme' && !THEMES[v]) return; if (k === 'font' && !FONTS[v]) return;
+    if (PP_ENUM[k] && !PP_ENUM[k].includes(v)) return;
+    if (PP_RANGE[k]) { if (!isFinite(v)) return; v = clamp(v, PP_RANGE[k][0], PP_RANGE[k][1]); if (k === 'topN' || k === 'minMin' || k === 'minStr') v = Math.round(v); }
+    S[k] = v;
+  });
+  if (o.sh) Object.keys(DEF.show).forEach(k => { if (typeof o.sh[k] === 'boolean') show[k] = o.sh[k]; });
+  if (o.ui) {
+    if (typeof o.ui.minimap === 'boolean') UI.minimap = o.ui.minimap; if (typeof o.ui.legend === 'boolean') UI.legend = o.ui.legend;
+    $('minimap').classList.toggle('hidden', !UI.minimap); $('legend').classList.toggle('hidden', !UI.legend); if (UI.minimap) { mmResize(); mmDirty = true; placeMinimap(); }
+  }
+  if (o.cs === 'std') { rcStdColors(); rcSave(); }
+  else if (o.cs && ['orig', 'spectrum', 'pastel', 'vivid'].includes(o.cs)) rcPreset(o.cs);
+  else if (o.c) { regs.forEach(r => { const h = o.c[rkey(r)]; setRegionColor(r, /^#[0-9a-f]{6}$/i.test(h) ? h : r.color0, false); }); rcSave(); }
+  applyTheme(); applyFont(); recolor(); assignValues(); rankings(); onRangeChange(); renderPresets(); applyLayout({ fit: 'force' });
+  saveSettings(); syncSettingsUI(); glowDirty = true; mmDirty = true; requestDraw();
+}
+const ppName = o => o.id ? T(o.n) : o.n;
+function presetsHTML() {
+  const my = ppLoad();
+  let h = '<div class="sect"><h3>Presets <em>Erscheinungsbild</em></h3></div>';
+  h += '<div class="muted" style="margin:0 0 8px;font-size:12px;line-height:1.5">Ein Preset bündelt alle Einstellungen und das Farbschema der Kontinente. Zum Teilen kopieren und beim anderen einfügen (die Lage der Kontinente gehört nicht dazu, dafür gibt es „Layout kopieren“).</div>';
+  h += '<div class="pp-grid">' + ppBuilt().map(b => '<button class="btn" data-pp="b:' + b.id + '" title="' + esc(T(b.d)) + '">' + esc(T(b.n)) + '</button>').join('') + '</div>';
+  if (my.length) h += '<div class="pp-list">' + my.map((o, i) => '<div class="pp-row"><button class="pp-name" data-pp="u:' + i + '" title="' + esc(T('Anwenden')) + '">' + esc(o.n) + '</button><button class="pp-ic" data-pp="c:' + i + '" title="' + esc(T('Kopieren')) + '" aria-label="' + esc(T('Kopieren')) + '">⧉</button><button class="pp-ic" data-pp="d:' + i + '" title="' + esc(T('Löschen')) + '" aria-label="' + esc(T('Löschen')) + '">✕</button></div>').join('') + '</div>';
+  h += '<div class="btns" style="margin:8px 0 4px"><button class="btn pri" data-pp="save">Aktuelle Einstellungen speichern …</button><button class="btn" data-pp="paste">Preset einfügen</button>' + (my.length ? '<button class="btn" data-pp="copyall">Alle kopieren</button>' : '') + '</div>';
+  return h;
+}
+function ppCopy(code, msg) { const done = () => toast(msg); try { navigator.clipboard.writeText(code).then(done, () => window.prompt(T('Preset-Code (alles kopieren):'), code)); } catch (e) { window.prompt(T('Preset-Code (alles kopieren):'), code); } }
+function ppUnique(list, n) { let m = n, k = 2; while (list.some(o => o.n === m)) m = n + ' (' + (k++) + ')'; return m; }
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-pp]'); if (!b) return; const k = b.dataset.pp, my = ppLoad();
+  if (k.startsWith('b:')) { const o = ppBuilt().find(x => x.id === k.slice(2)); if (o) { ppApply(o); toast(T('Preset angewendet') + ': ' + T(o.n)); } }
+  else if (k.startsWith('u:')) { const o = my[+k.slice(2)]; if (o) { ppApply(o); toast(T('Preset angewendet') + ': ' + o.n); } }
+  else if (k.startsWith('c:')) { const o = my[+k.slice(2)]; if (o) ppCopy(ppEncode(o), T('Preset-Code kopiert. Beim anderen unter „Preset einfügen“ einfügen.')); }
+  else if (k.startsWith('d:')) { const i = +k.slice(2); if (my[i] && window.confirm(T('Preset löschen') + ': ' + my[i].n + '?')) { my.splice(i, 1); ppStore(my); renderDrawer(); } }
+  else if (k === 'save') {
+    const n = window.prompt(T('Name für das Preset:'), ppUnique(my, T('Mein Preset'))); if (!n || !n.trim()) return;
+    my.push(ppCurrent(ppUnique(my, n.trim().slice(0, 40)))); if (ppStore(my)) { toast(T('Preset gespeichert')); renderDrawer(); }
+  }
+  else if (k === 'paste') {
+    const c = window.prompt(T('Preset-Code einfügen:')); if (!c) return;
+    const a = ppDecode(c); if (!a) { toast(T('Das ist kein gültiger Preset-Code.')); return; }
+    a.forEach(o => { o.n = ppUnique(my, o.n); my.push(o); });
+    if (ppStore(my)) { if (a.length === 1) { ppApply(a[0]); toast(T('Preset eingefügt und angewendet') + ': ' + a[0].n); } else toast(a.length + ' ' + T('Presets eingefügt')); renderDrawer(); }
+  }
+  else if (k === 'copyall') ppCopy(ppEncode(my), T('Alle Presets kopiert. Beim anderen unter „Preset einfügen“ einfügen.'));
+});
 
 /* =====================================================================
    KLANGKARTE – Interaktion & Start
@@ -3600,6 +4421,17 @@ $('tl-open').onclick = () => setTimelineVisible(true);
 $('t-link').onclick = () => { setMenu(false); if (drawerTab === 'link' && body.classList.contains('drawer-open')) closeDrawer(); else openDrawer('link'); };
 if ($('t-live')) $('t-live').onclick = () => { setMenu(false); setLive(!LIVE.on); };
 if ($('t-sync')) $('t-sync').onclick = () => { setMenu(false); liveSync(true); };
+/* Huelle der Web-App: Zurueck zur Startseite (Karten bleiben im Browser gespeichert), Feedback-Link und Beta-Marke. Ohne Startseite (Einzeldatei, installierte App) entfallen die Knoepfe. */
+(function shell() {
+  const cfg = window.__KK_CFG__ || {}, prod = !!window.__PRODUCT__;
+  const goHome = () => { try { location.assign(location.pathname); } catch (e) { location.href = './'; } };
+  ['t-homebtn', 't-home'].forEach(id => { const b = $(id); if (!b) return; if (!prod) { b.remove(); return; } b.classList.remove('hidden'); b.onclick = () => { setMenu(false); goHome(); }; });
+  const k = document.querySelector('#hud .kicker');
+  if (k && prod) { k.classList.add('home'); k.setAttribute('role', 'link'); k.tabIndex = 0; k.title = T('Zur Startseite'); k.onclick = goHome; k.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); } }; }
+  if (k && cfg.beta) k.insertAdjacentHTML('beforeend', '<span class="beta">Beta</span>');
+  const pick = v => (v && typeof v === 'object') ? (v[LANG] || v.de || v.en || '') : (v || '');  /* ein Link fuer alle Sprachen oder { de, en } */
+  [['t-feedback', cfg.feedback], ['t-donate', cfg.donate]].forEach(([id, v]) => { const b = $(id); if (!b) return; if (pick(v)) { b.classList.remove('hidden'); b.onclick = () => { setMenu(false); window.open(pick(v), '_blank', 'noopener'); }; } else b.remove(); });
+})();
 $('t-edit').onclick = () => { setMenu(false); rcEdit(!RC.edit); };
 $('t-clean').onclick = () => { setMenu(false); setClean(!UI.clean); };
 $('clean-exit').onclick = () => setClean(false);
@@ -3712,7 +4544,7 @@ new ResizeObserver(() => { mmResize(); }).observe($('minimap'));
   $('minimap').classList.toggle('hidden', !UI.minimap); $('legend').classList.toggle('hidden', !UI.legend);
   mmResize(); placeMinimap();
   await loadAtlas(); atlasReady = true;
-  cmpInit(); rcInit(); if (CMP) { $('t-live').remove(); if ($('t-sync')) $('t-sync').remove(); } else if (syncOK()) setTimeout(() => liveSync(false), 2500);
+  cmpInit(); rcInit(); if (CMP) { $('t-live').remove(); if ($('t-sync')) $('t-sync').remove(); } else if (syncOK()) { if (liveWanted()) setTimeout(() => { if (!LIVE.on) setLive(true, true); }, 1200); else setTimeout(() => liveSync(false), 2500); }
   if (HUD.src === 'spotify' && $('t-sync')) $('t-sync').remove();
   recolor(); recompute(); rankings(); renderHud(); renderPresets(); renderDrawer(); tlResize(); onRangeChange();
   applyLayout({ instant: true, fit: false }); fitAll(false); syncSettingsUI(); mmResize();
@@ -3721,6 +4553,6 @@ new ResizeObserver(() => { mmResize(); }).observe($('minimap'));
   setTimeout(() => { $('loading').style.display = 'none'; }, 1100);
   try { if (!localStorage.getItem('klangkarte-help')) { $('help').classList.add('show'); localStorage.setItem('klangkarte-help', '1'); } } catch (e) { }
 })();
-window.__km = { prof: profileDraw, tick: n => { let c = 0; for (let i = 0; i < n; i++) { stepAnim(16, performance.now() + i * 16); c++; if (!animOn && !solver) break; } return c; }, get solving() { return !!solver; }, S, UI, show, setSetting, applyLayout, get PATH() { return PATH; }, bench: n => { const t = performance.now(); for (let i = 0; i < (n || 20); i++) draw(); return (performance.now() - t) / (n || 20); }, cam, art, trk, alb, regs, scs, selectItem, setRange, fitAll, goto_, focusOn, tourStart, get sel() { return sel; }, frameStats, RC, rcPreset, vid: { stopFly: () => { fly = null; inertia = null; }, get LB() { return LB; }, hopInfo, tagName, LK, lkSet, lkRun, lkReset, clearSel, dijkstra, setClean, requestDraw, computeFocus, get LINKV() { return LINKV; }, get rA() { return rA; }, get rB() { return rB; }, get ND() { return ND; }, HUD, dayDate }, rcDev: { rcTidy, rcReturnArtist, rcArtistDrop, robustCenter, rcFlowStep, rcGridInit, rcSetMass, RPH, RSIM, rcSimInit, rcSimRun, rcSimStep, rcApply, rcGeo, rcPositions, rcResetPositions, rcContacts, rcCentroids },mmDbg: () => ({ mmW, mmH, mmDirty, mmw: mm.width, base: mmBase && mmBase.width, frameN, uimm: UI.minimap, glowW: glow.width }), setWho, CMP, live: { LIVE, liveSet, setLive }, pdf: exportPDF, PDFX, lk: { LK, findRoutes, hopInfo, hopLines, graph, dijkstra, get LINKV() { return LINKV; }, set: lkSet, run: lkRun, rand: lkRand } };
+window.__km = { prof: profileDraw, tick: n => { let c = 0; for (let i = 0; i < n; i++) { stepAnim(16, performance.now() + i * 16); c++; if (!animOn && !solver) break; } return c; }, get solving() { return !!solver; }, S, UI, show, setSetting, applyLayout, get PATH() { return PATH; }, bench: n => { const t = performance.now(); for (let i = 0; i < (n || 20); i++) draw(); return (performance.now() - t) / (n || 20); }, cam, art, trk, alb, regs, scs, selectItem, setRange, fitAll, goto_, focusOn, tourStart, get sel() { return sel; }, frameStats, RC, rcPreset, fixDev: { FX, FXS, isHidA, isHidT, fxMoveTo, fxUndo }, hideDev: { HID, hideSet, hideClear, hideNote }, vid: { stopFly: () => { fly = null; inertia = null; }, get LB() { return LB; }, hopInfo, tagName, LK, lkSet, lkRun, lkReset, clearSel, dijkstra, setClean, requestDraw, computeFocus, get LINKV() { return LINKV; }, get rA() { return rA; }, get rB() { return rB; }, get ND() { return ND; }, HUD, dayDate }, rcDev: { rcTidy, rcReturnArtist, rcSetGroup, rcDropBegin, rcDock, rcGatherStrays, rcSnapshot, rcHandTarget, rcSimFinish, rcSimStop, robustCenter, rcFlowStep, rcGridInit, rcSetMass, RPH, RSIM, rcSimInit, rcSimRun, rcSimStep, rcApply, rcGeo, rcPositions, rcResetPositions, rcContacts, rcCentroids, rcPushGS, rcPushOut, rcCarry, rcIter },mmDbg: () => ({ mmW, mmH, mmDirty, mmw: mm.width, base: mmBase && mmBase.width, frameN, uimm: UI.minimap, glowW: glow.width }), setWho, CMP, live: { LIVE, liveSet, setLive }, pdf: exportPDF, PDFX, lk: { LK, findRoutes, hopInfo, hopLines, graph, dijkstra, get LINKV() { return LINKV; }, set: lkSet, run: lkRun, rand: lkRand } };
 
 })();

@@ -14,13 +14,11 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="app.css" data-landing-css>
+<script>try{var l=localStorage.getItem('kk-lang')||(/^de/i.test(navigator.language||'')?'de':'en');document.documentElement.lang=l}catch(e){}</script>
 </head>
 <body>
 <div id="landing">
-  <header class="top">
-    <a class="brand" href="./"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="lg"><stop offset="0" stop-color="#c4a1ff"/><stop offset="1" stop-color="#7ea6ff"/></radialGradient></defs><circle cx="32" cy="32" r="11" fill="url(#lg)"/><circle cx="32" cy="32" r="22" fill="none" stroke="#7ea6ff" stroke-opacity=".55" stroke-dasharray="2 5" stroke-width="2"/><circle cx="51" cy="22" r="4" fill="#ffc9a3"/><circle cx="15" cy="41" r="3" fill="#ff9fb5"/></svg><span data-i="brand">Klangkarte</span></a>
-    <nav><a href="#how" data-i="nav.how">So geht’s</a><a href="#faq" data-i="nav.faq">Fragen</a><button id="lang" type="button" data-i="lang.switch">English</button></nav>
-  </header>
+  <header class="top"><a class="brand" href="./"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="lg"><stop offset="0" stop-color="#c4a1ff"/><stop offset="1" stop-color="#7ea6ff"/></radialGradient></defs><circle cx="32" cy="32" r="11" fill="url(#lg)"/><circle cx="32" cy="32" r="22" fill="none" stroke="#7ea6ff" stroke-opacity=".55" stroke-dasharray="2 5" stroke-width="2"/><circle cx="51" cy="22" r="4" fill="#ffc9a3"/><circle cx="15" cy="41" r="3" fill="#ff9fb5"/></svg><span class="l-de">Klangkarte</span><span class="l-en">Tunelands</span><span class="betachip" id="betachip" hidden>Beta</span></a><button id="menu" class="menubtn" type="button" aria-label="Menü" aria-expanded="false"><i></i><i></i><i></i></button><nav id="nav"><a href="how.html"><span class="l-de">So geht’s</span><span class="l-en">How it works</span></a><a href="gallery.html"><span class="l-de">Galerie</span><span class="l-en">Gallery</span><em class="soonchip"><span class="l-de">bald</span><span class="l-en">soon</span></em></a><a href="friends.html"><span class="l-de">Freunde</span><span class="l-en">Friends</span><em class="soonchip"><span class="l-de">bald</span><span class="l-en">soon</span></em></a><a href="about.html"><span class="l-de">Über uns</span><span class="l-en">About</span></a><a class="profbtn" href="profile.html" aria-label="Profil"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="7" r="3.2"/><path d="M3.8 17c.8-3.2 3.3-4.8 6.2-4.8s5.4 1.6 6.2 4.8"/></svg></a><button id="lang" type="button"><span class="l-de">English</span><span class="l-en">Deutsch</span></button></nav></header>
 
   <main>
     <section class="hero">
@@ -31,11 +29,11 @@
             <radialGradient id="g2" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ff8f6b" stop-opacity=".45"/><stop offset="1" stop-color="#ff8f6b" stop-opacity="0"/></radialGradient>
             <radialGradient id="g3" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#3fd6c4" stop-opacity=".4"/><stop offset="1" stop-color="#3fd6c4" stop-opacity="0"/></radialGradient>
           </defs>
-          <circle cx="210" cy="240" r="260" fill="url(#g1)"/><circle cx="500" cy="180" r="230" fill="url(#g2)"/><circle cx="470" cy="400" r="240" fill="url(#g3)"/>
+          <circle class="glow g1" cx="210" cy="240" r="260" fill="url(#g1)"/><circle class="glow g2" cx="500" cy="180" r="230" fill="url(#g2)"/><circle class="glow g3" cx="470" cy="400" r="240" fill="url(#g3)"/>
           <g class="orb" fill="none" stroke="#fff" stroke-opacity=".16" stroke-dasharray="2 6">
             <circle cx="210" cy="240" r="120"/><circle cx="210" cy="240" r="175"/><circle cx="500" cy="180" r="100"/><circle cx="470" cy="400" r="140"/>
           </g>
-          <g id="dots"></g>
+          <g id="dots"><g class="drift d1" id="dots1"></g><g class="drift d2" id="dots2"></g><g class="drift d3" id="dots3"></g></g>
         </svg>
       </div>
       <div class="inner">
@@ -50,6 +48,13 @@
           <label class="field hidden" id="cmp-field"><span class="pre" data-i="in.prefix2">Freund auf stats.fm/user/</span><input id="friend" type="text" autocapitalize="none" autocorrect="off" spellcheck="false" data-ip="in.cmp.ph" placeholder="name-des-freundes" aria-label="stats.fm friend"></label></div>
         <p class="hint" data-i="in.hint">Dein stats.fm-Profil muss öffentlich sein.</p>
         <div id="recent" class="recent hidden"></div>
+      </div>
+    </section>
+
+    <section class="demo" id="demo">
+      <div class="dcard">
+        <div class="dtxt"><span class="dbadge" data-i="demo.badge">Demo-Karte</span><h2 data-i="demo.title">Schau dir eine fertige Karte an</h2><p data-i="demo.d">Das ist die Karte von timnook73, der das Projekt baut – als Beispiel, was dich erwartet. Deine eigene Karte erstellst du oben in einer Minute.</p></div>
+        <a id="demo-go" class="go ghostgo" href="https://timnook73.github.io/Klangkarte-App/" rel="noopener"><span data-i="demo.go">Demo-Karte öffnen</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
     </section>
 
@@ -77,10 +82,18 @@
       <details><summary data-i="faq.q2">Mein Profil wird nicht gefunden.</summary><p data-i="faq.a2"></p></details>
       <details><summary data-i="faq.q3">Wie lange dauert es?</summary><p data-i="faq.a3"></p></details>
       <details><summary data-i="faq.q4">Kostet das etwas?</summary><p data-i="faq.a4"></p></details>
+      <details><summary data-i="faq.q5">x</summary><p data-i="faq.a5"></p></details>
+      <details><summary data-i="faq.q6">x</summary><p data-i="faq.a6"></p></details>
+      <details><summary data-i="faq.q7">x</summary><p data-i="faq.a7"></p></details>
+      <details><summary data-i="faq.q8">x</summary><p data-i="faq.a8"></p></details>
+      <details><summary data-i="faq.q9">x</summary><p data-i="faq.a9"></p></details>
+      <details><summary data-i="faq.q10">x</summary><p data-i="faq.a10"></p></details>
+      <details><summary data-i="faq.q11">x</summary><p data-i="faq.a11"></p></details>
+      <details><summary data-i="faq.q12">x</summary><p data-i="faq.a12"></p></details>
     </section>
   </main>
 
-  <footer><span data-i="foot.made"></span><span class="sp"></span><a href="impressum.html" data-i="foot.imprint">Impressum</a><a href="datenschutz.html" data-i="foot.privacy">Datenschutz</a></footer>
+  <footer><span><span class="l-de">Gebaut mit Daten von stats.fm. Nicht mit Spotify oder stats.fm verbunden.</span><span class="l-en">Built with data from stats.fm. Not affiliated with Spotify or stats.fm.</span></span><span class="sp"></span><a href="index.html#faq"><span class="l-de">Fragen</span><span class="l-en">FAQ</span></a><a href="about.html"><span class="l-de">Über uns</span><span class="l-en">About</span></a><a id="foot-donate" class="hidden" href="#" target="_blank" rel="noopener"><span class="l-de">Projekt unterstützen</span><span class="l-en">Support the project</span></a><a id="foot-fb" class="hidden" href="#" target="_blank" rel="noopener">Feedback</a><a href="impressum.html"><span class="l-de">Impressum</span><span class="l-en">Legal notice</span></a><a href="datenschutz.html"><span class="l-de">Datenschutz</span><span class="l-en">Privacy</span></a></footer>
 </div>
 
 <div id="progress" role="status" aria-live="polite">
@@ -112,8 +125,10 @@
   <p id="sp-err" class="sperr hidden"></p>
   <div class="mrow"><button id="sp-go" class="go" type="button" disabled data-i="in.go">Karte erstellen</button></div>
 </div></div>
+<script src="config.js"></script>
 <script src="pipeline.js"></script>
 <script src="atlas.js"></script>
 <script src="app.js"></script>
+<script src="site.js"></script>
 </body>
 </html>

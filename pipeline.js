@@ -129,7 +129,7 @@ KKP.statsfm = (function () {
 KKP.buildModel = function (raw, opt) {
   opt = opt || {};
   const prof = raw.profile, tz = opt.timezone || prof.timezone || 'UTC';
-  const ALIAS = { alternativa: 'alternative', 'hiphop/rap': 'hip-hop/rap' };      // gleiche Tags, andere Schreibweise
+  const ALIAS = { alternativa: 'alternative', alternativ: 'alternative', alternatief: 'alternative', 'hiphop/rap': 'hip-hop/rap', 'hip hop/rap': 'hip-hop/rap', 'hip-hop / rap': 'hip-hop/rap', 'hip hop': 'hip-hop/rap', 'hip-hop': 'hip-hop/rap', hiphop: 'hip-hop/rap', rap: 'hip-hop/rap', 'drum and bass': "jungle/drum'n'bass", 'indie-pop': 'indie pop', electronica: 'electronic' };      // gleiche Tags, andere Schreibweise
   const firstSp = o => ((o && o.externalIds && o.externalIds.spotify) || [])[0] || null;
 
   /* ---- Metadaten ---- */
@@ -252,21 +252,46 @@ KKP.lang = (function () {
   return { guess };
 })();
 
+/* Grobe Oberbegriffe (z. B. Apples "Hip-Hop/Rap"): sie sagen fast nichts ueber die Szene, deshalb zaehlen sie nur schwach */
+KKP.GENERIC_TAGS = new Set(['hip-hop/rap', 'pop', 'rock', 'alternative', 'dance', 'electronic', 'r&b/soul', 'soundtrack', 'singer/songwriter', 'indie', 'jazz', 'classical', 'country', 'latin', 'metal', 'folk', 'reggae', 'blues', 'house', 'punk', 'musicals', 'christmas', 'adult standards', 'funk', 'world', 'new age', 'easy listening', 'holiday', "children's music", 'spoken word']);
+
+/* Sprache + nur grobes Genre -> genauerer Zusatz-Tag (z. B. Hip-Hop/Rap auf Deutsch = Deutschrap). Nur fuer Artists, die sonst keinen spezifischen Tag haben */
+KKP.LANG_TAGS = {
+  de: { 'hip-hop/rap': 'german hip hop', 'pop': 'german pop', 'alternative': 'german indie', 'indie': 'german indie' },
+  fr: { 'hip-hop/rap': 'french hip hop', 'pop': 'french pop' },
+  ja: { 'pop': 'j-pop', 'rock': 'j-rock' },
+  ko: { 'pop': 'k-pop' },
+  es: { 'hip-hop/rap': 'spanish hip hop', 'pop': 'latin pop' }
+};
+
 KKP.buildSimilarity = function (M, opt) {
   opt = opt || {};
+  const GA = opt.genAware !== false;                                    // false = altes Verhalten (zum Vergleichen)
   const W_TAG = opt.wTag ?? .9, W_CO = opt.wCo ?? .2, W_COL = opt.wCol ?? .3, LANG_PEN = opt.langPenalty ?? .5, KNN = opt.knn ?? 24;
   const ids = Array.from(M.A.keys()).filter(a => M.artists.has(a)).sort((a, b) => M.A.get(b).min - M.A.get(a).min).slice(0, opt.maxArtists || 2600);
   const n = ids.length, idx = new Map(ids.map((a, i) => [a, i]));
   const mins = Float64Array.from(ids.map(a => M.A.get(a).min));
 
-  /* 1. Genre-Tags: TF-IDF-Kosinus */
-  const df = new Map(); ids.forEach(a => new Set(M.artists.get(a).genres).forEach(g => df.set(g, (df.get(g) || 0) + 1)));
+  /* Sprache je Artist (aus Tags, Schrift und Titeln) */
+  const prim = M.prim, lang = ids.map(a => KKP.lang.guess(M.artists.get(a).name, M.artists.get(a).genres, (prim.get(a) || []).slice(0, 40).map(t => M.tracks.get(t).name)));
+
+  /* 1. Genre-Tags: TF-IDF-Kosinus. Oberbegriffe = fest hinterlegt oder bei >= genShare aller Artists */
+  const df0 = new Map(); ids.forEach(a => new Set(M.artists.get(a).genres).forEach(g => df0.set(g, (df0.get(g) || 0) + 1)));
+  const isGen = g => KKP.GENERIC_TAGS.has(g) || (df0.get(g) || 0) / n >= (opt.genShare ?? .12);
+  const LT = opt.langTags === false ? {} : KKP.LANG_TAGS;
+  ids.forEach((a, i) => {                                               // tags2 = Genres + abgeleitete Sprach-Tags (Original bleibt unveraendert)
+    const am = M.artists.get(a), gs = am.genres; am.tags2 = gs;
+    const mp = LT[lang[i]]; if (!mp || !gs.length || !gs.every(isGen)) return;
+    const add = gs.map(g => mp[g]).filter(Boolean); if (add.length) am.tags2 = Array.from(new Set(gs.concat(add)));
+  });
+  const df = new Map(); ids.forEach(a => new Set(M.artists.get(a).tags2).forEach(g => df.set(g, (df.get(g) || 0) + 1)));
   const tags = Array.from(df.keys()).sort(), tagIdx = new Map(tags.map((t, k) => [t, k]));
-  const rowsT = ids.map(a => { const gs = Array.from(new Set(M.artists.get(a).genres)); const v = gs.map(g => [tagIdx.get(g), Math.log((n + 1) / (df.get(g) + 1)) + .3]); const nr = Math.sqrt(v.reduce((s, x) => s + x[1] * x[1], 0)) || 1; return v.map(x => [x[0], x[1] / nr]); });
+  const kind = ids.map(a => { const gs = M.artists.get(a).tags2; return !gs.length ? 0 : (GA && gs.every(isGen)) ? 1 : 2; });   // 0 ohne Tags, 1 nur Oberbegriffe, 2 mit spezifischen Tags
+  const rowsT = ids.map((a, ii) => { const gs = Array.from(new Set(M.artists.get(a).tags2)); const v = gs.map(g => [tagIdx.get(g), (Math.log((n + 1) / (df.get(g) + 1)) + .3) * (GA && kind[ii] === 2 && isGen(g) ? (opt.genDamp ?? 1) : 1)]); const nr = Math.sqrt(v.reduce((s, x) => s + x[1] * x[1], 0)) || 1; return v.map(x => [x[0], x[1] / nr]); });
   const colT = tags.map(() => []); rowsT.forEach((r, i) => r.forEach(([t, w]) => colT[t].push([i, w])));
   const Stag = new Float32Array(n * n);
   colT.forEach(L => { for (let p = 0; p < L.length; p++) for (let q = p + 1; q < L.length; q++) { const v = L[p][1] * L[q][1]; Stag[L[p][0] * n + L[q][0]] += v; Stag[L[q][0] * n + L[p][0]] += v; } });
-  const hasTags = ids.map(a => M.artists.get(a).genres.length > 0);
+  const hasTags = kind.map(k => k > 0);
 
   /* 2. Co-Listening (Fenster 7 in Sessions) -> PPMI -> Kosinus 2. Ordnung */
   const WIN = 7, C = new Map(), rowSum = new Float64Array(n);
@@ -293,13 +318,10 @@ KKP.buildSimilarity = function (M, opt) {
   M.tracks.forEach(t => { const aa = t.artist_ids.map(x => idx.get(x)).filter(x => x !== undefined); for (const x of aa) for (const y of aa) if (x !== y) Scol.set(x * n + y, 1); });
   const colv = (i, j) => Scol.get(i * n + j) || 0;
 
-  /* Sprache je Artist */
-  const prim = M.prim, lang = ids.map(a => KKP.lang.guess(M.artists.get(a).name, M.artists.get(a).genres, (prim.get(a) || []).slice(0, 40).map(t => M.tracks.get(t).name)));
-
-  /* Kombination: Zeile fuer Zeile -> Top-KNN-Nachbarn. Symmetrie: max ueber die Gewichtung beider Seiten */
-  const comb = (tagged, i, j) => { const st = Stag[i * n + j], co = coN(i, j), cl = colv(i, j); return tagged ? W_TAG * st + W_CO * co + W_COL * cl : .15 * st + .8 * co + .5 * cl; };
+  /* Kombination: Zeile fuer Zeile -> Top-KNN-Nachbarn. Symmetrie: max ueber die Gewichtung beider Seiten. k: 0 ohne Tags, 1 nur Oberbegriffe, 2 spezifische Tags */
+  const comb = (k, i, j) => { const st = Stag[i * n + j], co = coN(i, j), cl = colv(i, j); return k === 0 ? .15 * st + .8 * co + .5 * cl : k === 1 && GA ? (opt.wGenTag ?? W_TAG) * st + (opt.wGenCo ?? W_CO) * co + (opt.wGenCol ?? W_COL) * cl : W_TAG * st + W_CO * co + W_COL * cl; };
   const val = (i, j) => {
-    let v = Math.max(comb(hasTags[i], i, j), comb(hasTags[j], i, j));
+    let v = Math.max(comb(kind[i], i, j), comb(kind[j], i, j));
     const li = lang[i], lj = lang[j]; if (li && lj && li !== lj) v *= LANG_PEN;
     return v;
   };
@@ -322,7 +344,7 @@ KKP.buildSimilarity = function (M, opt) {
     l.forEach(([j, c]) => { const w = .05 + .03 * Math.min(c, 5); nb[i].push([j, w]); nb[j].push([i, w]); });
   }
   nb.forEach(l => l.sort((a, b) => b[1] - a[1]));
-  return { ids, idx, n, mins, nb, tags, hasTags, lang, isolated, parts: (i, j) => [Stag[i * n + j], Sco[i * n + j], colv(i, j)], stag: (i, j) => Stag[i * n + j], sco: (i, j) => Sco[i * n + j], col: colv };
+  return { ids, idx, n, mins, nb, tags, hasTags, kind, lang, isolated, rowsT, isGen, parts: (i, j) => [Stag[i * n + j], Sco[i * n + j], colv(i, j)], stag: (i, j) => Stag[i * n + j], sco: (i, j) => Sco[i * n + j], col: colv };
 };
 
 /* ---------- p05: Kontinente (Makro) und Szenen (Sub) per Louvain (Port von clusters.py) ---------- */
@@ -596,9 +618,21 @@ KKP.naming = (function () {
     'k-pop': ['K-Pop', 'K-Pop'], 'metal': ['Metal', 'Metal'], 'punk': ['Punk', 'Punk'], 'house': ['House', 'House'], 'trap': ['Trap', 'Trap'], 'classical': ['Klassik', 'Classical'], 'schlager': ['Schlager', 'Schlager'],
     'afrobeats': ['Afrobeats', 'Afrobeats'], 'reggaeton': ['Reggaeton', 'Reggaeton'], 'funk': ['Funk', 'Funk'], 'gospel': ['Gospel', 'Gospel'], 'grunge': ['Grunge', 'Grunge'], 'ska': ['Ska', 'Ska']
   };
-  const title = t => t.replace(/\b\w/g, c => c.toUpperCase());
+  Object.assign(TAGS, {
+    'french hip hop': ['Französischer Rap', 'French Hip-Hop'], 'spanish hip hop': ['Spanischer Rap', 'Spanish Hip-Hop'], 'latin pop': ['Latin Pop', 'Latin Pop'],
+    "jungle/drum'n'bass": ['Jungle & Drum’n’Bass', 'Jungle & Drum’n’Bass'], 'hip-hop': ['Hip-Hop', 'Hip-Hop'], 'rap': ['Rap', 'Rap']
+  });
+  const title = t => t.replace(/(^|[\s\-\/&.])([a-zäöü])/g, (m, p, c) => p + c.toUpperCase());
   const pretty = (tag, lang) => { const e = TAGS[tag]; return e ? e[lang === 'en' ? 1 : 0] : title(tag); };
   const related = (a, b) => a.includes(b) || b.includes(a);
+  /* Oberbegriff -> Wortmuster seiner Unterarten: steht schon ein passender spezifischer Tag im Namen, entfaellt der Oberbegriff ("Lo-Fi Hip-Hop & Hip-Hop" -> "Lo-Fi Hip-Hop") */
+  const ELEC = /electro|techno|house|trance|dubstep|drum|jungle|breakcore|hardstyle|ambient|synth|wave|idm|dance|edm|nightcore|hyperpop|tekno|phonk|eurodance|europop|breakbeat|speedcore|vapor|downtempo/;
+  const FAMILY = {
+    'hip-hop/rap': /hip.?hop|\brap\b|trap|drill|horrorcore|phonk|grime|boom bap|crunk|cloud rap/, 'pop': /\bpop\b|schlager|disco|europop|eurodance|synthpop|hyperpop|city pop/, 'rock': /rock|metal|punk|grunge|\bemo\b|hardcore|shoegaze|slowcore|britpop|madchester/,
+    'alternative': /alternative|indie|shoegaze|post-punk|slowcore|dream pop|\bemo\b|new wave|darkwave|cold wave|goth|britpop|jangle|math rock|midwest|art pop|art rock|neue deutsche welle|madchester|lo-fi indie/, 'electronic': ELEC, 'dance': ELEC,
+    'r&b/soul': /r&b|\bsoul\b|funk|motown/, 'singer/songwriter': /folk|singer|acoustic/, 'soundtrack': /soundtrack|\bscore\b|anime|game|musical|\bost\b/, 'jazz': /jazz|swing|big band|bebop|adult standards/, 'indie': /indie|shoegaze|dream pop|slowcore|jangle|bedroom/, 'folk': /folk/, 'metal': /metal/, 'punk': /punk/
+  };
+  const covered = (g, pick, m) => { const rx = FAMILY[g]; return !!rx && pick.some(p => p !== g && !FAMILY[p] && rx.test(p) && (m.get(p) || 0) >= .6 * (m.get(g) || 0)); };   // nur wenn der spezifische Tag fast alle Mitglieder des Oberbegriffs traegt
 
   /* Farbe: OKLCH -> sRGB-Hex */
   function oklch(L, C, h) {
@@ -613,12 +647,15 @@ KKP.naming = (function () {
   /* Gruppen (Regionen/Szenen) benennen: distinktive Tags nach Anteil x Seltenheit ueber die Gruppen */
   function nameGroups(groups, M, Sm, opt) {
     opt = opt || {}; const nGroups = groups.length, maxTags = opt.maxTags || 2, minFrac = opt.minFrac ?? .1, dfThr = opt.dfThr ?? .15;
-    const fr = groups.map(mem => { const c = new Map(); mem.forEach(i => new Set(M.artists.get(Sm.ids[i]).genres).forEach(g => c.set(g, (c.get(g) || 0) + 1))); const o = new Map(); c.forEach((v, g) => o.set(g, v / mem.length)); return o; });
+    const tagsOf = i => { const a = M.artists.get(Sm.ids[i]); return a.tags2 || a.genres; };          // tags2: Genres + aus der Sprache abgeleitete Tags
+    const fr = groups.map(mem => { const c = new Map(); mem.forEach(i => new Set(tagsOf(i)).forEach(g => c.set(g, (c.get(g) || 0) + 1))); const o = new Map(); c.forEach((v, g) => o.set(g, v / mem.length)); return o; });
     const df = new Map(); fr.forEach(m => m.forEach((f, g) => { if (f >= dfThr) df.set(g, (df.get(g) || 0) + 1); }));
     return fr.map((m, gi) => {
-      const cand = Array.from(m).filter(([, f]) => f >= minFrac).sort((a, b) => b[1] * Math.log((nGroups + 1) / ((df.get(b[0]) || 0) + 1)) - a[1] * Math.log((nGroups + 1) / ((df.get(a[0]) || 0) + 1)));
-      const pick = []; for (const [g] of cand) { if (pick.some(p => related(p, g))) continue; pick.push(g); if (pick.length >= maxTags) break; }
-      return pick;
+      /* Nur Tags, die mehrere Mitglieder tragen (bei >= 8 Artists mindestens 2); schwach verbreitete Tags verlieren an Gewicht, damit keine Ausreisser-Tags (ein einzelner "Manele"-Artist) den Namen bestimmen */
+      const size = groups[gi].length, minCnt = size >= 8 ? 2 : 1, sup = f => Math.min(1, f / (opt.supFrac ?? .35)), sc = ([g, f]) => f * sup(f) * Math.log((nGroups + 1) / ((df.get(g) || 0) + 1));
+      const cand = Array.from(m).filter(([, f]) => f >= minFrac && f * size >= minCnt - 1e-9).sort((a, b) => sc(b) - sc(a));
+      const pick = []; for (const [g] of cand) { if (pick.some(p => related(p, g))) continue; pick.push(g); if (pick.length >= maxTags + 2) break; }
+      return pick.filter(g => !covered(g, pick, m)).slice(0, maxTags);
     });
   }
   const joinNames = (arr, lang) => arr.length <= 1 ? (arr[0] || '') : arr.slice(0, -1).join(', ') + ' & ' + arr[arr.length - 1];
@@ -644,17 +681,22 @@ KKP.buildData = function (M, Sm, Cl, Ly, opt) {
     const [cx, cy] = centroid(mem);
     return { id: c, name, en, sub: top.slice(0, 3).map(i => artists.get(ids[i]).name).join(' · '), anchor, cx: r1(cx), cy: r1(cy), rad: r1(Math.sqrt(mem.reduce((s, i) => s + F[i] * F[i], 0) / .62)), n: mem.length };
   });
+  /* Gleiche Namen unterscheidbar machen: die zwei meistgehoerten Artists in Klammern (statt "Hip-Hop 2", "Hip-Hop 3") */
+  const disambiguate = (list, keyOf) => {
+    const cnt = new Map(); list.forEach(o => { const k = keyOf(o) + '|' + o.name; cnt.set(k, (cnt.get(k) || 0) + 1); });
+    list.forEach(o => { if (cnt.get(keyOf(o) + '|' + o.name) > 1) { const t2 = o.sub.split(' · ').slice(0, 2).join(', '); o.name += ' (' + t2 + ')'; o.en += ' (' + t2 + ')'; } });
+  };
+  disambiguate(reg, () => 0);
   /* ---- Szenen ---- */
   const scMem = Array.from({ length: nsub }, () => []); sub.forEach((s, i) => scMem[s].push(i));
   const scTags = NM.nameGroups(scMem, M, Sm, { maxTags: 2, minFrac: .1, dfThr: .15 });
-  const usedDe = Array.from({ length: nreg }, () => new Set()), usedEn = Array.from({ length: nreg }, () => new Set());
   const scenes = scMem.map((mem, s) => {
     const r = macro[mem[0]], tg = scTags[s];
-    const uniq = (base, used) => { let nm = base, k = 2; while (used[r].has(nm)) nm = base + ' ' + k++; used[r].add(nm); return nm; };
-    const nameDe = uniq(tg.length ? tg.map(t => NM.pretty(t, 'de')).join(' · ') : 'Weitere Klänge', usedDe), nameEn = uniq(tg.length ? tg.map(t => NM.pretty(t, 'en')).join(' · ') : 'Other sounds', usedEn);
+    const nameDe = tg.length ? tg.map(t => NM.pretty(t, 'de')).join(' · ') : 'Weitere Klänge', nameEn = tg.length ? tg.map(t => NM.pretty(t, 'en')).join(' · ') : 'Other sounds';
     const [cx, cy] = centroid(mem);
     return { id: s, reg: r, name: nameDe, en: nameEn, sub: byMin(mem).slice(0, 3).map(i => artists.get(ids[i]).name).join(' · '), cx: r1(cx), cy: r1(cy), rad: r1(Math.sqrt(mem.reduce((q, i) => q + F[i] * F[i], 0) / .62)), n: mem.length };
   });
+  disambiguate(scenes, o => o.reg);
   /* ---- Farben ---- */
   const order = Array.from({ length: nreg }, (_, c) => c).sort((a, b) => Ly.fiedler[a] - Ly.fiedler[b]);
   reg.forEach(r => { const pos = order.indexOf(r.id); r.hue = (12 + 318 * pos / Math.max(1, nreg - 1)) % 360; r.color = NM.oklch(.78, .13, r.hue); });

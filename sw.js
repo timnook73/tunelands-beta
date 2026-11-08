@@ -1,6 +1,6 @@
 /* Service Worker: Programmdateien zwischenspeichern, damit die Seite offline startet. Daten (stats.fm, Cover) werden nie hier gecacht. */
-const V = 'kk-shell-v1';
-const SHELL = ['./', 'index.html', 'app.css', 'app.js', 'atlas.js', 'pipeline.js', 'worker.js', 'viewer.js', 'viewer.css', 'viewer.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
+const V = 'kk-shell-v3';
+const SHELL = ['./', 'index.html', 'app.css', 'app.js', 'site.js', 'config.js', 'atlas.js', 'pipeline.js', 'worker.js', 'viewer.js', 'viewer.css', 'viewer.html', 'how.html', 'about.html', 'gallery.html', 'friends.html', 'profile.html', 'impressum.html', 'datenschutz.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(V).then(c => c.addAll(SHELL).catch(() => { })).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {
