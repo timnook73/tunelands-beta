@@ -56,6 +56,9 @@
     document.title = LANG === 'de' ? 'Klangkarte – deine Musik als Landkarte' : 'Tunelands – your music as a map';
   }
   function setLang(l) { LANG = l; try { localStorage.setItem('kk-lang', l); } catch (e) { } applyI18n(); renderRecent(); footLinks(); }
+  /* Zurueck-Navigation (Zwischenspeicher des Browsers) und andere Tabs: gespeicherte Sprache uebernehmen */
+  const resyncLang = () => { try { const l = localStorage.getItem('kk-lang'); if (l && l !== LANG) setLang(l); } catch (e) { } };
+  window.addEventListener('pageshow', e => { if (e.persisted) resyncLang(); }); window.addEventListener('storage', e => { if (e.key === 'kk-lang') resyncLang(); });
   /* Feedback-/Spenden-Link der Fusszeile; bei { de, en } der zur Sprache passende */
   function footLinks() {
     const cfg = window.__KK_CFG__ || {}, pick = v => (v && typeof v === 'object') ? (v[LANG] || v.de || v.en || '') : (v || '');

@@ -1,18 +1,75 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Datenschutz – Klangkarte</title>
-<style>body{background:#070910;color:#e9ecf6;font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:48px auto;padding:0 20px}a{color:#8fb6ff}h1{font-size:28px}h2{font-size:18px;margin-top:26px}.todo{background:#2a1f0e;border:1px solid #6b4a14;border-radius:10px;padding:12px 14px;color:#ffd89a}</style></head><body>
-<p><a href="./">← Klangkarte</a></p><h1>Datenschutzerklärung</h1>
-<p class="todo"><b>Vorlage – bitte vor dem Livegang prüfen und ergänzen.</b> Dies ist keine Rechtsberatung. Je nach Hosting-Anbieter, Werbung oder Bezahlfunktion müssen weitere Angaben ergänzt werden.</p>
-<h2>Was die Seite macht</h2>
-<p>Klangkarte (englisch: Tunelands) erstellt aus deinem Hörverlauf eine Karte. Alles Rechnen passiert <b>in deinem Browser</b>; es gibt keinen Server von Klangkarte, der deine Daten empfängt oder speichert.</p>
-<p><b>Mit stats.fm-Name:</b> Auf deinen Wunsch ruft die Seite öffentliche Daten deines stats.fm-Profils (Streams, Top-Listen) direkt von der stats.fm-Schnittstelle (api.stats.fm) ab. Ist die Karte geöffnet, kann sie in Abständen neue Streams nachladen (Menü „Neue Streams laden“, Live-Modus). Dabei erfährt stats.fm technisch notwendige Daten wie deine IP-Adresse und deinen Profilnamen.</p>
-<p><b>Mit Spotify-Datenexport:</b> Die Dateien deines Exports werden nur in deinem Browser gelesen und nicht hochgeladen. Damit Genres und Cover gefunden werden, werden die <b>Namen</b> deiner Artists und Alben bei stats.fm gesucht (Suchanfragen an api.stats.fm). Zeitpunkte, Wiedergabedauern, IP-Adressen oder andere Angaben deines Exports werden dabei nicht gesendet.</p>
-<p>Die Cover-Bilder werden direkt vom Content-Server von Spotify (i.scdn.co) bzw. Apple (mzstatic.com) geladen; dabei wird deine IP-Adresse an diese Dienste übertragen.</p>
-<p>Die Karten-Daten werden nicht an einen Server von Klangkarte gesendet oder dort gespeichert.</p>
-<h2>Lokale Speicherung</h2>
-<p>Einstellungen (Sprache, Design, Anzeigeoptionen) und – damit du die Karte nicht jedes Mal neu berechnen musst – die zuletzt erstellten Karten werden im lokalen Speicher deines Browsers (localStorage, IndexedDB) abgelegt. Du kannst sie jederzeit in den Browser-Einstellungen löschen oder unter „Zuletzt geöffnet“ mit dem × entfernen.</p>
-<h2>Hosting</h2>
-<p>Diese Seite wird über GitHub Pages (GitHub Inc., USA) bereitgestellt. Beim Aufruf verarbeitet der Anbieter technisch notwendige Server-Logdaten (IP-Adresse, Zeitpunkt, aufgerufene Datei). Mehr dazu in der Datenschutzerklärung von GitHub.</p>
-<p class="todo">Hinweis: Dieser Absatz gilt für GitHub Pages. Bei einem anderen Hosting-Anbieter (z. B. Cloudflare) bitte anpassen.</p>
-<h2>Kontakt</h2><p>[E-Mail-Adresse eintragen]</p>
-<p style="opacity:.7;font-size:14px">Klangkarte ist ein unabhängiges Projekt und nicht mit Spotify, Apple oder stats.fm verbunden.</p>
-</body></html>
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Datenschutz – Klangkarte</title>
+<meta name="description" content="Datenschutzerklärung.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%23c4a1ff'/%3E%3Cstop offset='1' stop-color='%237ea6ff'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%230b0e18'/%3E%3Ccircle cx='32' cy='32' r='11' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%237ea6ff' stroke-opacity='.5' stroke-dasharray='2 5' stroke-width='2'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#070910">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="app.css">
+<script>try{var l=localStorage.getItem('kk-lang')||(/^de/i.test(navigator.language||'')?'de':'en');document.documentElement.lang=l}catch(e){}</script>
+</head>
+<body class="sub" data-title-de="Datenschutz – Klangkarte" data-title-en="Privacy – Tunelands" data-desc-de="Datenschutzerklärung." data-desc-en="Privacy policy.">
+<div id="landing">
+<header class="top"><a class="brand" href="./"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="lg"><stop offset="0" stop-color="#c4a1ff"/><stop offset="1" stop-color="#7ea6ff"/></radialGradient></defs><circle cx="32" cy="32" r="11" fill="url(#lg)"/><circle cx="32" cy="32" r="22" fill="none" stroke="#7ea6ff" stroke-opacity=".55" stroke-dasharray="2 5" stroke-width="2"/><circle cx="51" cy="22" r="4" fill="#ffc9a3"/><circle cx="15" cy="41" r="3" fill="#ff9fb5"/></svg><span class="l-de">Klangkarte</span><span class="l-en">Tunelands</span><span class="betachip" id="betachip" hidden>Beta</span></a><button id="menu" class="menubtn" type="button" aria-label="Menü" aria-expanded="false"><i></i><i></i><i></i></button><nav id="nav"><a href="how.html"><span class="l-de">So geht’s</span><span class="l-en">How it works</span></a><a href="gallery.html"><span class="l-de">Galerie</span><span class="l-en">Gallery</span><em class="soonchip"><span class="l-de">bald</span><span class="l-en">soon</span></em></a><a href="friends.html"><span class="l-de">Freunde</span><span class="l-en">Friends</span><em class="soonchip"><span class="l-de">bald</span><span class="l-en">soon</span></em></a><a href="about.html"><span class="l-de">Über uns</span><span class="l-en">About</span></a><a class="profbtn" href="profile.html" aria-label="Profil"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="7" r="3.2"/><path d="M3.8 17c.8-3.2 3.3-4.8 6.2-4.8s5.4 1.6 6.2 4.8"/></svg></a><button id="lang" type="button"><span class="l-de">English</span><span class="l-en">Deutsch</span></button></nav></header>
+<main>
+<section class="phero small"><div class="pin"><h1><span class="l-de">Datenschutzerklärung</span><span class="l-en">Privacy policy</span></h1></div></section><section class="psec legal"><div class="legaltxt"><div class="l-de">
+<h2>1. Verantwortlicher</h2>
+<p>Tim Matuszewski, Steglitzer Straße 3a, 22045 Hamburg, E-Mail: tunelands@proton.me</p>
+<h2>2. Worum es geht</h2>
+<p>Klangkarte (englisch: Tunelands) erstellt aus deinem Hörverlauf eine Karte. Das Rechnen passiert <b>in deinem Browser</b>. Es gibt <b>keine Konten</b> und keinen Server von Klangkarte, der deinen Hörverlauf oder deine Karten empfängt oder speichert. Es gibt keine Werbung und kein Tracking.</p>
+<h2>3. Hosting und Server-Protokolle</h2>
+<p>Diese Seite wird über GitHub Pages (GitHub, Inc., USA, ein Unternehmen von Microsoft) bereitgestellt. Beim Aufruf verarbeitet der Anbieter technisch notwendige Daten (IP-Adresse, Zeitpunkt, aufgerufene Datei, Browserangaben) in Server-Protokollen und zum Schutz vor Missbrauch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (sicherer und stabiler Betrieb). Eine Übermittlung in die USA stützt sich auf den Angemessenheitsbeschluss zum EU-US Data Privacy Framework bzw. Standardvertragsklauseln. Mehr in der Datenschutzerklärung von GitHub.</p>
+<h2>4. Abruf deiner stats.fm-Daten</h2>
+<p>Wenn du deinen stats.fm-Namen eingibst, ruft <b>dein Browser</b> öffentliche Daten deines Profils (Streams, Top-Listen) direkt bei der stats.fm-Schnittstelle (api.stats.fm) ab. Dabei erfährt stats.fm technisch notwendige Daten wie deine IP-Adresse und den angefragten Profilnamen. Ist eine Karte geöffnet, kann sie in Abständen neue Streams nachladen (Menü „Neue Streams laden“, Live-Modus). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (von dir gewünschte Funktion). Beim Vergleich mit einem Freund werden auch dessen öffentliche Profildaten abgerufen. Bitte gib nur Profile an, mit deren Wissen.</p>
+<h2>5. Spotify-Datenexport</h2>
+<p>Die Dateien deines Exports werden nur in deinem Browser gelesen und nicht hochgeladen. Damit Genres und Cover gefunden werden, werden die <b>Namen</b> deiner Artists und Alben bei stats.fm gesucht (Anfragen an api.stats.fm). Zeitpunkte, Wiedergabedauern, IP-Adressen oder andere Angaben des Exports werden dabei nicht gesendet.</p>
+<h2>6. Cover-Bilder</h2>
+<p>Die Cover werden direkt von den Content-Servern von Spotify (i.scdn.co) bzw. Apple (mzstatic.com) geladen. Dabei wird deine IP-Adresse an diese Dienste übertragen.</p>
+<h2>7. Lokaler Speicher im Browser</h2>
+<p>Einstellungen (Sprache, Design, Anzeigeoptionen), zuletzt erstellte Karten, der Zustand von Hinweisen (z. B. „Später“ bei der Umfrage) und ein Zwischenspeicher der Programmdateien (Service Worker) liegen im Browser deines Geräts (localStorage, IndexedDB, Cache). Das ist für den Betrieb der von dir genutzten Funktionen erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG) und wird nicht an uns übertragen. Du kannst es jederzeit in den Browser-Einstellungen löschen oder unter „Zuletzt geöffnet“ mit dem × entfernen. Wir setzen keine Cookies zu Werbung oder Analyse ein.</p>
+<h2>8. Links zu anderen Diensten</h2>
+<p>Die Seite enthält Links zu Google Formulare (Umfrage), zu Instagram, TikTok und YouTube<span class="kofi-only hidden"> und zu Ko-fi (freiwillige Unterstützung)</span>. Es werden keine Inhalte dieser Dienste eingebettet. Erst wenn du einen Link anklickst, gelten die Datenschutzbestimmungen des jeweiligen Dienstes. Antworten in der Umfrage sind anonym, solange du keinen Namen oder keine E-Mail-Adresse einträgst; diese Angabe ist freiwillig und dient nur für Rückfragen.</p>
+<h2>9. Kontakt und „Fehler melden“</h2>
+<p>Wenn du uns schreibst oder über „Fehler melden“ eine vorbereitete E-Mail abschickst, verarbeiten wir deine Nachricht und Absenderadresse, um sie zu beantworten (Art. 6 Abs. 1 lit. f DSGVO). Die E-Mail wird nicht automatisch gesendet, sondern von dir. Postfach-Anbieter ist Proton (Schweiz).</p>
+<h2>10. Deine Rechte</h2>
+<p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen. Da Klangkarte deine Karten nicht speichert, liegen die meisten Daten nur bei dir im Browser. Du kannst dich außerdem bei einer Aufsichtsbehörde beschweren, z. B. beim Hamburgischen Beauftragten für Datenschutz und Informationsfreiheit.</p>
+<h2>11. Änderungen</h2>
+<p>Das Projekt befindet sich in der Beta. Kommen neue Funktionen hinzu (z. B. Konten), wird diese Erklärung vorher angepasst. Stand: 08.11.2026.</p>
+</div><div class="l-en">
+<p><i>The German version is the authoritative one.</i></p>
+<h2>1. Controller</h2>
+<p>Tim Matuszewski, Steglitzer Straße 3a, 22045 Hamburg, Germany, email: tunelands@proton.me</p>
+<h2>2. What this is about</h2>
+<p>Klangkarte (English: Tunelands) builds a map from your listening history. The computing happens <b>in your browser</b>. There are <b>no accounts</b> and no Klangkarte server that receives or stores your listening history or your maps. There is no advertising and no tracking.</p>
+<h2>3. Hosting and server logs</h2>
+<p>This site is served via GitHub Pages (GitHub, Inc., USA, a Microsoft company). When you open it, the provider processes technically necessary data (IP address, time, requested file, browser details) in server logs and to protect against abuse. Legal basis is Art. 6(1)(f) GDPR (secure and stable operation). Transfers to the USA rely on the adequacy decision for the EU-US Data Privacy Framework or standard contractual clauses. See GitHub’s privacy statement for more.</p>
+<h2>4. Fetching your stats.fm data</h2>
+<p>When you enter your stats.fm name, <b>your browser</b> fetches public data of your profile (streams, top lists) directly from the stats.fm interface (api.stats.fm). stats.fm learns technically necessary data such as your IP address and the requested profile name. While a map is open it can reload new streams from time to time (menu “Load new streams”, Live mode). Legal basis is Art. 6(1)(b) GDPR (function you asked for). When comparing with a friend, their public profile data is fetched as well. Please only enter profiles with their knowledge.</p>
+<h2>5. Spotify data export</h2>
+<p>The files of your export are only read in your browser and not uploaded. To find genres and covers, the <b>names</b> of your artists and albums are searched at stats.fm (requests to api.stats.fm). Timestamps, playback durations, IP addresses or other details of the export are not sent.</p>
+<h2>6. Cover images</h2>
+<p>Covers are loaded directly from the content servers of Spotify (i.scdn.co) and Apple (mzstatic.com). Your IP address is transmitted to these services.</p>
+<h2>7. Local storage in your browser</h2>
+<p>Settings (language, design, display options), recently created maps, the state of notices (e.g. “Later” for the survey) and a cache of the program files (service worker) are stored in your device’s browser (localStorage, IndexedDB, cache). This is necessary to run the functions you use (Section 25(2) no. 2 TDDDG) and is not transmitted to us. You can delete it at any time in your browser settings or remove maps under “Recently opened” with the ×. We do not use cookies for advertising or analytics.</p>
+<h2>8. Links to other services</h2>
+<p>The site contains links to Google Forms (survey), Instagram, TikTok and YouTube<span class="kofi-only hidden"> and Ko-fi (voluntary support)</span>. No content of these services is embedded. Only when you click a link, the privacy terms of that service apply. Survey answers are anonymous unless you enter a name or an email address; that is optional and only used for follow-up questions.</p>
+<h2>9. Contact and “Report a problem”</h2>
+<p>If you write to us or send a prepared email via “Report a problem”, we process your message and sender address to reply (Art. 6(1)(f) GDPR). The email is not sent automatically, you send it. The mailbox provider is Proton (Switzerland).</p>
+<h2>10. Your rights</h2>
+<p>You have the right of access, rectification, erasure, restriction of processing, data portability and objection to processing based on legitimate interests. Since Klangkarte does not store your maps, most data only exists in your browser. You can also complain to a supervisory authority, e.g. the Hamburg Commissioner for Data Protection and Freedom of Information.</p>
+<h2>11. Changes</h2>
+<p>The project is in beta. If new features are added (e.g. accounts), this statement will be updated beforehand. Date: 8 Nov 2026.</p>
+</div></div></section>
+</main>
+<footer><div class="f-top"><p class="f-note"><span class="l-de">Gebaut mit Daten von stats.fm. Nicht mit Spotify oder stats.fm verbunden.</span><span class="l-en">Built with data from stats.fm. Not affiliated with Spotify or stats.fm.</span></p><nav class="f-links" aria-label="Footer"><a href="index.html#faq"><span class="l-de">Fragen</span><span class="l-en">FAQ</span></a><a href="about.html"><span class="l-de">Über uns</span><span class="l-en">About</span></a><a id="foot-donate" class="hidden" href="#" target="_blank" rel="noopener"><span class="l-de">Projekt unterstützen</span><span class="l-en">Support the project</span></a><a id="foot-fb" class="hidden" href="#" target="_blank" rel="noopener">Feedback</a></nav></div><div class="f-bot"><span class="f-copy"><span>© 2026 Tunelands</span><a href="impressum.html"><span class="l-de">Impressum</span><span class="l-en">Legal notice</span></a><a href="datenschutz.html"><span class="l-de">Datenschutz</span><span class="l-en">Privacy</span></a></span><span class="f-soc" id="footsocial"><a class="fsoc-instagram" href="https://www.instagram.com/tunelands" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="4.2"/><circle cx="10" cy="10" r="3.3"/><circle cx="14.3" cy="5.7" r=".7" fill="currentColor"/></svg></a><a class="fsoc-tiktok" href="https://www.tiktok.com/@tunelands_maps" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11.2 3v9.6a2.8 2.8 0 1 1-2.8-2.8"/><path d="M11.2 3c.3 2.1 1.7 3.5 4 3.7"/></svg></a><a class="fsoc-youtube" href="https://youtube.com/@tunelands-g3m" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2.3" y="4.8" width="15.4" height="10.4" rx="3.2"/><path d="M8.5 7.5v5l4.3-2.5z" fill="currentColor"/></svg></a></span><span class="f-made">Made with <b>♥</b> in Hamburg, Germany</span></div></footer>
+</div>
+<script src="config.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

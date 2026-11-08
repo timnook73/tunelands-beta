@@ -954,9 +954,9 @@ function drawEdgeHL(e, z, ox, oy) {
   if ((x1 < -10 && x2 < -10) || (x1 > W + 10 && x2 > W + 10) || (y1 < -10 && y2 < -10) || (y1 > H + 10 && y2 > H + 10)) return;
   const mx = (x1 + x2) / 2 + (y2 - y1) * .08, my = (y1 + y2) / 2 - (x2 - x1) * .08;
   const g = ctx.createLinearGradient(x1, y1, x2, y2); g.addColorStop(0, rgba(tint(A_.rgb, .25), 1)); g.addColorStop(1, rgba(tint(B_.rgb, .25), 1));
-  const lw = 1.9 + Math.min(z, 3) * .3;
+  const lw = 1.5 + Math.min(z, 3) * .22;
   ctx.strokeStyle = g; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(mx, my, x2, y2);
-  ctx.globalAlpha = .22; ctx.lineWidth = lw + 4; ctx.stroke(); ctx.globalAlpha = .95; ctx.lineWidth = lw; ctx.stroke(); ctx.globalAlpha = 1;
+  ctx.globalAlpha = .18; ctx.lineWidth = lw + 4; ctx.stroke(); ctx.globalAlpha = .92; ctx.lineWidth = lw; ctx.stroke(); ctx.globalAlpha = 1;
 }
 /* Ring + Name an einem verbundenen Artist */
 function ringLinked(b, z, ox, oy, big) {
