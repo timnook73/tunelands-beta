@@ -3892,7 +3892,7 @@ function fxSend(rep) {
   const cfg = window.__KK_CFG__ || {}, txt = fxMailText(rep);
   try { navigator.clipboard.writeText(txt).catch(() => { }); } catch (e) { }
   if (cfg.reportUrl) { window.open(cfg.reportUrl, '_blank', 'noopener'); toast('Meldung kopiert und Formular geöffnet'); return; }
-  const to = cfg.reportMail || 'tunelands@proton.me';
+  const to = cfg.reportMail || 'contact@tunelands.com';
   window.location.href = 'mailto:' + to + '?subject=' + encodeURIComponent('Tunelands: Fehler melden – ' + rep.name) + '&body=' + encodeURIComponent(txt);
   toast('Meldung vorbereitet und kopiert');
 }

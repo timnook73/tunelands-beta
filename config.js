@@ -9,7 +9,7 @@
    home     : Adresse der Startseite. Karten ohne eingebaute Startseite (Demo-Karte, deine eigene Karte im Browser) zeigen damit ein anklickbares Tunelands-Symbol, das dorthin fuehrt; in der installierten App und auf derselben Adresse entfaellt es.
    social   : Links zu Instagram, TikTok und YouTube (Dialog "Folge Tunelands" im Menue). Ohne Angabe gelten die Standard-Profile.
    surveyDelay : Sichtzeit auf der Karte in Millisekunden, nach der einmalig der Umfrage-Hinweis erscheint (Standard 45000, 0 = aus). Der Link kommt aus "feedback" (deutsch/englisch je nach Sprache).
-   reportMail : Adresse fuer "Fehler melden" (falscher Kontinent/Genre, falsche Vorschau). Standard tunelands@proton.me. Es wird nur eine vorbereitete Mail geoeffnet (Senden macht der Nutzer).
+   reportMail : Adresse fuer "Fehler melden" (falscher Kontinent/Genre, falsche Vorschau). Standard contact@tunelands.com. Es wird nur eine vorbereitete Mail geoeffnet (Senden macht der Nutzer).
    reportUrl  : statt Mail ein Formular oeffnen (z. B. Google Forms); der Meldungstext liegt dann in der Zwischenablage.
    globalFix  : feste Korrekturen je Benutzername, z. B. { timnook73: { hideArtists: ['Madcon'] } } (stats.fm ordnet "In My Head" von Bedroom falsch Madcon zu). Wirkt nur auf die Karte dieses Benutzers.
    Nach einer Aenderung: bash build/rebuild.sh (Handy-App/eigene Karte) bzw. python produkt/build_product.py (Web-Seite), dann hochladen. */
